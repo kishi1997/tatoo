@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | INKLY TATTOO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-bg:       #FFFFFF;
+  --color-bg-s:     #F8F7F4;
+  --color-bg-alt:   #F2F0EC;
+  --color-bg-card:  #EDEBE6;
+  --color-text:     #1A1A1A;
+  --color-sub:      #888888;
+  --color-muted:    #AAAAAA;
+  --color-accent:   #c9a96e;
+  --color-accent-l: #d4b483;
+  --color-border:   #E0DDD8;
+  --font-en: "Cormorant Garamond", Georgia, serif;
+  --font-ja: "Noto Sans JP", sans-serif;
+  --max-w: 1200px;
+  --nav-h: 72px;
+  --sec-pad: 120px;
+  --t: all 0.4s ease;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-ja); background: var(--color-bg); color: var(--color-text); line-height: 1.9; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; transition: var(--t); }
+ul { list-style: none; }
+button { background: none; border: none; cursor: pointer; font-family: inherit; color: inherit; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+
+.fi { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fi.on { opacity: 1; transform: translateY(0); }
+.fi-d1 { transition-delay: 0.1s; }
+.fi-d2 { transition-delay: 0.2s; }
+.fi-d3 { transition-delay: 0.3s; }
+.fi-d4 { transition-delay: 0.4s; }
+
+.sec-head { margin-bottom: 72px; }
+.sec-en { display: block; font-family: var(--font-en); font-size: 12px; font-weight: 300; letter-spacing: 0.28em; color: var(--color-accent); text-transform: lowercase; margin-bottom: 10px; }
+.sec-title { font-family: var(--font-ja); font-size: clamp(18px, 2.2vw, 26px); font-weight: 300; letter-spacing: 0.14em; color: var(--color-text); margin-bottom: 20px; }
+.sec-line { width: 36px; height: 1px; background: var(--color-accent); }
+.sec-head.center { text-align: center; }
+.sec-head.center .sec-line { margin: 0 auto; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; font-size: 13px; font-family: var(--font-en); font-weight: 300; letter-spacing: 0.18em; cursor: pointer; transition: var(--t); white-space: nowrap; border: none; }
+.btn-outline { border: 1px solid var(--color-text); color: var(--color-text); background: transparent; }
+.btn-outline:hover { background: var(--color-text); color: var(--color-bg); }
+.btn-ghost { border: 1px solid rgba(26,26,26,0.3); color: rgba(26,26,26,0.7); background: transparent; }
+.btn-ghost:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.btn-gold { background: var(--color-accent); color: var(--color-bg); border: 1px solid var(--color-accent); }
+.btn-gold:hover { background: var(--color-accent-l); border-color: var(--color-accent-l); }
+.btn-outline-gold { border: 1px solid var(--color-accent); color: var(--color-accent); background: transparent; }
+.btn-outline-gold:hover { background: var(--color-accent); color: var(--color-bg); }
+
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background 0.5s ease, border-color 0.5s ease; border-bottom: 1px solid transparent; }
+.site-header.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: var(--color-border); backdrop-filter: blur(8px); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); gap: 32px; }
+.nav-logo img { height: 44px; width: auto; object-fit: contain }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 11px; letter-spacing: 0.15em; color: rgba(26,26,26,0.7); font-weight: 300; text-transform: uppercase; }
+.nav-links a:hover, .nav-links a.active { color: var(--color-accent); }
+.nav-btn { font-size: 11px; letter-spacing: 0.18em; padding: 9px 20px; border: 1px solid rgba(26,26,26,0.4); color: rgba(26,26,26,0.85); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 300; transition: var(--t); white-space: nowrap; }
+.nav-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.nav-toggle { display: none; flex-direction: column; gap: 6px; padding: 8px; }
+.nav-toggle span { display: block; width: 22px; height: 1px; background: var(--color-text); transition: var(--t); }
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-nav { display: none; position: fixed; inset: var(--nav-h) 0 0 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; align-items: center; justify-content: center; gap: 0; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { display: block; padding: 18px 0; font-size: 13px; letter-spacing: 0.15em; color: var(--color-sub); text-align: center; text-transform: uppercase; width: 100%; border-bottom: 1px solid var(--color-border); max-width: 260px; }
+.mobile-nav a:hover { color: var(--color-accent); }
+.mobile-nav .btn { margin-top: 32px; }
+
+.page-hero { padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; background: var(--color-bg-s); border-bottom: 1px solid var(--color-border); }
+.page-hero-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+.page-hero-en { display: block; font-family: var(--font-en); font-size: 11px; font-weight: 300; letter-spacing: 0.32em; color: var(--color-accent); text-transform: uppercase; margin-bottom: 16px; }
+.page-hero-title { font-family: var(--font-en); font-size: clamp(48px, 7vw, 88px); font-weight: 300; font-style: italic; letter-spacing: 0.02em; color: var(--color-text); line-height: 1.0; margin-bottom: 8px; }
+.page-hero-ja { font-family: var(--font-ja); font-size: 14px; font-weight: 300; letter-spacing: 0.2em; color: var(--color-sub); }
+.page-hero-breadcrumb { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.12em; color: var(--color-muted); }
+.page-hero-breadcrumb a { color: var(--color-muted); }
+.page-hero-breadcrumb a:hover { color: var(--color-accent); }
+
+/* PRICING TABLE */
+.pricing-sec { padding: var(--sec-pad) 0; background: var(--color-bg); }
+.pricing-table-wrap { overflow-x: auto; margin-bottom: 80px; }
+.pricing-table { width: 100%; border-collapse: collapse; }
+.pricing-table thead tr { background: var(--color-bg-card); border-bottom: 2px solid var(--color-accent); }
+.pricing-table th { padding: 18px 24px; text-align: left; font-size: 11px; font-weight: 300; letter-spacing: 0.18em; color: var(--color-sub); text-transform: uppercase; font-family: var(--font-en); white-space: nowrap; }
+.pricing-table td { padding: 22px 24px; font-size: 13px; color: var(--color-text); border-bottom: 1px solid var(--color-border); letter-spacing: 0.04em; vertical-align: middle; }
+.pricing-table tbody tr:hover td { background: var(--color-bg-card); }
+.pricing-table tbody tr:last-child td { border-bottom: none; }
+.td-size { font-family: var(--font-en); font-size: 18px; font-weight: 300; color: var(--color-text); letter-spacing: 0.1em; }
+.td-guide { font-size: 12px; color: var(--color-sub); }
+.td-price { font-family: var(--font-en); font-size: 20px; font-weight: 300; color: var(--color-accent); letter-spacing: 0.06em; }
+.td-note { font-size: 11px; color: var(--color-muted); letter-spacing: 0.06em; }
+
+/* INCLUDED */
+.included-sec { padding: var(--sec-pad) 0; background: var(--color-bg-s); }
+.included-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-bottom: 0; }
+.included-item { background: var(--color-bg-card); padding: 32px 24px; }
+.included-num { font-family: var(--font-en); font-size: 32px; font-weight: 300; font-style: italic; color: var(--color-accent); margin-bottom: 12px; line-height: 1; }
+.included-title { font-size: 13px; font-weight: 400; letter-spacing: 0.1em; color: var(--color-text); margin-bottom: 8px; }
+.included-desc { font-size: 12px; color: var(--color-sub); line-height: 1.8; letter-spacing: 0.04em; }
+
+/* OTHER PRICING */
+.other-pricing-sec { padding: var(--sec-pad) 0; background: var(--color-bg-alt); }
+.other-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 0; }
+.other-card { background: var(--color-bg-card); padding: 40px 36px; position: relative; }
+.other-card::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 100%; background: var(--color-accent); }
+.other-label { font-family: var(--font-en); font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent); text-transform: uppercase; font-weight: 300; margin-bottom: 10px; }
+.other-name { font-family: var(--font-en); font-size: 24px; font-weight: 300; font-style: italic; color: var(--color-text); margin-bottom: 4px; }
+.other-name-ja { font-size: 12px; letter-spacing: 0.14em; color: var(--color-sub); margin-bottom: 16px; }
+.other-price { font-family: var(--font-en); font-size: 32px; font-weight: 300; color: var(--color-accent); letter-spacing: 0.04em; margin-bottom: 4px; }
+.other-price-unit { font-size: 11px; color: var(--color-muted); letter-spacing: 0.1em; margin-bottom: 16px; }
+.other-desc { font-size: 12px; color: var(--color-sub); line-height: 1.9; letter-spacing: 0.04em; }
+
+/* NOTES */
+.notes-sec { padding: var(--sec-pad) 0; background: var(--color-bg); }
+.notes-inner { max-width: 760px; }
+.notes-list { display: flex; flex-direction: column; gap: 0; }
+.note-item { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--color-border); }
+.note-item:first-child { border-top: 1px solid var(--color-border); }
+.note-mark { font-family: var(--font-en); font-size: 13px; color: var(--color-accent); font-weight: 300; flex-shrink: 0; margin-top: 2px; }
+.note-text { font-size: 13px; color: var(--color-sub); line-height: 1.9; letter-spacing: 0.04em; }
+
+/* CTA */
+.cta-strip { padding: 100px 0; background: var(--color-bg-alt); border-top: 1px solid var(--color-border); text-align: center; }
+.cta-label { display: block; font-family: var(--font-en); font-size: 11px; font-weight: 300; letter-spacing: 0.3em; color: var(--color-accent); margin-bottom: 16px; text-transform: uppercase; }
+.cta-title { font-family: var(--font-en); font-size: clamp(36px, 5vw, 64px); font-weight: 300; font-style: italic; letter-spacing: 0.04em; color: var(--color-text); margin-bottom: 6px; }
+.cta-title-ja { display: block; font-family: var(--font-ja); font-size: 14px; font-weight: 300; letter-spacing: 0.2em; color: var(--color-sub); margin-bottom: 48px; }
+.cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+.footer { background: var(--color-bg-s); border-top: 1px solid var(--color-border); padding: 80px 0 0; }
+.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+.footer-brand img { height: 40px; width: auto; object-fit: contain margin-bottom: 24px; }
+.footer-addr { font-size: 12px; color: var(--color-sub); line-height: 2.0; letter-spacing: 0.04em; }
+.footer-col-title { font-family: var(--font-en); font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent); text-transform: uppercase; margin-bottom: 20px; font-weight: 300; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { font-size: 12px; color: var(--color-sub); letter-spacing: 0.06em; font-weight: 300; }
+.footer-links a:hover { color: var(--color-accent); }
+.footer-bottom { border-top: 1px solid var(--color-border); padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
+.footer-copy { font-size: 11px; color: var(--color-muted); letter-spacing: 0.08em; }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 11px; color: var(--color-muted); letter-spacing: 0.08em; }
+.footer-legal a:hover { color: var(--color-sub); }
+
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+  .included-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  :root { --sec-pad: 80px; }
+  .container { padding: 0 20px; }
+  .nav-links, .nav-btn-wrap { display: none; }
+  .nav-toggle { display: flex; }
+  .page-hero-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .included-grid { grid-template-columns: 1fr; }
+  .other-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .cta-actions .btn { width: 100%; max-width: 260px; }
+  .pricing-table th, .pricing-table td { padding: 14px 12px; }
+}
+</style>
+<style>.fi { opacity: 1 !important; transform: none !important; }</style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="nav-logo">
+      <img src="img/logo.png" alt="INKLY TATTOO STUDIO">
+    </a>
+    <ul class="nav-links">
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="tattoo.html">Services</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="access.html">Access</a></li>
+      <li><a href="qa.html">FAQ</a></li>
+    </ul>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="location.href='index.html#contact'">RESERVE</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="artists.html">Artists</a>
+  <a href="tattoo.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="access.html">Access</a>
+  <a href="qa.html">FAQ</a>
+  <a href="index.html#contact" class="btn btn-outline" style="margin-top:28px;letter-spacing:0.2em;font-size:11px;">RESERVE</a>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="fi">
+        <span class="page-hero-en">pricing</span>
+        <h1 class="page-hero-title">Pricing</h1>
+        <span class="page-hero-ja">【 料金案内 】</span>
+      </div>
+      <div class="page-hero-breadcrumb fi fi-d1">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Pricing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN TABLE -->
+<section class="pricing-sec">
+  <div class="container">
+    <div class="sec-head fi">
+      <span class="sec-en">standard pricing</span>
+      <h2 class="sec-title">【 サイズ別料金表 】</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="pricing-table-wrap fi fi-d1">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>サイズ</th>
+            <th>目安サイズ（縦×横）</th>
+            <th>料金（税込）</th>
+            <th>施術可能部位</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="td-size">XXS</span></td>
+            <td><span class="td-guide">〜3cm × 3cm</span></td>
+            <td><span class="td-price">¥11,000〜</span></td>
+            <td><span class="td-note">全身</span></td>
+          </tr>
+          <tr>
+            <td><span class="td-size">XS</span></td>
+            <td><span class="td-guide">〜5cm × 5cm</span></td>
+            <td><span class="td-price">¥16,500〜</span></td>
+            <td><span class="td-note">全身</span></td>
+          </tr>
+          <tr>
+            <td><span class="td-size">S</span></td>
+            <td><span class="td-guide">〜8cm × 8cm</span></td>
+            <td><span class="td-price">¥22,000〜</span></td>
+            <td><span class="td-note">全身</span></td>
+          </tr>
+          <tr>
+            <td><span class="td-size">M</span></td>
+            <td><span class="td-guide">〜12cm × 12cm</span></td>
+            <td><span class="td-price">¥33,000〜</span></td>
+            <td><span class="td-note">全身</span></td>
+          </tr>
+          <tr>
+            <td><span class="td-size">L</span></td>
+            <td><span class="td-guide">〜20cm × 20cm</span></td>
+            <td><span class="td-price">¥55,000〜</span></td>
+            <td><span class="td-note">胸・背中・太もも等</span></td>
+          </tr>
+          <tr>
+            <td><span class="td-size">XL</span></td>
+            <td><span class="td-guide">20cm × 20cm 以上</span></td>
+            <td><span class="td-price">要相談</span></td>
+            <td><span class="td-note">胸・背中・太もも等</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="included-sec">
+  <div class="container">
+    <div class="sec-head center fi">
+      <span class="sec-en">included</span>
+      <h2 class="sec-title">【 料金に含まれるもの 】</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="included-grid">
+      <div class="included-item fi fi-d1">
+        <div class="included-num">01</div>
+        <p class="included-title">麻酔クリーム</p>
+        <p class="included-desc">施術部位への塗る麻酔クリーム（医療機関監修）の使用料金が含まれています。</p>
+      </div>
+      <div class="included-item fi fi-d2">
+        <div class="included-num">02</div>
+        <p class="included-title">カウンセリング</p>
+        <p class="included-desc">事前カウンセリングとデザインの調整・確認作業の費用が含まれます。</p>
+      </div>
+      <div class="included-item fi fi-d3">
+        <div class="included-num">03</div>
+        <p class="included-title">アフターケア用品</p>
+        <p class="included-desc">施術後のケア用ラップ・軟膏のセットをプレゼントしています。</p>
+      </div>
+      <div class="included-item fi fi-d4">
+        <div class="included-num">04</div>
+        <p class="included-title">LINEサポート</p>
+        <p class="included-desc">施術後2週間のアフターケアサポートをLINEにて無料で提供します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER PRICING -->
+<section class="other-pricing-sec">
+  <div class="container">
+    <div class="sec-head fi">
+      <span class="sec-en">other menu</span>
+      <h2 class="sec-title">【 その他の料金 】</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="other-grid">
+      <div class="other-card fi fi-d1">
+        <p class="other-label">Ephemeral Tattoo</p>
+        <p class="other-name">Ephemeral</p>
+        <p class="other-name-ja">消えるタトゥー</p>
+        <p class="other-price">¥6,000</p>
+        <p class="other-price-unit">/ 1ユニット（税込）</p>
+        <p class="other-desc">1〜2年で自然に消えるバイオ対応インクを使用した施術です。まずタトゥーを試してみたい方、イベントやフォトシュートなど期間限定でお楽しみいただけます。</p>
+      </div>
+      <div class="other-card fi fi-d2">
+        <p class="other-label">Hourly Rate</p>
+        <p class="other-name">Hourly</p>
+        <p class="other-name-ja">時間制料金</p>
+        <p class="other-price">¥10,000 〜 ¥15,000</p>
+        <p class="other-price-unit">/ 1時間（税込）</p>
+        <p class="other-desc">大型作品や複雑なデザインには時間制料金が適用される場合があります。担当アーティストのレベルや作品の複雑さによって料金が異なります。事前見積もりをお伝えします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTES -->
+<section class="notes-sec">
+  <div class="container">
+    <div class="sec-head fi">
+      <span class="sec-en">notes</span>
+      <h2 class="sec-title">【 ご注意・ご案内 】</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="notes-inner fi fi-d1">
+      <ul class="notes-list">
+        <li class="note-item">
+          <span class="note-mark">—</span>
+          <p class="note-text">上記料金はすべて税込表示です。</p>
+        </li>
+        <li class="note-item">
+          <span class="note-mark">—</span>
+          <p class="note-text">料金はデザインの複雑さ、使用するカラー数、施術部位によって変動することがあります。</p>
+        </li>
+        <li class="note-item">
+          <span class="note-mark">—</span>
+          <p class="note-text">お持ち込みデザインの場合も対応可能ですが、アーティストによる調整が必要な場合があります。</p>
+        </li>
+        <li class="note-item">
+          <span class="note-mark">—</span>
+          <p class="note-text">未成年（18歳未満）の方への施術は行っておりません。身分証明書の提示をお願いする場合があります。</p>
+        </li>
+        <li class="note-item">
+          <span class="note-mark">—</span>
+          <p class="note-text">妊娠中・授乳中の方、特定のアレルギーをお持ちの方は事前にご相談ください。</p>
+        </li>
+        <li class="note-item">
+          <span class="note-mark">—</span>
+          <p class="note-text">当日キャンセルはキャンセル料（施術料金の50%）が発生する場合があります。</p>
+        </li>
+        <li class="note-item">
+          <span class="note-mark">—</span>
+          <p class="note-text">お支払いは現金・各種クレジットカード・PayPayに対応しています。</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="container">
+    <span class="cta-label fi">Contact</span>
+    <h2 class="cta-title fi fi-d1">Reservation</h2>
+    <span class="cta-title-ja fi fi-d2">ご予約・ご相談</span>
+    <p class="fi fi-d2" style="font-size:13px;color:var(--color-sub);margin-bottom:48px;letter-spacing:0.05em;">まずはお気軽にご相談ください。</p>
+    <div class="cta-actions fi fi-d3">
+      <a href="#" class="btn btn-outline">Webで予約する</a>
+      <a href="#" class="btn btn-ghost">LINEで相談する</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html"><img src="img/logo.png" alt="INKLY TATTOO STUDIO"></a>
+        <p class="footer-addr">〒110-0005<br>東京都台東区上野3-22-3 ジイドビル 2F<br>提携医療機関 inklinic：同ビル1F<br><br>11:00 – 21:00（定休日：年末年始）<br>03-4400-5862</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Menu</p>
+        <ul class="footer-links">
+          <li><a href="artists.html">アーティスト</a></li>
+          <li><a href="tattoo.html">タトゥーについて</a></li>
+          <li><a href="pricing.html">料金</a></li>
+          <li><a href="gallery.html">作品ギャラリー</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="qa.html">Q&amp;A</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Legal</p>
+        <ul class="footer-links">
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">利用規約</a></li>
+          <li><a href="#">特定商取引法</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Follow</p>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter / X</a></li>
+          <li><a href="#">LINE公式アカウント</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 INKLY TATTOO. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hdr = document.getElementById('site-header');
+window.addEventListener('scroll', () => { hdr.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+const toggle = document.getElementById('nav-toggle');
+const mNav = document.getElementById('mobile-nav');
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('open'); mNav.classList.toggle('open');
+  document.body.style.overflow = mNav.classList.contains('open') ? 'hidden' : '';
+});
+mNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { toggle.classList.remove('open'); mNav.classList.remove('open'); document.body.style.overflow = ''; });
+});
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fi').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

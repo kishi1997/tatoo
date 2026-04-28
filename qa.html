@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q&A | INKLY TATTOO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-bg:       #FFFFFF;
+  --color-bg-s:     #F8F7F4;
+  --color-bg-alt:   #F2F0EC;
+  --color-bg-card:  #EDEBE6;
+  --color-text:     #1A1A1A;
+  --color-sub:      #888888;
+  --color-muted:    #AAAAAA;
+  --color-accent:   #c9a96e;
+  --color-accent-l: #d4b483;
+  --color-border:   #E0DDD8;
+  --font-en: "Cormorant Garamond", Georgia, serif;
+  --font-ja: "Noto Sans JP", sans-serif;
+  --max-w: 1200px;
+  --nav-h: 72px;
+  --sec-pad: 120px;
+  --t: all 0.4s ease;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-ja); background: var(--color-bg); color: var(--color-text); line-height: 1.9; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; transition: var(--t); }
+ul { list-style: none; }
+button { background: none; border: none; cursor: pointer; font-family: inherit; color: inherit; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+
+.fi { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fi.on { opacity: 1; transform: translateY(0); }
+.fi-d1 { transition-delay: 0.1s; }
+.fi-d2 { transition-delay: 0.2s; }
+.fi-d3 { transition-delay: 0.3s; }
+
+.sec-head { margin-bottom: 72px; }
+.sec-en { display: block; font-family: var(--font-en); font-size: 12px; font-weight: 300; letter-spacing: 0.28em; color: var(--color-accent); text-transform: lowercase; margin-bottom: 10px; }
+.sec-title { font-family: var(--font-ja); font-size: clamp(18px, 2.2vw, 26px); font-weight: 300; letter-spacing: 0.14em; color: var(--color-text); margin-bottom: 20px; }
+.sec-line { width: 36px; height: 1px; background: var(--color-accent); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; font-size: 13px; font-family: var(--font-en); font-weight: 300; letter-spacing: 0.18em; cursor: pointer; transition: var(--t); white-space: nowrap; border: none; }
+.btn-outline { border: 1px solid var(--color-text); color: var(--color-text); background: transparent; }
+.btn-outline:hover { background: var(--color-text); color: var(--color-bg); }
+.btn-ghost { border: 1px solid rgba(26,26,26,0.3); color: rgba(26,26,26,0.7); background: transparent; }
+.btn-ghost:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background 0.5s ease, border-color 0.5s ease; border-bottom: 1px solid transparent; }
+.site-header.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: var(--color-border); backdrop-filter: blur(8px); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); gap: 32px; }
+.nav-logo img { height: 44px; width: auto; object-fit: contain }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 11px; letter-spacing: 0.15em; color: rgba(26,26,26,0.7); font-weight: 300; text-transform: uppercase; }
+.nav-links a:hover, .nav-links a.active { color: var(--color-accent); }
+.nav-btn { font-size: 11px; letter-spacing: 0.18em; padding: 9px 20px; border: 1px solid rgba(26,26,26,0.4); color: rgba(26,26,26,0.85); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 300; transition: var(--t); white-space: nowrap; }
+.nav-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.nav-toggle { display: none; flex-direction: column; gap: 6px; padding: 8px; }
+.nav-toggle span { display: block; width: 22px; height: 1px; background: var(--color-text); transition: var(--t); }
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-nav { display: none; position: fixed; inset: var(--nav-h) 0 0 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; align-items: center; justify-content: center; gap: 0; }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { display: block; padding: 18px 0; font-size: 13px; letter-spacing: 0.15em; color: var(--color-sub); text-align: center; text-transform: uppercase; width: 100%; border-bottom: 1px solid var(--color-border); max-width: 260px; }
+.mobile-nav a:hover { color: var(--color-accent); }
+.mobile-nav .btn { margin-top: 32px; }
+
+.page-hero { padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; background: var(--color-bg-s); border-bottom: 1px solid var(--color-border); }
+.page-hero-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+.page-hero-en { display: block; font-family: var(--font-en); font-size: 11px; font-weight: 300; letter-spacing: 0.32em; color: var(--color-accent); text-transform: uppercase; margin-bottom: 16px; }
+.page-hero-title { font-family: var(--font-en); font-size: clamp(48px, 7vw, 88px); font-weight: 300; font-style: italic; letter-spacing: 0.02em; color: var(--color-text); line-height: 1.0; margin-bottom: 8px; }
+.page-hero-ja { font-family: var(--font-ja); font-size: 14px; font-weight: 300; letter-spacing: 0.2em; color: var(--color-sub); }
+.page-hero-breadcrumb { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.12em; color: var(--color-muted); }
+.page-hero-breadcrumb a { color: var(--color-muted); }
+.page-hero-breadcrumb a:hover { color: var(--color-accent); }
+
+/* FAQ */
+.faq-sec { padding: var(--sec-pad) 0; }
+.faq-sec:nth-child(odd) { background: var(--color-bg); }
+.faq-sec:nth-child(even) { background: var(--color-bg-s); }
+
+.faq-category-head {
+  display: flex; align-items: center; gap: 20px;
+  margin-bottom: 40px;
+}
+.faq-category-num {
+  font-family: var(--font-en); font-size: 48px; font-weight: 300; font-style: italic;
+  color: rgba(201,169,110,0.2); line-height: 1; flex-shrink: 0;
+}
+.faq-category-title {
+  font-family: var(--font-ja); font-size: 15px; font-weight: 400;
+  letter-spacing: 0.12em; color: var(--color-text);
+  padding-left: 20px;
+  border-left: 2px solid var(--color-accent);
+}
+
+.faq-list { display: flex; flex-direction: column; gap: 0; max-width: 840px; }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item:first-child { border-top: 1px solid var(--color-border); }
+.faq-q {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+  padding: 22px 0; cursor: pointer; transition: var(--t);
+}
+.faq-q:hover .faq-q-text { color: var(--color-accent); }
+.faq-q-mark { font-family: var(--font-en); font-size: 16px; font-weight: 300; color: var(--color-accent); flex-shrink: 0; margin-top: 2px; letter-spacing: 0.06em; }
+.faq-q-text { font-size: 13px; color: var(--color-text); letter-spacing: 0.06em; flex: 1; line-height: 1.7; transition: var(--t); }
+.faq-q-icon {
+  width: 20px; height: 20px; border: 1px solid var(--color-border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: var(--t); margin-top: 2px;
+}
+.faq-q-icon::before { content: '+'; font-size: 14px; color: var(--color-sub); transition: var(--t); line-height: 1; }
+.faq-item.open .faq-q-icon { border-color: var(--color-accent); transform: rotate(45deg); }
+.faq-item.open .faq-q-icon::before { color: var(--color-accent); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  padding: 0 0 0 28px;
+}
+.faq-item.open .faq-a { max-height: 400px; padding: 0 0 24px 28px; }
+.faq-a-text { font-size: 13px; color: var(--color-sub); line-height: 2.0; letter-spacing: 0.04em; }
+
+/* CTA */
+.cta-strip { padding: 100px 0; background: var(--color-bg-alt); border-top: 1px solid var(--color-border); text-align: center; }
+.cta-label { display: block; font-family: var(--font-en); font-size: 11px; font-weight: 300; letter-spacing: 0.3em; color: var(--color-accent); margin-bottom: 16px; text-transform: uppercase; }
+.cta-title { font-family: var(--font-en); font-size: clamp(36px, 5vw, 64px); font-weight: 300; font-style: italic; letter-spacing: 0.04em; color: var(--color-text); margin-bottom: 6px; }
+.cta-title-ja { display: block; font-family: var(--font-ja); font-size: 14px; font-weight: 300; letter-spacing: 0.2em; color: var(--color-sub); margin-bottom: 48px; }
+.cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+.footer { background: var(--color-bg-s); border-top: 1px solid var(--color-border); padding: 80px 0 0; }
+.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+.footer-brand img { height: 40px; width: auto; object-fit: contain margin-bottom: 24px; }
+.footer-addr { font-size: 12px; color: var(--color-sub); line-height: 2.0; letter-spacing: 0.04em; }
+.footer-col-title { font-family: var(--font-en); font-size: 11px; letter-spacing: 0.2em; color: var(--color-accent); text-transform: uppercase; margin-bottom: 20px; font-weight: 300; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { font-size: 12px; color: var(--color-sub); letter-spacing: 0.06em; font-weight: 300; }
+.footer-links a:hover { color: var(--color-accent); }
+.footer-bottom { border-top: 1px solid var(--color-border); padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
+.footer-copy { font-size: 11px; color: var(--color-muted); letter-spacing: 0.08em; }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 11px; color: var(--color-muted); letter-spacing: 0.08em; }
+.footer-legal a:hover { color: var(--color-sub); }
+
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  :root { --sec-pad: 80px; }
+  .container { padding: 0 20px; }
+  .nav-links, .nav-btn-wrap { display: none; }
+  .nav-toggle { display: flex; }
+  .page-hero-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .faq-category-num { font-size: 32px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .cta-actions .btn { width: 100%; max-width: 260px; }
+}
+</style>
+<style>.fi { opacity: 1 !important; transform: none !important; }</style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="nav-logo">
+      <img src="img/logo.png" alt="INKLY TATTOO STUDIO">
+    </a>
+    <ul class="nav-links">
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="tattoo.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="access.html">Access</a></li>
+      <li><a href="qa.html" class="active">FAQ</a></li>
+    </ul>
+    <div class="nav-btn-wrap">
+      <button class="nav-btn" onclick="location.href='index.html#contact'">RESERVE</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="artists.html">Artists</a>
+  <a href="tattoo.html">Services</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="access.html">Access</a>
+  <a href="qa.html">FAQ</a>
+  <a href="index.html#contact" class="btn btn-outline" style="margin-top:28px;letter-spacing:0.2em;font-size:11px;">RESERVE</a>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="fi">
+        <span class="page-hero-en">frequently asked questions</span>
+        <h1 class="page-hero-title">Q&amp;A</h1>
+        <span class="page-hero-ja">【 よくあるご質問 】</span>
+      </div>
+      <div class="page-hero-breadcrumb fi fi-d1">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Q&amp;A</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ: 麻酔について -->
+<section class="faq-sec">
+  <div class="container">
+    <div class="faq-category-head fi">
+      <span class="faq-category-num">01</span>
+      <h2 class="faq-category-title">麻酔・痛みについて</h2>
+    </div>
+    <div class="faq-list fi fi-d1">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">麻酔クリームはどのくらい効きますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">個人差はありますが、痛みを約70%程度軽減できる方が多いです。全く痛みを感じない方もいれば、軽く感じる方もいます。麻酔クリームを塗布してから30〜60分ほど置いてから施術を行います。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">麻酔クリームは安全ですか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">はい、当スタジオで使用する麻酔クリームは提携医療機関（同ビル1F・inklinic）の監修のもと、安全性が確認されたものを使用しています。ただし、リドカインなどの成分にアレルギーがある方は事前にお申し出ください。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">部位によって効き目に違いはありますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">はい、部位によって効果に差があります。皮膚が厚い部位（背中・太もも等）は効きやすく、皮膚が薄い部位（手首・足首・肘の内側等）は効果が出にくい場合があります。施術部位の相談時に合わせてご説明いたします。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">麻酔の追加費用はかかりますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">いいえ、麻酔クリームの使用料金は施術料金に含まれています。追加料金は一切かかりません。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ: 予約・来店 -->
+<section class="faq-sec">
+  <div class="container">
+    <div class="faq-category-head fi">
+      <span class="faq-category-num">02</span>
+      <h2 class="faq-category-title">ご予約・来店について</h2>
+    </div>
+    <div class="faq-list fi fi-d1">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">予約はどのように行いますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">完全予約制です。Webの予約フォームまたは公式LINEアカウントよりご予約ください。ご希望の日程・デザインのイメージ・施術部位をお知らせいただければスムーズに対応できます。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">当日予約は可能ですか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">空き状況によっては当日予約も承ることがあります。まずはLINEにてお問い合わせください。ただし、麻酔クリームの準備の関係上、ご来店時間の調整をお願いする場合があります。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">キャンセルはどうすればよいですか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">キャンセルの場合はできるだけ早くご連絡ください。前日キャンセルは施術料金の30%、当日キャンセルは50%のキャンセル料が発生する場合があります。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">来店時に必要なものはありますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">年齢確認のため身分証明書（運転免許証・パスポート・マイナンバーカード等）をお持ちください。施術部位が露出しやすい服装でお越しいただくと施術がスムーズです。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ: 施術について -->
+<section class="faq-sec">
+  <div class="container">
+    <div class="faq-category-head fi">
+      <span class="faq-category-num">03</span>
+      <h2 class="faq-category-title">施術について</h2>
+    </div>
+    <div class="faq-list fi fi-d1">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">施術時間はどのくらいかかりますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">麻酔クリームの塗布・待機時間（約30〜60分）を含めると、XXS〜Sサイズで2〜3時間、Mサイズで3〜4時間が目安です。デザインの複雑さによって前後します。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">デザインの持ち込みはできますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">はい、可能です。参考画像や下書きをお持ちいただくか、LINEにて事前にお送りいただければ確認させていただきます。アーティストがご希望に合わせてアレンジすることも可能です。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">どの部位でも施術できますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">ほぼ全身に対応していますが、顔・頭部・首・手のひら・足の裏など一部対応が難しい部位があります。ご希望の部位についてはカウンセリング時にご相談ください。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">既存のタトゥーの上からカバーアップはできますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">カバーアップにも対応しています。既存のタトゥーの状態（色・サイズ・劣化具合）によって対応方法が異なりますので、カウンセリング時に確認させていただきます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ: 料金・支払い -->
+<section class="faq-sec">
+  <div class="container">
+    <div class="faq-category-head fi">
+      <span class="faq-category-num">04</span>
+      <h2 class="faq-category-title">料金・お支払いについて</h2>
+    </div>
+    <div class="faq-list fi fi-d1">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">支払い方法を教えてください。</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">現金・各種クレジットカード（VISA、Mastercard、JCB、AMEX）・PayPayに対応しています。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">料金の見積もりは事前にもらえますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">はい、ご希望のデザイン・サイズ・部位をお知らせいただければ、LINEやメールにて事前にお見積もりをお伝えすることが可能です。お気軽にお問い合わせください。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">消えるタトゥー（Ephemeral）とは何ですか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">バイオデグラダブル（生分解性）なインクを使用した、1〜2年で自然に消えるタトゥーです。通常のタトゥーを試してみたい方や、期間限定でお楽しみたい方にお勧めです。¥6,000/1ユニットより。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ: アフターケア -->
+<section class="faq-sec">
+  <div class="container">
+    <div class="faq-category-head fi">
+      <span class="faq-category-num">05</span>
+      <h2 class="faq-category-title">アフターケアについて</h2>
+    </div>
+    <div class="faq-list fi fi-d1">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">施術後のケアはどのようにすればよいですか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">施術後は保護フィルムまたはラップで2〜4時間保護した後、ぬるま湯と低刺激石鹸で優しく洗い、保湿クリームを塗ってください。詳しいケア方法は施術時に書面でお渡しします。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">施術後、入浴や運動はいつから可能ですか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">施術後1週間はシャワーのみとし、湯船・プール・サウナはお控えください。激しい運動や施術部位への摩擦も避けてください。完全に安定するまで（約2〜3週間）は適切なケアが必要です。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">かゆみや赤みが出た場合はどうすればよいですか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">軽度のかゆみや赤みは治癒過程での正常な反応です。ただし、強い腫れ・膿・発熱などの症状が出た場合は、提携医療機関（inklinic / 同ビル1F）にご相談いただくか、当スタジオのLINEにてご連絡ください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ: タトゥーについての一般的な質問 -->
+<section class="faq-sec">
+  <div class="container">
+    <div class="faq-category-head fi">
+      <span class="faq-category-num">06</span>
+      <h2 class="faq-category-title">タトゥーに関する一般的な質問</h2>
+    </div>
+    <div class="faq-list fi fi-d1">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">タトゥーは完全に消せますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">通常のタトゥーはレーザー除去が一般的ですが、完全に消すことは難しく、色素の種類やデザインによっては痕が残ることがあります。当スタジオでは消えるタトゥー（Ephemeral）の選択肢もご用意しています。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">MRI検査に影響はありますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">一部の黒・赤系インクに含まれる成分がMRI時に熱感を持つ場合があります。MRI検査の際には事前に医師へタトゥーがあることをお伝えください。当スタジオで使用するインクについてはカウンセリング時にご確認いただけます。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">妊娠中・授乳中でも施術できますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">妊娠中・授乳中の方への施術はお断りしています。安全性の観点から、出産・授乳終了後にご予約をお願いしています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ: スタジオについて -->
+<section class="faq-sec">
+  <div class="container">
+    <div class="faq-category-head fi">
+      <span class="faq-category-num">07</span>
+      <h2 class="faq-category-title">スタジオについて</h2>
+    </div>
+    <div class="faq-list fi fi-d1">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">個室で施術してもらえますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">はい、プライバシーに配慮した個室ブースにて施術を行っています。ご安心してお越しください。友人・パートナーの同伴もご相談に応じます。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">衛生管理はどのようにしていますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">使用するニードルは全て使い捨てです。インク・グローブも1施術ごとに新品を使用し、施術台やベッドは毎回消毒・清拭しています。提携医療機関の指導のもと、医療水準の衛生管理を徹底しています。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">未成年でも施術できますか？</span>
+          <span class="faq-q-icon"></span>
+        </div>
+        <div class="faq-a">
+          <p class="faq-a-text">18歳未満の方への施術はお断りしています。18歳以上の方は身分証明書にてご確認させていただきます。18〜19歳の方は保護者の同意書が必要です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="container">
+    <span class="cta-label fi">Contact</span>
+    <h2 class="cta-title fi fi-d1">Reservation</h2>
+    <span class="cta-title-ja fi fi-d2">ご予約・ご相談</span>
+    <p class="fi fi-d2" style="font-size:13px;color:var(--color-sub);margin-bottom:48px;letter-spacing:0.05em;">解決しない疑問はお気軽にご相談ください。</p>
+    <div class="cta-actions fi fi-d3">
+      <a href="#" class="btn btn-outline">Webで予約する</a>
+      <a href="#" class="btn btn-ghost">LINEで相談する</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html"><img src="img/logo.png" alt="INKLY TATTOO STUDIO"></a>
+        <p class="footer-addr">〒110-0005<br>東京都台東区上野3-22-3 ジイドビル 2F<br>提携医療機関 inklinic：同ビル1F<br><br>11:00 – 21:00（定休日：年末年始）<br>03-4400-5862</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Menu</p>
+        <ul class="footer-links">
+          <li><a href="artists.html">アーティスト</a></li>
+          <li><a href="tattoo.html">タトゥーについて</a></li>
+          <li><a href="pricing.html">料金</a></li>
+          <li><a href="gallery.html">作品ギャラリー</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="qa.html">Q&amp;A</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Legal</p>
+        <ul class="footer-links">
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">利用規約</a></li>
+          <li><a href="#">特定商取引法</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Follow</p>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter / X</a></li>
+          <li><a href="#">LINE公式アカウント</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 INKLY TATTOO. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hdr = document.getElementById('site-header');
+window.addEventListener('scroll', () => { hdr.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+const toggle = document.getElementById('nav-toggle');
+const mNav = document.getElementById('mobile-nav');
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('open'); mNav.classList.toggle('open');
+  document.body.style.overflow = mNav.classList.contains('open') ? 'hidden' : '';
+});
+mNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { toggle.classList.remove('open'); mNav.classList.remove('open'); document.body.style.overflow = ''; });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all in same list
+    item.closest('.faq-list').querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fi').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

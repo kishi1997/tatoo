@@ -1,0 +1,2992 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INKLY TATTOO | 上野 | 痛くないタトゥー体験</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    /* ============================
+   CUSTOM PROPERTIES
+============================ */
+    :root {
+      --color-bg: #FFFFFF;
+      --color-bg-s: #F6F6F6;
+      --color-bg-alt: #EEEEEE;
+      --color-bg-card: #E5E5E5;
+      --color-text: #1A1A1A;
+      --color-sub: #888888;
+      --color-muted: #AAAAAA;
+      --color-accent: #1A1A1A;
+      --color-accent-l: #555555;
+      --color-border: #D8D8D8;
+      --font-en: "EB Garamond", serif;
+      --font-ja: "Shippori Mincho", serif;
+      --max-w: 1200px;
+      --nav-h: 72px;
+      --sec-pad: 120px;
+      --t: all 0.4s ease;
+    }
+
+    /* ============================
+   RESET & BASE
+============================ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-ja);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--t);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      color: inherit;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* ============================
+   FADE-IN
+============================ */
+    .fi {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fi.on {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fi-d1 {
+      transition-delay: 0.1s;
+    }
+
+    .fi-d2 {
+      transition-delay: 0.2s;
+    }
+
+    .fi-d3 {
+      transition-delay: 0.3s;
+    }
+
+    .fi-d4 {
+      transition-delay: 0.4s;
+    }
+
+    /* ============================
+   SECTION HEADER
+============================ */
+    .sec-head {
+      margin-bottom: 72px;
+    }
+
+    .sec-en {
+      display: block;
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      color: var(--color-accent);
+      text-transform: lowercase;
+      margin-bottom: 10px;
+    }
+
+    .sec-title {
+      font-family: var(--font-ja);
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      color: var(--color-text);
+      margin-bottom: 20px;
+    }
+
+    .sec-line {
+      width: 36px;
+      height: 1px;
+      background: var(--color-accent);
+    }
+
+    .sec-head.center {
+      text-align: center;
+    }
+
+    .sec-head.center .sec-line {
+      margin: 0 auto;
+    }
+
+    /* ============================
+   BUTTONS
+============================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      font-size: 16px;
+      font-family: var(--font-en);
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      transition: var(--t);
+      white-space: nowrap;
+      border: none;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--color-text);
+      color: var(--color-text);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--color-text);
+      color: var(--color-bg);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(26, 26, 26, 0.3);
+      color: rgba(26, 26, 26, 0.7);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .btn-gold {
+      background: var(--color-accent);
+      color: var(--color-bg);
+      border: 1px solid var(--color-accent);
+    }
+
+    .btn-gold:hover {
+      background: var(--color-accent-l);
+      border-color: var(--color-accent-l);
+    }
+
+    .btn-outline-gold {
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      background: transparent;
+    }
+
+    .btn-outline-gold:hover {
+      background: var(--color-accent);
+      color: var(--color-bg);
+    }
+
+    .btn-dark {
+      background: var(--color-text);
+      color: #ffffff;
+      border: 1px solid var(--color-text);
+    }
+
+    .btn-dark:hover {
+      background: #555555;
+      border-color: #555555;
+    }
+
+    /* ============================
+   HEADER / NAV
+============================ */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: background 0.5s ease, border-color 0.5s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-header.scrolled {
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom-color: var(--color-border);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-h);
+      gap: 32px;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      letter-spacing: 0.15em;
+      color: rgba(26, 26, 26, 0.7);
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-accent);
+    }
+
+    .nav-btn {
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      padding: 9px 20px;
+      border: 1px solid rgba(26, 26, 26, 0.4);
+      color: rgba(26, 26, 26, 0.85);
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--font-en);
+      font-weight: 300;
+      transition: var(--t);
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--color-text);
+      transition: var(--t);
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: var(--nav-h) 0 0 0;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 18px 0;
+      font-size: 16px;
+      letter-spacing: 0.15em;
+      color: var(--color-sub);
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+      border-bottom: 1px solid var(--color-border);
+      max-width: 260px;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--color-accent);
+    }
+
+    .mobile-nav .btn {
+      margin-top: 32px;
+    }
+
+    /* ============================
+   HERO — フルスクリーン（参考サイト風）
+============================ */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      overflow: hidden;
+      background: #F0F0F0;
+    }
+
+    /* 背景画像 */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* 暗めのオーバーレイ（ロゴ・テキストを際立たせる） */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.30) 0%,
+          rgba(0, 0, 0, 0.45) 50%,
+          rgba(0, 0, 0, 0.30) 100%);
+    }
+
+    /* 中央ロゴ */
+    .hero-center {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      /* ボトムバー分 上に補正 */
+      padding-bottom: 72px;
+    }
+
+    .hero-center-logo {
+      height: 100px;
+      width: auto;
+      opacity: 1;
+      display: block;
+    }
+
+    .hero-center-text {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.32em;
+      color: rgba(255, 255, 255, 0.92);
+      text-transform: uppercase;
+      font-weight: 300;
+      display: block;
+      text-align: center;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    /* スクロールヒント */
+    .hero-scroll {
+      position: absolute;
+      bottom: 88px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 3;
+    }
+
+    .hero-scroll span {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.3em;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-bar {
+      width: 1px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-scroll-bar::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      animation: scroll-line 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-line {
+      0% {
+        top: -100%;
+      }
+
+      100% {
+        top: 100%;
+      }
+    }
+
+    /* 下部アクションバー */
+    .hero-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      height: 72px;
+      background: rgba(22, 20, 18, 0.88);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-bar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 40px;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 300;
+      text-transform: uppercase;
+      transition: background 0.3s ease, color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .hero-bar-btn:first-child {
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-bar-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .hero-bar-btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.4;
+    }
+
+    /* ============================
+   INTRO — "Wear your story" セクション
+============================ */
+    .intro {
+      padding: 0;
+      background: var(--color-bg-s);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('img/bg-paper.png') center / cover;
+      opacity: 0.55;
+    }
+
+    .intro::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(240, 240, 240, 0.45);
+    }
+
+    .intro-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      align-items: start;
+      gap: 24px;
+      min-height: 420px;
+    }
+
+    .intro-content {
+      align-self: center;
+    }
+
+    .intro-headline {
+      font-family: var(--font-en);
+      font-size: clamp(52px, 7vw, 92px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      margin-bottom: 28px;
+      white-space: nowrap;
+    }
+
+    .intro-sub {
+      font-family: var(--font-ja);
+      font-size: 16px;
+      color: var(--color-sub);
+      letter-spacing: 0.08em;
+      margin-bottom: 36px;
+      font-weight: 300;
+      line-height: 2.0;
+    }
+
+    .intro-brand {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.32em;
+      color: var(--color-text);
+      font-weight: 300;
+      margin-bottom: 44px;
+      text-transform: uppercase;
+    }
+
+    .intro-link {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.22em;
+      color: var(--color-text);
+      font-weight: 300;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .intro-link::after {
+      content: '';
+      display: block;
+      width: 44px;
+      height: 1px;
+      background: var(--color-text);
+      transition: width 0.4s ease, background 0.4s ease;
+    }
+
+    .intro-link:hover {
+      color: var(--color-accent);
+    }
+
+    .intro-link:hover::after {
+      background: var(--color-accent);
+      width: 72px;
+    }
+
+    .intro-art {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .intro-svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      opacity: 0.82;
+    }
+
+    /* ============================
+   MARQUEE
+============================ */
+    .marquee {
+      background: var(--color-bg-alt);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 18px 0;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      white-space: nowrap;
+      animation: marquee-run 32s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 40px;
+      padding: 0 40px;
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.22em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .marquee-dot {
+      color: var(--color-border);
+      font-size: 8px;
+    }
+
+    @keyframes marquee-run {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ============================
+   CONCEPT — 特集（背景画像＋ダークオーバーレイ）
+============================ */
+    .concept {
+      position: relative;
+      overflow: hidden;
+      min-height: 80vh;
+    }
+
+    .concept-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .concept-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .concept-bg-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.74);
+    }
+
+    .concept-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 36% 64%;
+      min-height: 80vh;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .concept-left {
+      padding: 88px 56px 88px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .concept-feature-tag {
+      font-family: var(--font-ja);
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0.16em;
+      margin-bottom: 56px;
+      font-weight: 300;
+    }
+
+    .concept-title-large {
+      font-family: var(--font-ja);
+      font-size: clamp(26px, 3.6vw, 48px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .concept-title-en {
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.38);
+      letter-spacing: 0.14em;
+      font-weight: 300;
+    }
+
+    .concept-right {
+      padding: 88px 0 88px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .concept-body-text {
+      font-family: var(--font-ja);
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 2.2;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: 22px;
+    }
+
+    .concept-body-text.lead {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    .concept-body-text strong {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 400;
+    }
+
+    .concept-quote {
+      font-family: var(--font-ja);
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 2.0;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+      padding-left: 16px;
+      border-left: 1px solid rgba(0, 0, 0, 0.25);
+    }
+
+    .concept-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+
+    .concept-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-family: var(--font-ja);
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      transition: border-color 0.4s ease, color 0.4s ease, background 0.4s ease;
+      white-space: nowrap;
+    }
+
+    .concept-btn:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .concept-btn-arrow {
+      font-size: 16px;
+      line-height: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .concept-btn:hover .concept-btn-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ============================
+   SERVICES — メニューリスト形式
+============================ */
+    .services {
+      padding: var(--sec-pad) 0;
+      background: var(--color-bg-s);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('img/bg-paper.png') center / cover;
+      opacity: 0.5;
+    }
+
+    .services::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(218, 210, 196, 0.38);
+    }
+
+    .services .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .services-layout {
+      display: grid;
+      grid-template-columns: 34% 66%;
+      gap: 0;
+      align-items: start;
+    }
+
+    .services-label-col {
+      position: sticky;
+      top: 100px;
+      padding-right: 48px;
+      padding-top: 8px;
+    }
+
+    .services-heading {
+      font-family: var(--font-en);
+      font-size: clamp(64px, 8vw, 108px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-border);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .services-label-text {
+      font-family: var(--font-ja);
+      font-size: 16px;
+      color: var(--color-sub);
+      letter-spacing: 0.14em;
+      font-weight: 300;
+    }
+
+    .services-list {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .service-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--color-border);
+      gap: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: padding-left 0.4s ease;
+    }
+
+    .service-row:hover {
+      padding-left: 8px;
+    }
+
+    .service-row-text {
+      flex: 1;
+    }
+
+    .service-row-title {
+      font-family: var(--font-ja);
+      font-size: clamp(20px, 2.4vw, 28px);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--color-text);
+      margin-bottom: 6px;
+      line-height: 1.3;
+      transition: color 0.4s ease;
+    }
+
+    .service-row:hover .service-row-title {
+      color: var(--color-accent);
+    }
+
+    .service-row-en {
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-style: italic;
+      color: var(--color-muted);
+      letter-spacing: 0.1em;
+      font-weight: 300;
+    }
+
+    .service-row-arrow {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      color: var(--color-muted);
+      transition: border-color 0.4s ease, color 0.4s ease, background 0.4s ease;
+    }
+
+    .service-row:hover .service-row-arrow {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    /* ============================
+   FEATURES (doctor section style)
+============================ */
+    .features {
+      background: #1A1A1A;
+      overflow: hidden;
+    }
+
+    .features-header {
+      text-align: center;
+      padding: 100px 0 72px;
+    }
+
+    .features-title-en {
+      display: block;
+      font-family: var(--font-en);
+      font-size: clamp(56px, 8vw, 96px);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .features-title-ja {
+      font-size: 16px;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 300;
+    }
+
+    .features-body {
+      display: grid;
+      grid-template-columns: 44% 56%;
+      align-items: stretch;
+    }
+
+    .features-photo {
+      overflow: hidden;
+      min-height: 640px;
+    }
+
+    .features-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .features-content {
+      padding: 80px 80px 80px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    .features-label {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .features-label::after {
+      content: '';
+      flex: 1;
+      max-width: 180px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .features-heading {
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 400;
+      line-height: 1.9;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .features-text {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 2.2;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .features-text p+p {
+      margin-top: 14px;
+    }
+
+    .features-signature {
+      font-size: 16px;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.45);
+      font-weight: 300;
+      line-height: 2;
+    }
+
+    .features-more {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      min-width: 200px;
+      padding: 14px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+      align-self: flex-start;
+    }
+
+    .features-more:hover {
+      background: rgba(255, 255, 255, 0.9);
+      color: #1A1A1A;
+      border-color: transparent;
+    }
+
+    /* ============================
+   FEATURED ARTIST (doctor section風)
+============================ */
+    .featured-artist {
+      padding: var(--sec-pad) 0;
+      background: var(--color-bg);
+      overflow: hidden;
+    }
+
+    .featured-artist-inner {
+      display: grid;
+      grid-template-columns: 44% 56%;
+      min-height: 640px;
+      align-items: stretch;
+    }
+
+    .featured-artist-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-artist-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(10%);
+      transition: filter 0.6s ease;
+    }
+
+    .featured-artist-photo:hover img {
+      filter: grayscale(0%);
+    }
+
+    .featured-artist-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 70%, var(--color-bg) 100%);
+    }
+
+    .featured-artist-body {
+      padding: 72px 64px 72px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--color-bg);
+    }
+
+    .featured-artist-label {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.32em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    .featured-artist-name {
+      font-family: var(--font-en);
+      font-size: clamp(32px, 3vw, 48px);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--color-text);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .featured-artist-name-ja {
+      font-family: var(--font-ja);
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: var(--color-sub);
+      margin-bottom: 8px;
+    }
+
+    .featured-artist-style {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.22em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .featured-artist-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--color-border);
+      margin-bottom: 36px;
+    }
+
+    .featured-artist-quote {
+      font-family: var(--font-en);
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+
+    .featured-artist-bio {
+      font-size: 16px;
+      color: var(--color-sub);
+      line-height: 2.1;
+      font-weight: 300;
+      margin-bottom: 44px;
+      letter-spacing: 0.03em;
+    }
+
+    .featured-artist-link {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.22em;
+      color: var(--color-sub);
+      text-transform: uppercase;
+      font-weight: 300;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--t);
+    }
+
+    .featured-artist-link:hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    /* ============================
+   ARTISTS
+============================ */
+    .artists {
+      padding: var(--sec-pad) 0;
+      background: var(--color-bg-s);
+    }
+
+    .artists-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+
+    .artist-card {
+      cursor: default;
+    }
+
+    .artist-photo {
+      width: 100%;
+      aspect-ratio: 2/3;
+      overflow: hidden;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .artist-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: grayscale(20%);
+    }
+
+    .artist-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 50%);
+    }
+
+    .artist-card:hover .artist-photo img {
+      transform: scale(1.04);
+      filter: grayscale(0%);
+    }
+
+    .artist-en {
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--color-text);
+      letter-spacing: 0.08em;
+      margin-bottom: 3px;
+    }
+
+    .artist-ja {
+      font-size: 16px;
+      color: var(--color-muted);
+      margin-bottom: 5px;
+      font-weight: 300;
+    }
+
+    .artist-style {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    /* ============================
+   GALLERY
+============================ */
+    .gallery {
+      padding: var(--sec-pad) 0;
+      background: var(--color-bg);
+    }
+
+    .gallery-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .gallery-more {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.2em;
+      color: var(--color-sub);
+      text-transform: uppercase;
+      font-weight: 300;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 3px;
+      transition: var(--t);
+    }
+
+    .gallery-more:hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 8px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item.large {
+      grid-column: span 1;
+      grid-row: span 2;
+      aspect-ratio: unset;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: brightness(0.88);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+      filter: brightness(1);
+    }
+
+    /* ============================
+   PRICING
+============================ */
+    .pricing {
+      padding: var(--sec-pad) 0;
+      background: #1A1A1A url('img/bg3.jpeg') center center / cover no-repeat;
+      position: relative;
+    }
+
+    .pricing::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      pointer-events: none;
+    }
+
+    .pricing .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing .sec-en {
+      color: var(--color-accent);
+    }
+
+    .pricing .sec-title {
+      color: #F5F5F5;
+    }
+
+    .pricing .sec-line {
+      background: var(--color-accent);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #333333;
+      margin-bottom: 32px;
+    }
+
+    .price-card {
+      background: #1A1A1A;
+      padding: 36px 32px;
+      transition: background 0.4s ease;
+    }
+
+    .price-card:hover {
+      background: #2A2A2A;
+    }
+
+    .price-label {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      color: var(--color-accent);
+      font-weight: 300;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .price-amount {
+      font-family: var(--font-en);
+      font-size: 32px;
+      font-weight: 300;
+      color: #F5F5F5;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .price-note {
+      font-size: 16px;
+      color: #999999;
+      font-weight: 300;
+    }
+
+    .pricing-note {
+      font-size: 16px;
+      color: #999999;
+      text-align: center;
+      letter-spacing: 0.05em;
+      margin-bottom: 48px;
+      line-height: 1.8;
+    }
+
+    .pricing-cta {
+      text-align: center;
+    }
+
+    /* ============================
+   FOOTER (ACCESS統合)
+============================ */
+    .footer {
+      background: var(--color-bg-alt);
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* ── サイトナビグリッド ── */
+    .footer-nav {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .footer-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-left: 1px solid var(--color-border);
+    }
+
+    .footer-nav-col {
+      border-right: 1px solid var(--color-border);
+      padding: 0 32px;
+    }
+
+    .footer-nav-heading {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.28em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      font-weight: 300;
+      padding: 0 0 14px;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 0;
+    }
+
+    .footer-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 16px;
+      color: var(--color-text);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      font-weight: 300;
+      transition: color 0.3s ease, padding-left 0.3s ease;
+    }
+
+    .footer-nav-link:hover {
+      color: var(--color-accent);
+      padding-left: 4px;
+    }
+
+    .footer-nav-arrow {
+      color: var(--color-muted);
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: color 0.3s ease;
+    }
+
+    .footer-nav-link:hover .footer-nav-arrow {
+      color: var(--color-accent);
+    }
+
+    /* ── フルwidthマップ ── */
+    .footer-map {
+      height: 340px;
+      overflow: hidden;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(15%);
+      display: block;
+    }
+
+    /* ── ロゴ＋店舗情報 ── */
+    .footer-info {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .footer-info-inner {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .footer-logo img {
+      height: 72px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.75;
+    }
+
+    .footer-sns {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-sns-link {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-muted);
+      font-size: 16px;
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s;
+    }
+
+    .footer-sns-link:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .footer-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 64px;
+    }
+
+    .footer-detail-full {
+      grid-column: 1 / -1;
+    }
+
+    .footer-dt {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.24em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      font-weight: 300;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-dd {
+      font-size: 16px;
+      color: var(--color-sub);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+
+    .footer-dd a {
+      color: var(--color-sub);
+      text-decoration: underline;
+    }
+
+    .footer-dd a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ── ボトムバー ── */
+    .footer-bottom {
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-copy {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.1em;
+      color: var(--color-muted);
+      font-weight: 300;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal a {
+      font-size: 16px;
+      color: var(--color-muted);
+      font-weight: 300;
+    }
+
+    .footer-legal a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ============================
+   FAQ
+============================ */
+    .faq {
+      padding: var(--sec-pad) 0;
+      background: var(--color-bg-s);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('img/bg-paper.png') center / cover;
+      opacity: 0.5;
+    }
+
+    .faq::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(218, 210, 196, 0.38);
+    }
+
+    .faq .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 34% 66%;
+      gap: 0;
+      align-items: start;
+    }
+
+    .faq-label-col {
+      position: sticky;
+      top: 100px;
+      padding-right: 48px;
+      padding-top: 8px;
+    }
+
+    .faq-heading {
+      font-family: var(--font-en);
+      font-size: clamp(64px, 8vw, 108px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-border);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .faq-label-text {
+      font-family: var(--font-ja);
+      font-size: 16px;
+      color: var(--color-sub);
+      letter-spacing: 0.14em;
+      font-weight: 300;
+    }
+
+    .faq-list {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 32px 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      transition: padding-left 0.4s ease;
+    }
+
+    .faq-q:hover {
+      padding-left: 8px;
+    }
+
+    .faq-qlabel {
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--color-accent);
+      letter-spacing: 0.12em;
+      flex-shrink: 0;
+    }
+
+    .faq-qtext {
+      font-family: var(--font-ja);
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: var(--color-text);
+      line-height: 1.5;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      flex: 1;
+      transition: color 0.4s ease;
+    }
+
+    .faq-q:hover .faq-qtext {
+      color: var(--color-accent);
+    }
+
+    .faq-arrow {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-muted);
+      transition: border-color 0.4s ease, color 0.4s ease, transform 0.4s ease;
+    }
+
+    .faq-q:hover .faq-arrow {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .faq-ans {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding-bottom: 0;
+    }
+
+    .faq-item.open .faq-ans {
+      max-height: 240px;
+      padding-bottom: 32px;
+    }
+
+    .faq-ans-inner {
+      display: flex;
+      gap: 20px;
+    }
+
+    .faq-alabel {
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--color-accent);
+      letter-spacing: 0.12em;
+      flex-shrink: 0;
+    }
+
+    .faq-atext {
+      font-size: 16px;
+      color: var(--color-sub);
+      line-height: 2.0;
+      font-weight: 300;
+    }
+
+    /* ============================
+   CTA BANNER
+============================ */
+    .cta {
+      background: #0A0A0A;
+      border-top: 1px solid #333333;
+      overflow: hidden;
+    }
+
+    .cta-marquee {
+      padding: 15px 0;
+      overflow: hidden;
+      border-bottom: 1px solid #333333;
+    }
+
+    .cta-marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee-run 28s linear infinite;
+      width: max-content;
+    }
+
+    .cta-marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 36px;
+      padding: 0 36px;
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.24em;
+      color: #F5F5F5;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .cta-marquee-ja {
+      font-family: var(--font-ja);
+      font-size: 16px;
+      letter-spacing: 0.12em;
+    }
+
+    .cta-marquee-sep {
+      color: #999999;
+      font-size: 9px;
+    }
+
+    .cta-panels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cta-panel {
+      position: relative;
+      height: 300px;
+      display: flex;
+      align-items: flex-end;
+      padding: 40px 36px;
+      text-decoration: none;
+      overflow: hidden;
+    }
+
+    .cta-panel+.cta-panel {
+      border-left: 1px solid #333333;
+    }
+
+    .cta-panel-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.7s ease;
+    }
+
+    .cta-panel:hover .cta-panel-bg {
+      transform: scale(1.05);
+    }
+
+    .cta-panel-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.58);
+      transition: background 0.4s ease;
+    }
+
+    .cta-panel:hover .cta-panel-overlay {
+      background: rgba(0, 0, 0, 0.38);
+    }
+
+    .cta-panel-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .cta-panel-label {
+      font-family: var(--font-ja);
+      font-size: clamp(15px, 1.8vw, 20px);
+      color: #F5F5F5;
+      letter-spacing: 0.12em;
+      font-weight: 300;
+    }
+
+    .cta-panel-arrow {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F5F5F5;
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: border-color 0.4s ease, color 0.4s ease;
+    }
+
+    .cta-panel:hover .cta-panel-arrow {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+
+    /* ============================
+   RESPONSIVE
+============================ */
+    @media (max-width: 1024px) {
+      :root {
+        --sec-pad: 88px;
+      }
+
+      .hero-bar-btn {
+        padding: 0 28px;
+        font-size: 16px;
+      }
+
+      .concept-inner {
+        grid-template-columns: 38% 62%;
+        padding: 0 32px;
+      }
+
+      .concept-left {
+        padding: 72px 40px 72px 0;
+      }
+
+      .concept-right {
+        padding: 72px 0 72px 48px;
+      }
+
+      .featured-artist-inner {
+        grid-template-columns: 45% 55%;
+      }
+
+      .featured-artist-body {
+        padding: 64px 48px;
+      }
+
+      .artists-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-inner>.footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --sec-pad: 64px;
+      }
+
+      .container {
+        padding: 0 24px;
+      }
+
+      .intro-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .intro-art {
+        justify-content: flex-end;
+      }
+
+      .intro-svg {
+        max-width: 200px;
+      }
+
+      .nav-links,
+      .nav-btn-wrap {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .hero {
+        height: 100svh;
+      }
+
+      .hero-bar {
+        height: 64px;
+      }
+
+      .hero-bar-btn {
+        padding: 0 16px;
+        font-size: 16px;
+        letter-spacing: 0.12em;
+        gap: 7px;
+      }
+
+      .hero-bar-btn svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      .concept-inner {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+      }
+
+      .concept-left {
+        padding: 64px 0 40px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        justify-content: flex-start;
+      }
+
+      .concept-feature-tag {
+        margin-bottom: 28px;
+      }
+
+      .concept-right {
+        padding: 40px 0 64px;
+      }
+
+      .services-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .services-label-col {
+        position: static;
+        padding-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .services-heading {
+        font-size: clamp(56px, 14vw, 80px);
+      }
+
+      .service-row:hover {
+        padding-left: 0;
+      }
+
+      .faq-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-label-col {
+        position: static;
+        padding-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .faq-heading {
+        font-size: clamp(56px, 14vw, 80px);
+      }
+
+      .faq-q:hover {
+        padding-left: 0;
+      }
+
+      .features-body {
+        grid-template-columns: 1fr;
+      }
+
+      .features-photo {
+        min-height: 380px;
+      }
+
+      .features-content {
+        padding: 60px 24px;
+      }
+
+      .featured-artist-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-artist-photo {
+        min-height: 65vw;
+      }
+
+      .featured-artist-photo::after {
+        background: linear-gradient(to bottom, transparent 70%, var(--color-bg) 100%);
+      }
+
+      .featured-artist-body {
+        padding: 48px 24px;
+      }
+
+      .artists-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item.large {
+        grid-column: span 1;
+        grid-row: span 1;
+        aspect-ratio: 3/4;
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-info-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-map {
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .artists-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item.large {
+        aspect-ratio: 3/4;
+      }
+
+      .footer-nav-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-map {
+        height: 220px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        max-width: 260px;
+        justify-content: center;
+      }
+
+      .cta-panels {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-panel+.cta-panel {
+        border-left: none;
+        border-top: 1px solid #333333;
+      }
+
+      .cta-panel {
+        height: 200px;
+      }
+
+      .concept-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= HEADER ======= -->
+  <header class="site-header" id="site-header">
+    <nav class="nav container">
+      <a href="#" class="nav-logo">
+        <img src="img/logo.png" alt="INKLY TATTOO STUDIO">
+      </a>
+      <ul class="nav-links">
+        <li><a href="artists.html">Artists</a></li>
+        <li><a href="tattoo.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="access.html">Access</a></li>
+        <li><a href="qa.html">FAQ</a></li>
+      </ul>
+      <div class="nav-btn-wrap">
+        <button class="nav-btn"
+          onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">RESERVE</button>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ======= MOBILE NAV ======= -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="artists.html">Artists</a>
+    <a href="tattoo.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="access.html">Access</a>
+    <a href="qa.html">FAQ</a>
+    <a href="#contact" class="btn btn-outline" style="margin-top:28px;letter-spacing:0.2em;font-size:16px;">RESERVE</a>
+  </nav>
+
+  <!-- ======= HERO ======= -->
+  <section id="hero" class="hero">
+    <!-- 背景: クリニック内観イメージ -->
+    <div class="hero-bg">
+      <img src="img/bg1.jpeg" alt="INKLY TATTOO STUDIO — 上野" loading="eager">
+    </div>
+    <!-- オーバーレイ -->
+    <div class="hero-overlay"></div>
+
+    <!-- 中央: ロゴ＋スタジオ名 -->
+    <div class="hero-center fi on">
+      <img class="hero-center-logo" src="img/logo.png" alt="INKLY TATTOO STUDIO">
+      <span class="hero-center-text">Painless Tattoo Studio — Ueno Tokyo</span>
+    </div>
+
+    <!-- スクロールヒント -->
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-bar"></div>
+    </div>
+
+    <!-- 下部アクションバー -->
+    <div class="hero-bar">
+      <a href="#contact" class="hero-bar-btn">
+        <svg viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        Web予約
+      </a>
+      <a href="#" class="hero-bar-btn">
+        <svg viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+        LINE予約
+      </a>
+      <a href="#" class="hero-bar-btn">
+        <svg viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        LINE問合せ
+      </a>
+    </div>
+  </section>
+
+  <!-- ======= INTRO ======= -->
+  <section class="intro">
+    <div class="intro-inner container">
+      <div class="intro-content fi">
+        <h2 class="intro-headline">Wear your story.</h2>
+        <p class="intro-sub">感じる痛みを、感動へ。<br>あなたの物語が、肌に宿る。</p>
+        <p class="intro-brand">INKLY TATTOO STUDIO</p>
+        <a href="#concept" class="intro-link">About Studio</a>
+      </div>
+      <div class="intro-art fi fi-d2">
+        <img src="img/face.png" alt="" class="intro-svg">
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= MARQUEE ======= -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="marquee-item">
+        Painless Tattoo Experience
+        <span class="marquee-dot">✦</span>
+        Medical Anesthesia
+        <span class="marquee-dot">✦</span>
+        Ueno Tokyo
+        <span class="marquee-dot">✦</span>
+        Inkly Tattoo Studio
+        <span class="marquee-dot">✦</span>
+        Professional Artists
+        <span class="marquee-dot">✦</span>
+        Safe &amp; Elegant
+        <span class="marquee-dot">✦</span>
+      </div>
+      <div class="marquee-item" aria-hidden="true">
+        Painless Tattoo Experience
+        <span class="marquee-dot">✦</span>
+        Medical Anesthesia
+        <span class="marquee-dot">✦</span>
+        Ueno Tokyo
+        <span class="marquee-dot">✦</span>
+        Inkly Tattoo Studio
+        <span class="marquee-dot">✦</span>
+        Professional Artists
+        <span class="marquee-dot">✦</span>
+        Safe &amp; Elegant
+        <span class="marquee-dot">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= CONCEPT ======= -->
+  <section id="concept" class="concept">
+    <!-- 背景画像 -->
+    <div class="concept-bg">
+      <img src="img/bg2.jpeg" alt="">
+    </div>
+    <div class="concept-bg-overlay"></div>
+
+    <!-- コンテンツ -->
+    <div class="concept-inner">
+      <!-- 左: ラベル＋大見出し -->
+      <div class="concept-left">
+        <p class="concept-feature-tag fi">【 特集 】</p>
+        <h2 class="concept-title-large fi fi-d1">
+          痛みのない、<br>豊かな<br>タトゥー体験
+        </h2>
+        <p class="concept-title-en fi fi-d2">Pain-Free Experience</p>
+      </div>
+
+      <!-- 右: 本文＋ボタン -->
+      <div class="concept-right">
+        <p class="concept-body-text lead fi">
+          大切にしているのは、<br>
+          <strong>"痛みのない、記憶に残るタトゥー体験"</strong>を届けること。
+        </p>
+        <p class="concept-body-text fi fi-d1">
+          タトゥーには、デザイン・技術・そして空間という、それぞれ異なる要素が存在します。
+        </p>
+        <p class="concept-body-text fi fi-d1">
+          だからこそ、お客様一人ひとりの不安に寄り添いながら、提携医療機関の医師・看護師による医療用麻酔クリームを使用し、アーティストと二人三脚で理想のデザインをつくり上げます。
+        </p>
+        <p class="concept-body-text fi fi-d2">
+          それが、INKLYが2023年に目指した「ペインレスタトゥースタジオ」です。
+        </p>
+        <p class="concept-quote fi fi-d2">
+          "たった一度の施術でも、無限の可能性がある。"<br>
+          その可能性を最大限に引き出すことが、私たちの使命です。
+        </p>
+        <div class="concept-btns fi fi-d3">
+          <a href="tattoo.html" class="concept-btn">
+            施術の流れ <span class="concept-btn-arrow">→</span>
+          </a>
+          <a href="#contact" class="concept-btn">
+            無料カウンセリング <span class="concept-btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SERVICES ======= -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="services-layout">
+        <!-- 左: 大見出し＋ラベル -->
+        <div class="services-label-col fi">
+          <p class="services-heading">Menu</p>
+          <p class="services-label-text">【 施術メニュー 】</p>
+        </div>
+
+        <!-- 右: リスト -->
+        <div class="services-list">
+          <a href="tattoo.html" class="service-row fi">
+            <div class="service-row-text">
+              <p class="service-row-title">タトゥー</p>
+              <p class="service-row-en">Tattoo</p>
+            </div>
+            <span class="service-row-arrow">→</span>
+          </a>
+          <a href="tattoo.html#ephemeral" class="service-row fi fi-d1">
+            <div class="service-row-text">
+              <p class="service-row-title">エフェメラルタトゥー</p>
+              <p class="service-row-en">Ephemeral Tattoo</p>
+            </div>
+            <span class="service-row-arrow">→</span>
+          </a>
+          <a href="tattoo.html#retouch" class="service-row fi fi-d2">
+            <div class="service-row-text">
+              <p class="service-row-title">レタッチ・修正</p>
+              <p class="service-row-en">Retouch &amp; Touch-up</p>
+            </div>
+            <span class="service-row-arrow">→</span>
+          </a>
+          <a href="tattoo.html#coverup" class="service-row fi fi-d3">
+            <div class="service-row-text">
+              <p class="service-row-title">カバーアップ</p>
+              <p class="service-row-en">Cover-up</p>
+            </div>
+            <span class="service-row-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FEATURES ======= -->
+  <section id="features" class="features">
+    <div class="features-header fi">
+      <span class="features-title-en">Features</span>
+      <p class="features-title-ja">【 選ばれる理由 】</p>
+    </div>
+    <div class="features-body">
+      <!-- 左: フォト -->
+      <div class="features-photo fi">
+        <img src="img/ink3.jpg" alt="INKLY TATTOO STUDIO">
+      </div>
+      <!-- 右: テキスト -->
+      <div class="features-content fi fi-d1">
+        <p class="features-label">Why choose inkly</p>
+        <h2 class="features-heading">
+          痛みと不安を取り除き、<br>
+          あなたの理想を丁寧に形にします。
+        </h2>
+        <div class="features-text">
+          <p>なぜinklyが選ばれるのか——それは、タトゥーに抱くすべての不安に向き合い、解消するスタジオだからです。</p>
+          <p>提携医療機関の医師・看護師が監督する環境で、医療用麻酔クリームを使用。95%以上のお客様が「思ったより楽だった」「痛みをほとんど感じなかった」とご回答いただいています。</p>
+          <p>経験豊富なプロアーティストが、カウンセリングからデザイン・施術・アフターケアまで一貫して担当。どんな小さなお悩みにも丁寧に寄り添います。</p>
+          <p>痛みへの不安、衛生面への心配、デザインの迷い——inklyはそのすべてに応えるスタジオです。</p>
+        </div>
+        <div class="features-signature">
+          INKLY TATTOO STUDIO<br>
+          東京・上野
+        </div>
+        <a href="#concept" class="features-more">View more &nbsp;&nbsp;&nbsp;&nbsp; →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FEATURED ARTIST ======= -->
+  <section id="featured-artist" class="featured-artist" style="display:none">
+    <div class="featured-artist-inner">
+      <!-- 左: ポートレート -->
+      <div class="featured-artist-photo fi">
+        <img src="img/ink3.jpg" alt="Aimi — Lead Artist">
+      </div>
+      <!-- 右: プロフィール -->
+      <div class="featured-artist-body fi fi-d1">
+        <p class="featured-artist-label">Lead Artist</p>
+        <p class="featured-artist-name">Aimi</p>
+        <p class="featured-artist-name-ja">あいみ</p>
+        <p class="featured-artist-style">Botanical &amp; Fine Line</p>
+        <div class="featured-artist-divider"></div>
+        <p class="featured-artist-quote">
+          "Art is not what you see,<br>
+          but what you make others see."
+        </p>
+        <p class="featured-artist-bio">
+          東京藝術大学でビジュアルアーツを学び、2018年よりタトゥーアーティストとして活動。
+          ボタニカルモチーフとファインラインを得意とし、「身体に宿る小さな物語」をコンセプトに、
+          お客様一人ひとりの想いを繊細なラインで表現します。<br><br>
+          痛みへの不安を抱えるお客様に寄り添うため、inklyの医療麻酔システムを積極的に採用。
+          「タトゥーは特別な日の記念になる」という想いを、すべての作品に込めています。
+        </p>
+        <a href="artists.html" class="featured-artist-link">
+          すべてのアーティストを見る →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= ARTISTS ======= -->
+  <section id="artists" class="artists">
+    <div class="container">
+      <header class="sec-head fi">
+        <span class="sec-en">artists</span>
+        <h2 class="sec-title">【 アーティスト紹介 】</h2>
+        <div class="sec-line"></div>
+      </header>
+      <div class="artists-grid">
+        <div class="artist-card fi">
+          <div class="artist-photo"><img src="img/ink1.jpg" alt="Aimi"></div>
+          <p class="artist-en">Aimi</p>
+          <p class="artist-ja">あいみ</p>
+          <p class="artist-style">Botanical</p>
+        </div>
+        <div class="artist-card fi fi-d1">
+          <div class="artist-photo"><img src="img/ink2.jpg" alt="Manato"></div>
+          <p class="artist-en">Manato</p>
+          <p class="artist-ja">まなと</p>
+          <p class="artist-style">Geometric</p>
+        </div>
+        <div class="artist-card fi fi-d2">
+          <div class="artist-photo"><img src="img/ink4.png" alt="Leo"></div>
+          <p class="artist-en">Leo</p>
+          <p class="artist-ja">れお</p>
+          <p class="artist-style">Realism</p>
+        </div>
+        <div class="artist-card fi fi-d2">
+          <div class="artist-photo"><img src="img/ink5.png" alt="Milan"></div>
+          <p class="artist-en">Milan</p>
+          <p class="artist-ja">みらん</p>
+          <p class="artist-style">Blackwork</p>
+        </div>
+        <div class="artist-card fi fi-d3">
+          <div class="artist-photo"><img src="img/ink6.jpg" alt="Taiga"></div>
+          <p class="artist-en">Taiga</p>
+          <p class="artist-ja">たいが</p>
+          <p class="artist-style">Fine Line</p>
+        </div>
+        <div class="artist-card fi fi-d3">
+          <div class="artist-photo"><img src="img/ink7.png" alt="Shiho"></div>
+          <p class="artist-en">Shiho</p>
+          <p class="artist-ja">しほ</p>
+          <p class="artist-style">Watercolor</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= GALLERY ======= -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="gallery-header fi">
+        <div>
+          <span class="sec-en">gallery</span>
+          <h2 class="sec-title" style="margin-bottom:0;">【 作品ギャラリー 】</h2>
+        </div>
+        <a href="gallery.html" class="gallery-more">View All Works →</a>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item large fi"><img src="img/gyallery01.jpg" alt="作品 1"></div>
+        <div class="gallery-item fi fi-d1"><img src="img/gyallery02.jpg" alt="作品 2"></div>
+        <div class="gallery-item fi fi-d1"><img src="img/gyallery04.jpg" alt="作品 4"></div>
+        <div class="gallery-item fi fi-d2"><img src="img/gyallery06.jpg" alt="作品 3"></div>
+        <div class="gallery-item fi fi-d2"><img src="img/gyallery05.jpg" alt="作品 5"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= PRICING ======= -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <header class="sec-head fi">
+        <span class="sec-en">pricing</span>
+        <h2 class="sec-title">【 料金案内 】</h2>
+        <div class="sec-line"></div>
+      </header>
+      <div class="pricing-grid">
+        <div class="price-card fi">
+          <p class="price-label">Micro / マイクロ</p>
+          <p class="price-amount">¥10,000–</p>
+          <p class="price-note">硬貨サイズ以下の極小タトゥー</p>
+        </div>
+        <div class="price-card fi fi-d1">
+          <p class="price-label">One Point / ワンポイント</p>
+          <p class="price-amount">¥17,000–</p>
+          <p class="price-note">5cm以内のシンプルなデザイン</p>
+        </div>
+        <div class="price-card fi fi-d2">
+          <p class="price-label">Small / スモール</p>
+          <p class="price-amount">¥25,000–</p>
+          <p class="price-note">5〜10cmのデザイン</p>
+        </div>
+        <div class="price-card fi fi-d1">
+          <p class="price-label">Medium / ミディアム</p>
+          <p class="price-amount">¥40,000–</p>
+          <p class="price-note">10〜15cmのデザイン</p>
+        </div>
+        <div class="price-card fi fi-d2">
+          <p class="price-label">Large / ラージ</p>
+          <p class="price-amount">¥60,000–</p>
+          <p class="price-note">15〜20cmのデザイン</p>
+        </div>
+        <div class="price-card fi fi-d3">
+          <p class="price-label">X-Large / Xラージ</p>
+          <p class="price-amount">¥100,000–</p>
+          <p class="price-note">20cm以上の大型デザイン</p>
+        </div>
+      </div>
+      <p class="pricing-note fi">※表面麻酔・デザイン制作・アフターケア用品込み。デザインの複雑さにより変動します。</p>
+      <div class="pricing-cta fi">
+        <a href="pricing.html" class="btn btn-outline-gold">料金の詳細を見る</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======= FAQ ======= -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="faq-layout">
+        <!-- 左: 大見出し＋ラベル -->
+        <div class="faq-label-col fi">
+          <p class="faq-heading">FAQ</p>
+          <p class="faq-label-text">【 よくあるご質問 】</p>
+        </div>
+
+        <!-- 右: アコーディオンリスト -->
+        <div class="faq-list fi">
+          <div class="faq-item">
+            <button class="faq-q">
+              <span class="faq-qlabel">Q.</span>
+              <span class="faq-qtext">麻酔を使うと仕上がりに悪影響はありますか？</span>
+              <span class="faq-arrow">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M2 5l5 5 5-5" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-ans">
+              <div class="faq-ans-inner">
+                <span class="faq-alabel">A.</span>
+                <p class="faq-atext">医療用表面麻酔クリームは皮膚表面に作用するため、タトゥーの仕上がりに影響はありません。</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span class="faq-qlabel">Q.</span>
+              <span class="faq-qtext">タトゥーの施術は痛いですか？</span>
+              <span class="faq-arrow">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M2 5l5 5 5-5" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-ans">
+              <div class="faq-ans-inner">
+                <span class="faq-alabel">A.</span>
+                <p class="faq-atext">表面麻酔クリームを使用することで、施術中の痛みを大幅に軽減できます。</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span class="faq-qlabel">Q.</span>
+              <span class="faq-qtext">予約は必要ですか？</span>
+              <span class="faq-arrow">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M2 5l5 5 5-5" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-ans">
+              <div class="faq-ans-inner">
+                <span class="faq-alabel">A.</span>
+                <p class="faq-atext">Walk inも歓迎ですが、予約優先となります。WebまたはLINEよりご予約ください。</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span class="faq-qlabel">Q.</span>
+              <span class="faq-qtext">施術時間はどのくらいですか？</span>
+              <span class="faq-arrow">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M2 5l5 5 5-5" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-ans">
+              <div class="faq-ans-inner">
+                <span class="faq-alabel">A.</span>
+                <p class="faq-atext">デザインのサイズや複雑さによりますが、1〜4時間が目安です。</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span class="faq-qlabel">Q.</span>
+              <span class="faq-qtext">未成年でも施術を受けられますか？</span>
+              <span class="faq-arrow">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M2 5l5 5 5-5" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-ans">
+              <div class="faq-ans-inner">
+                <span class="faq-alabel">A.</span>
+                <p class="faq-atext">18歳未満の方は保護者の同意書が必要です。16歳未満は施術をお断りしております。</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              <span class="faq-qlabel">Q.</span>
+              <span class="faq-qtext">麻酔にアレルギーがあるのですが？</span>
+              <span class="faq-arrow">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M2 5l5 5 5-5" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq-ans">
+              <div class="faq-ans-inner">
+                <span class="faq-alabel">A.</span>
+                <p class="faq-atext">事前にアレルギーテストを実施いたします。アレルギーをお持ちの方はご相談ください。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CTA ======= -->
+  <section id="contact" class="cta">
+    <!-- マーキー -->
+    <div class="cta-marquee">
+      <div class="cta-marquee-track">
+        <div class="cta-marquee-item">
+          <span class="cta-marquee-sep">▼</span>
+          CONTACT
+          <span class="cta-marquee-sep">▼</span>
+          <span class="cta-marquee-ja">カウンセリング予約・お問合せはこちら</span>
+          <span class="cta-marquee-sep">▼</span>
+          CONTACT
+          <span class="cta-marquee-sep">▼</span>
+          <span class="cta-marquee-ja">カウンセリング予約・お問合せはこちら</span>
+          <span class="cta-marquee-sep">▼</span>
+          CONTACT
+          <span class="cta-marquee-sep">▼</span>
+          <span class="cta-marquee-ja">カウンセリング予約・お問合せはこちら</span>
+        </div>
+        <div class="cta-marquee-item" aria-hidden="true">
+          <span class="cta-marquee-sep">▼</span>
+          CONTACT
+          <span class="cta-marquee-sep">▼</span>
+          <span class="cta-marquee-ja">カウンセリング予約・お問合せはこちら</span>
+          <span class="cta-marquee-sep">▼</span>
+          CONTACT
+          <span class="cta-marquee-sep">▼</span>
+          <span class="cta-marquee-ja">カウンセリング予約・お問合せはこちら</span>
+          <span class="cta-marquee-sep">▼</span>
+          CONTACT
+          <span class="cta-marquee-sep">▼</span>
+          <span class="cta-marquee-ja">カウンセリング予約・お問合せはこちら</span>
+        </div>
+      </div>
+    </div>
+    <!-- 3分割パネル -->
+    <div class="cta-panels">
+      <a href="#" class="cta-panel">
+        <div class="cta-panel-bg" style="background-image: url('img/bg1.jpeg');"></div>
+        <div class="cta-panel-overlay"></div>
+        <div class="cta-panel-inner">
+          <span class="cta-panel-label">Webで予約する</span>
+          <span class="cta-panel-arrow">→</span>
+        </div>
+      </a>
+      <a href="#" class="cta-panel">
+        <div class="cta-panel-bg" style="background-image: url('img/bg2.jpeg');"></div>
+        <div class="cta-panel-overlay"></div>
+        <div class="cta-panel-inner">
+          <span class="cta-panel-label">LINE予約</span>
+          <span class="cta-panel-arrow">→</span>
+        </div>
+      </a>
+      <a href="#" class="cta-panel">
+        <div class="cta-panel-bg" style="background-image: url('img/bg3.jpeg');"></div>
+        <div class="cta-panel-overlay"></div>
+        <div class="cta-panel-inner">
+          <span class="cta-panel-label">LINE問合せ</span>
+          <span class="cta-panel-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER (ACCESS統合) ======= -->
+  <footer class="footer" id="access">
+
+    <!-- ① サイトナビグリッド -->
+    <div class="footer-nav">
+      <div class="container">
+        <div class="footer-nav-grid">
+          <div class="footer-nav-col">
+            <p class="footer-nav-heading">Menu</p>
+            <a href="tattoo.html" class="footer-nav-link">タトゥー <span class="footer-nav-arrow">→</span></a>
+            <a href="tattoo.html#ephemeral" class="footer-nav-link">エフェメラルタトゥー <span
+                class="footer-nav-arrow">→</span></a>
+            <a href="tattoo.html#retouch" class="footer-nav-link">レタッチ・修正 <span class="footer-nav-arrow">→</span></a>
+            <a href="tattoo.html#coverup" class="footer-nav-link">カバーアップ <span class="footer-nav-arrow">→</span></a>
+          </div>
+          <div class="footer-nav-col">
+            <p class="footer-nav-heading">About</p>
+            <a href="artists.html" class="footer-nav-link">アーティスト紹介 <span class="footer-nav-arrow">→</span></a>
+            <a href="pricing.html" class="footer-nav-link">料金 <span class="footer-nav-arrow">→</span></a>
+            <a href="gallery.html" class="footer-nav-link">作品ギャラリー <span class="footer-nav-arrow">→</span></a>
+          </div>
+          <div class="footer-nav-col">
+            <p class="footer-nav-heading">Info</p>
+            <a href="#access" class="footer-nav-link">アクセス <span class="footer-nav-arrow">→</span></a>
+            <a href="qa.html" class="footer-nav-link">FAQ <span class="footer-nav-arrow">→</span></a>
+          </div>
+          <div class="footer-nav-col">
+            <p class="footer-nav-heading">Contact</p>
+            <a href="#contact" class="footer-nav-link">Webで予約する <span class="footer-nav-arrow">→</span></a>
+            <a href="#contact" class="footer-nav-link">LINE予約 <span class="footer-nav-arrow">→</span></a>
+            <a href="#contact" class="footer-nav-link">LINE問合せ <span class="footer-nav-arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ② フルwidthマップ -->
+    <div class="footer-map">
+      <iframe
+        src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%B8%8A%E9%87%8E3%E4%B8%81%E7%9B%AE&output=embed&z=16"
+        loading="lazy" title="アクセスマップ"></iframe>
+    </div>
+
+    <!-- ③ ロゴ＋店舗情報 -->
+    <div class="footer-info">
+      <div class="container">
+        <div class="footer-info-inner">
+          <!-- 左: ロゴ＋SNS -->
+          <div class="footer-brand">
+            <a href="#"><img src="img/logo.png" alt="INKLY TATTOO STUDIO"></a>
+            <div class="footer-sns">
+              <a href="#" class="footer-sns-link" aria-label="Instagram">IG</a>
+              <a href="#" class="footer-sns-link" aria-label="LINE">LN</a>
+              <a href="#" class="footer-sns-link" aria-label="X">X</a>
+            </div>
+          </div>
+          <!-- 右: 店舗情報グリッド -->
+          <div class="footer-detail-grid">
+            <div>
+              <span class="footer-dt">Studio</span>
+              <p class="footer-dd">INKLY TATTOO STUDIO</p>
+            </div>
+            <div>
+              <span class="footer-dt">Hours</span>
+              <p class="footer-dd">11:00 – 21:00</p>
+            </div>
+            <div>
+              <span class="footer-dt">Closed</span>
+              <p class="footer-dd">年末年始</p>
+            </div>
+            <div>
+              <span class="footer-dt">Tel</span>
+              <p class="footer-dd">03-4400-5862</p>
+            </div>
+            <div class="footer-detail-full">
+              <span class="footer-dt">Address</span>
+              <p class="footer-dd">
+                〒110-0005 東京都台東区上野3-22-3 ジイドビル 2F<br>
+                提携医療機関 inklinic：同ビル1F<br>
+                <a href="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%B8%8A%E9%87%8E3%E4%B8%81%E7%9B%AE"
+                  target="_blank" rel="noopener">Google マップで開く →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ ボトムバー -->
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 INKLY TATTOO. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <script>
+    // --- Nav scroll ---
+    const hdr = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // --- Mobile nav ---
+    const toggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+    });
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        mobileNav.classList.remove('open');
+      });
+    });
+
+    // --- Fade in observer ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('on');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fi').forEach(el => observer.observe(el));
+
+    // --- FAQ accordion ---
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+
+</html>
