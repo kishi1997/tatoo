@@ -5,25 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery | INKLY TATTOO</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap"
-    rel="stylesheet">
   <style>
     :root {
       --color-bg: #FFFFFF;
-      --color-bg-s: #F8F7F4;
-      --color-bg-alt: #F2F0EC;
-      --color-bg-card: #EDEBE6;
+      --color-bg-s: #F6F6F6;
+      --color-bg-alt: #EEEEEE;
+      --color-bg-card: #E5E5E5;
       --color-text: #1A1A1A;
       --color-sub: #888888;
       --color-muted: #AAAAAA;
-      --color-accent: #c9a96e;
-      --color-accent-l: #d4b483;
-      --color-border: #E0DDD8;
-      --font-en: "EB Garamond", serif;
-      --font-ja: "Shippori Mincho", serif;
+      --color-accent: #1A1A1A;
+      --color-accent-l: #555555;
+      --color-border: #D8D8D8;
+      --font-en: "Yu Mincho", "YuMincho", "游明朝", serif;
+      --font-ja: "Yu Mincho", "YuMincho", "游明朝", serif;
       --max-w: 1200px;
       --nav-h: 72px;
       --sec-pad: 120px;
@@ -114,7 +109,7 @@
     .sec-en {
       display: block;
       font-family: var(--font-en);
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 300;
       letter-spacing: 0.28em;
       color: var(--color-accent);
@@ -150,7 +145,7 @@
       align-items: center;
       justify-content: center;
       padding: 14px 32px;
-      font-size: 13px;
+      font-size: 16px;
       font-family: var(--font-en);
       font-weight: 300;
       letter-spacing: 0.18em;
@@ -219,7 +214,7 @@
     }
 
     .nav-links a {
-      font-size: 11px;
+      font-size: 16px;
       letter-spacing: 0.15em;
       color: rgba(26, 26, 26, 0.7);
       font-weight: 300;
@@ -232,7 +227,7 @@
     }
 
     .nav-btn {
-      font-size: 11px;
+      font-size: 16px;
       letter-spacing: 0.18em;
       padding: 9px 20px;
       border: 1px solid rgba(26, 26, 26, 0.4);
@@ -297,7 +292,7 @@
     .mobile-nav a {
       display: block;
       padding: 18px 0;
-      font-size: 13px;
+      font-size: 16px;
       letter-spacing: 0.15em;
       color: var(--color-sub);
       text-align: center;
@@ -332,10 +327,10 @@
     .page-hero-en {
       display: block;
       font-family: var(--font-en);
-      font-size: 11px;
-      font-weight: 300;
+      font-size: 13px;
+      font-weight: 400;
       letter-spacing: 0.32em;
-      color: var(--color-accent);
+      color: var(--color-sub);
       text-transform: uppercase;
       margin-bottom: 16px;
     }
@@ -374,69 +369,6 @@
 
     .page-hero-breadcrumb a:hover {
       color: var(--color-accent);
-    }
-
-    /* FILTER */
-    .filter-sec {
-      padding: 48px 0;
-      background: var(--color-bg-s);
-      border-bottom: 1px solid var(--color-border);
-      position: sticky;
-      top: var(--nav-h);
-      z-index: 100;
-    }
-
-    .filter-group {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .filter-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .filter-label {
-      font-family: var(--font-en);
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      color: var(--color-muted);
-      text-transform: uppercase;
-      font-weight: 300;
-      min-width: 52px;
-    }
-
-    .filter-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .filter-tag {
-      padding: 6px 14px;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      font-family: var(--font-en);
-      font-weight: 300;
-      border: 1px solid var(--color-border);
-      color: var(--color-sub);
-      background: transparent;
-      cursor: pointer;
-      transition: var(--t);
-    }
-
-    .filter-tag:hover {
-      border-color: var(--color-sub);
-      color: var(--color-text);
-    }
-
-    .filter-tag.active {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
-      background: rgba(201, 169, 110, 0.08);
     }
 
     /* GALLERY GRID */
@@ -582,7 +514,8 @@
     .footer-brand img {
       height: 40px;
       width: auto;
-      object-fit: contain margin-bottom: 24px;
+      object-fit: contain;
+      margin-bottom: 24px;
     }
 
     .footer-addr {
@@ -815,48 +748,6 @@
     </div>
   </section>
 
-  <!-- FILTER -->
-  <div class="filter-sec">
-    <div class="container">
-      <div class="filter-group">
-        <div class="filter-row">
-          <span class="filter-label">Style</span>
-          <div class="filter-tags">
-            <button class="filter-tag active" data-filter="all">All</button>
-            <button class="filter-tag" data-filter="blackgrey">Black &amp; Grey</button>
-            <button class="filter-tag" data-filter="fineline">Fine Line</button>
-            <button class="filter-tag" data-filter="color">Color</button>
-            <button class="filter-tag" data-filter="japanese">Japanese</button>
-            <button class="filter-tag" data-filter="minimalist">Minimalist</button>
-            <button class="filter-tag" data-filter="lettering">Lettering</button>
-            <button class="filter-tag" data-filter="geometric">Geometric</button>
-          </div>
-        </div>
-        <div class="filter-row">
-          <span class="filter-label">Motif</span>
-          <div class="filter-tags">
-            <button class="filter-tag" data-filter="floral">Floral</button>
-            <button class="filter-tag" data-filter="animal">Animal</button>
-            <button class="filter-tag" data-filter="portrait">Portrait</button>
-            <button class="filter-tag" data-filter="abstract">Abstract</button>
-            <button class="filter-tag" data-filter="nature">Nature</button>
-            <button class="filter-tag" data-filter="symbol">Symbol</button>
-          </div>
-        </div>
-        <div class="filter-row">
-          <span class="filter-label">Size</span>
-          <div class="filter-tags">
-            <button class="filter-tag" data-filter="xxs">XXS</button>
-            <button class="filter-tag" data-filter="xs">XS</button>
-            <button class="filter-tag" data-filter="s">S</button>
-            <button class="filter-tag" data-filter="m">M</button>
-            <button class="filter-tag" data-filter="l">L</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- GALLERY -->
   <section class="gallery-sec">
     <div class="container">
@@ -1065,27 +956,6 @@
     mNav.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => { toggle.classList.remove('open'); mNav.classList.remove('open'); document.body.style.overflow = ''; });
     });
-
-    // Filter
-    document.querySelectorAll('.filter-tag').forEach(btn => {
-      btn.addEventListener('click', function () {
-        const row = this.closest('.filter-row');
-        row.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        applyFilters();
-      });
-    });
-
-    function applyFilters() {
-      const activeFilters = Array.from(document.querySelectorAll('.filter-tag.active'))
-        .map(b => b.dataset.filter).filter(f => f !== 'all');
-      const items = document.querySelectorAll('.gallery-item');
-      items.forEach(item => {
-        const attrs = [item.dataset.style, item.dataset.motif, item.dataset.size];
-        const show = activeFilters.length === 0 || activeFilters.every(f => attrs.includes(f));
-        item.style.display = show ? '' : 'none';
-      });
-    }
 
     // Lightbox
     const lightbox = document.getElementById('lightbox');

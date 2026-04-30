@@ -4,26 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Artists | INKLY TATTOO</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 /* ============================
    CUSTOM PROPERTIES
 ============================ */
 :root {
   --color-bg:       #FFFFFF;
-  --color-bg-s:     #F8F7F4;
-  --color-bg-alt:   #F2F0EC;
-  --color-bg-card:  #EDEBE6;
+  --color-bg-s:     #F6F6F6;
+  --color-bg-alt:   #EEEEEE;
+  --color-bg-card:  #E5E5E5;
   --color-text:     #1A1A1A;
   --color-sub:      #888888;
   --color-muted:    #AAAAAA;
-  --color-accent:   #c9a96e;
-  --color-accent-l: #d4b483;
-  --color-border:   #E0DDD8;
-  --font-en: "Cormorant Garamond", Georgia, serif;
-  --font-ja: "Noto Sans JP", sans-serif;
+  --color-accent:   #1A1A1A;
+  --color-accent-l: #555555;
+  --color-border:   #D8D8D8;
+  --font-en: "Yu Mincho", "YuMincho", "游明朝", serif;
+  --font-ja: "Yu Mincho", "YuMincho", "游明朝", serif;
   --max-w: 1200px;
   --nav-h: 72px;
   --sec-pad: 120px;
@@ -62,7 +59,7 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 /* SECTION HEADER */
 .sec-head { margin-bottom: 72px; }
 .sec-en {
-  display: block; font-family: var(--font-en); font-size: 12px; font-weight: 300;
+  display: block; font-family: var(--font-en); font-size: 16px; font-weight: 300;
   letter-spacing: 0.28em; color: var(--color-accent); text-transform: lowercase; margin-bottom: 10px;
 }
 .sec-title {
@@ -76,7 +73,7 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 /* BUTTONS */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 14px 32px; font-size: 13px; font-family: var(--font-en);
+  padding: 14px 32px; font-size: 16px; font-family: var(--font-en);
   font-weight: 300; letter-spacing: 0.18em; cursor: pointer;
   transition: var(--t); white-space: nowrap; border: none;
 }
@@ -106,12 +103,12 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 .nav-logo img { height: 44px; width: auto; object-fit: contain }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a {
-  font-size: 11px; letter-spacing: 0.15em;
+  font-size: 16px; letter-spacing: 0.15em;
   color: rgba(26,26,26,0.7); font-weight: 300; text-transform: uppercase;
 }
 .nav-links a:hover, .nav-links a.active { color: var(--color-accent); }
 .nav-btn {
-  font-size: 11px; letter-spacing: 0.18em; padding: 9px 20px;
+  font-size: 16px; letter-spacing: 0.18em; padding: 9px 20px;
   border: 1px solid rgba(26,26,26,0.4); color: rgba(26,26,26,0.85);
   background: transparent; cursor: pointer; font-family: var(--font-en);
   font-weight: 300; transition: var(--t); white-space: nowrap;
@@ -129,7 +126,7 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 }
 .mobile-nav.open { display: flex; }
 .mobile-nav a {
-  display: block; padding: 18px 0; font-size: 13px; letter-spacing: 0.15em;
+  display: block; padding: 18px 0; font-size: 16px; letter-spacing: 0.15em;
   color: var(--color-sub); text-align: center; text-transform: uppercase;
   width: 100%; border-bottom: 1px solid var(--color-border); max-width: 260px;
 }
@@ -145,8 +142,8 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 .page-hero-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
 .page-hero-text {}
 .page-hero-en {
-  display: block; font-family: var(--font-en); font-size: 11px; font-weight: 300;
-  letter-spacing: 0.32em; color: var(--color-accent); text-transform: uppercase; margin-bottom: 16px;
+  display: block; font-family: var(--font-en); font-size: 13px; font-weight: 400;
+  letter-spacing: 0.32em; color: var(--color-sub); text-transform: uppercase; margin-bottom: 16px;
 }
 .page-hero-title {
   font-family: var(--font-en); font-size: clamp(48px, 7vw, 88px);
