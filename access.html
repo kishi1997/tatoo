@@ -1,402 +1,958 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Access | INKLY TATTOO</title>
-<style>
-:root {
-  --color-bg:       #FFFFFF;
-  --color-bg-s:     #F6F6F6;
-  --color-bg-alt:   #EEEEEE;
-  --color-bg-card:  #E5E5E5;
-  --color-text:     #1A1A1A;
-  --color-sub:      #888888;
-  --color-muted:    #AAAAAA;
-  --color-accent:   #1A1A1A;
-  --color-accent-l: #555555;
-  --color-border:   #D8D8D8;
-  --font-en: "Yu Mincho", "YuMincho", "游明朝", serif;
-  --font-ja: "Yu Mincho", "YuMincho", "游明朝", serif;
-  --max-w: 1200px;
-  --nav-h: 72px;
-  --sec-pad: 120px;
-  --t: all 0.4s ease;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-ja); background: var(--color-bg); color: var(--color-text); line-height: 1.9; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-img { display: block; max-width: 100%; }
-a { text-decoration: none; color: inherit; transition: var(--t); }
-ul { list-style: none; }
-button { background: none; border: none; cursor: pointer; font-family: inherit; color: inherit; }
-.container { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access | INKLY TATTOO</title>
+  <style>
+    :root {
+      --color-bg: #FFFFFF;
+      --color-bg-s: #F6F6F6;
+      --color-bg-alt: #EEEEEE;
+      --color-bg-card: #E5E5E5;
+      --color-text: #1A1A1A;
+      --color-sub: #888888;
+      --color-muted: #AAAAAA;
+      --color-accent: #1A1A1A;
+      --color-accent-l: #555555;
+      --color-border: #D8D8D8;
+      --font-en: "Yu Mincho", "YuMincho", "游明朝", serif;
+      --font-ja: "Yu Mincho", "YuMincho", "游明朝", serif;
+      --max-w: 1200px;
+      --nav-h: 72px;
+      --sec-pad: 120px;
+      --t: all 0.4s ease;
+    }
 
-.fi { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.fi.on { opacity: 1; transform: translateY(0); }
-.fi-d1 { transition-delay: 0.1s; }
-.fi-d2 { transition-delay: 0.2s; }
-.fi-d3 { transition-delay: 0.3s; }
-.fi-d4 { transition-delay: 0.4s; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.sec-head { margin-bottom: 72px; }
-.sec-en { display: block; font-family: var(--font-en); font-size: 16px; font-weight: 300; letter-spacing: 0.28em; color: var(--color-accent); text-transform: lowercase; margin-bottom: 10px; }
-.sec-title { font-family: var(--font-ja); font-size: clamp(18px, 2.2vw, 26px); font-weight: 300; letter-spacing: 0.14em; color: var(--color-text); margin-bottom: 20px; }
-.sec-line { width: 36px; height: 1px; background: var(--color-accent); }
-.sec-head.center { text-align: center; }
-.sec-head.center .sec-line { margin: 0 auto; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; font-size: 16px; font-family: var(--font-en); font-weight: 300; letter-spacing: 0.18em; cursor: pointer; transition: var(--t); white-space: nowrap; border: none; }
-.btn-outline { border: 1px solid var(--color-text); color: var(--color-text); background: transparent; }
-.btn-outline:hover { background: var(--color-text); color: var(--color-bg); }
-.btn-ghost { border: 1px solid rgba(26,26,26,0.3); color: rgba(26,26,26,0.7); background: transparent; }
-.btn-ghost:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    body {
+      font-family: var(--font-ja);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background 0.5s ease, border-color 0.5s ease; border-bottom: 1px solid transparent; }
-.site-header.scrolled { background: rgba(255,255,255,0.97); border-bottom-color: var(--color-border); backdrop-filter: blur(8px); }
-.nav { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h); gap: 32px; }
-.nav-logo img { height: 44px; width: auto; object-fit: contain }
-.nav-links { display: flex; align-items: center; gap: 28px; }
-.nav-links a { font-size: 16px; letter-spacing: 0.15em; color: rgba(26,26,26,0.7); font-weight: 300; text-transform: uppercase; }
-.nav-links a:hover, .nav-links a.active { color: var(--color-accent); }
-.nav-btn { font-size: 16px; letter-spacing: 0.18em; padding: 9px 20px; border: 1px solid rgba(26,26,26,0.4); color: rgba(26,26,26,0.85); background: transparent; cursor: pointer; font-family: var(--font-en); font-weight: 300; transition: var(--t); white-space: nowrap; }
-.nav-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
-.nav-toggle { display: none; flex-direction: column; gap: 6px; padding: 8px; }
-.nav-toggle span { display: block; width: 22px; height: 1px; background: var(--color-text); transition: var(--t); }
-.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle.open span:nth-child(2) { opacity: 0; }
-.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.mobile-nav { display: none; position: fixed; inset: var(--nav-h) 0 0 0; z-index: 999; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; align-items: center; justify-content: center; gap: 0; }
-.mobile-nav.open { display: flex; }
-.mobile-nav a { display: block; padding: 18px 0; font-size: 16px; letter-spacing: 0.15em; color: var(--color-sub); text-align: center; text-transform: uppercase; width: 100%; border-bottom: 1px solid var(--color-border); max-width: 260px; }
-.mobile-nav a:hover { color: var(--color-accent); }
-.mobile-nav .btn { margin-top: 32px; }
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-.page-hero { padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; background: var(--color-bg-s); border-bottom: 1px solid var(--color-border); }
-.page-hero-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
-.page-hero-en { display: block; font-family: var(--font-en); font-size: 13px; font-weight: 400; letter-spacing: 0.32em; color: var(--color-sub); text-transform: uppercase; margin-bottom: 16px; }
-.page-hero-title { font-family: var(--font-en); font-size: clamp(48px, 7vw, 88px); font-weight: 300; font-style: italic; letter-spacing: 0.02em; color: var(--color-text); line-height: 1.0; margin-bottom: 8px; }
-.page-hero-ja { font-family: var(--font-ja); font-size: 14px; font-weight: 300; letter-spacing: 0.2em; color: var(--color-sub); }
-.page-hero-breadcrumb { display: flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.12em; color: var(--color-muted); }
-.page-hero-breadcrumb a { color: var(--color-muted); }
-.page-hero-breadcrumb a:hover { color: var(--color-accent); }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--t);
+    }
 
-/* MAP */
-.map-sec { padding: var(--sec-pad) 0; background: var(--color-bg); }
-.map-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
-.map-wrap { position: relative; }
-.map-wrap iframe {
-  width: 100%; height: 440px; border: none;
-  filter: grayscale(100%) contrast(90%) brightness(95%);
-  display: block;
-}
-.map-caption { margin-top: 16px; font-size: 11px; color: var(--color-muted); letter-spacing: 0.08em; }
-.map-caption a { color: var(--color-muted); }
-.map-caption a:hover { color: var(--color-accent); }
+    ul {
+      list-style: none;
+    }
 
-/* STUDIO INFO */
-.studio-info { display: flex; flex-direction: column; gap: 0; }
-.info-group { padding: 24px 0; border-bottom: 1px solid var(--color-border); }
-.info-group:first-child { border-top: 1px solid var(--color-border); }
-.info-label { font-family: var(--font-en); font-size: 11px; letter-spacing: 0.22em; color: var(--color-sub); text-transform: uppercase; font-weight: 400; margin-bottom: 8px; }
-.info-value { font-size: 13px; color: var(--color-text); line-height: 1.9; letter-spacing: 0.06em; }
-.info-sub { font-size: 12px; color: var(--color-sub); margin-top: 4px; }
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      color: inherit;
+    }
 
-/* TRAIN ACCESS */
-.train-sec { padding: var(--sec-pad) 0; background: var(--color-bg-s); }
-.train-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
-.train-card { background: var(--color-bg-card); padding: 32px 28px; display: flex; align-items: center; gap: 20px; }
-.train-icon {
-  width: 48px; height: 48px; border: 1px solid var(--color-accent);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.train-icon-inner {
-  font-family: var(--font-en); font-size: 14px; font-weight: 300;
-  color: var(--color-accent); letter-spacing: 0.06em; text-align: center;
-}
-.train-body {}
-.train-line { font-size: 11px; letter-spacing: 0.1em; color: var(--color-muted); font-weight: 300; margin-bottom: 4px; }
-.train-station { font-size: 15px; font-weight: 400; letter-spacing: 0.08em; color: var(--color-text); margin-bottom: 4px; }
-.train-time {
-  font-family: var(--font-en); font-size: 24px; font-weight: 300;
-  color: var(--color-accent); letter-spacing: 0.04em;
-}
-.train-time span { font-size: 11px; letter-spacing: 0.1em; color: var(--color-muted); margin-left: 4px; }
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 48px;
+    }
 
-/* CTA */
-.cta-strip { padding: 100px 0; background: var(--color-bg-alt); border-top: 1px solid var(--color-border); text-align: center; }
-.cta-label { display: block; font-family: var(--font-en); font-size: 13px; font-weight: 400; letter-spacing: 0.3em; color: var(--color-sub); margin-bottom: 16px; text-transform: uppercase; }
-.cta-title { font-family: var(--font-en); font-size: clamp(36px, 5vw, 64px); font-weight: 300; font-style: italic; letter-spacing: 0.04em; color: var(--color-text); margin-bottom: 6px; }
-.cta-title-ja { display: block; font-family: var(--font-ja); font-size: 14px; font-weight: 300; letter-spacing: 0.2em; color: var(--color-sub); margin-bottom: 48px; }
-.cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .fi {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
 
-.footer { background: var(--color-bg-s); border-top: 1px solid var(--color-border); padding: 80px 0 0; }
-.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
-.footer-brand img { height: 40px; width: auto; object-fit: contain margin-bottom: 24px; }
-.footer-addr { font-size: 12px; color: var(--color-sub); line-height: 2.0; letter-spacing: 0.04em; }
-.footer-col-title { font-family: var(--font-en); font-size: 11px; letter-spacing: 0.2em; color: var(--color-sub); text-transform: uppercase; margin-bottom: 20px; font-weight: 400; }
-.footer-links li { margin-bottom: 10px; }
-.footer-links a { font-size: 12px; color: var(--color-sub); letter-spacing: 0.06em; font-weight: 300; }
-.footer-links a:hover { color: var(--color-accent); }
-.footer-bottom { border-top: 1px solid var(--color-border); padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
-.footer-copy { font-size: 11px; color: var(--color-muted); letter-spacing: 0.08em; }
-.footer-legal { display: flex; gap: 24px; }
-.footer-legal a { font-size: 11px; color: var(--color-muted); letter-spacing: 0.08em; }
-.footer-legal a:hover { color: var(--color-sub); }
+    .fi.on {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-@media (max-width: 1024px) {
-  .container { padding: 0 32px; }
-  .map-inner { grid-template-columns: 1fr; gap: 48px; }
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
-}
-@media (max-width: 768px) {
-  :root { --sec-pad: 80px; }
-  .container { padding: 0 20px; }
-  .nav-links, .nav-btn-wrap { display: none; }
-  .nav-toggle { display: flex; }
-  .page-hero-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .train-grid { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-}
-@media (max-width: 480px) {
-  .cta-actions .btn { width: 100%; max-width: 260px; }
-  .map-wrap iframe { height: 320px; }
-}
-</style>
-<style>.fi { opacity: 1 !important; transform: none !important; }</style>
-<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+    .fi-d1 {
+      transition-delay: 0.1s;
+    }
+
+    .fi-d2 {
+      transition-delay: 0.2s;
+    }
+
+    .fi-d3 {
+      transition-delay: 0.3s;
+    }
+
+    .fi-d4 {
+      transition-delay: 0.4s;
+    }
+
+    .sec-head {
+      margin-bottom: 72px;
+    }
+
+    .sec-en {
+      display: block;
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      color: var(--color-accent);
+      text-transform: lowercase;
+      margin-bottom: 10px;
+    }
+
+    .sec-title {
+      font-family: var(--font-ja);
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      color: var(--color-text);
+      margin-bottom: 20px;
+    }
+
+    .sec-line {
+      width: 36px;
+      height: 1px;
+      background: var(--color-accent);
+    }
+
+    .sec-head.center {
+      text-align: center;
+    }
+
+    .sec-head.center .sec-line {
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      font-size: 16px;
+      font-family: var(--font-en);
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      transition: var(--t);
+      white-space: nowrap;
+      border: none;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--color-text);
+      color: var(--color-text);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--color-text);
+      color: var(--color-bg);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(26, 26, 26, 0.3);
+      color: rgba(26, 26, 26, 0.7);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: background 0.5s ease, border-color 0.5s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-header.scrolled {
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom-color: var(--color-border);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-h);
+      gap: 32px;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      letter-spacing: 0.15em;
+      color: rgba(26, 26, 26, 0.7);
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--color-accent);
+    }
+
+    .nav-btn {
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      padding: 9px 20px;
+      border: 1px solid rgba(26, 26, 26, 0.4);
+      color: rgba(26, 26, 26, 0.85);
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--font-en);
+      font-weight: 300;
+      transition: var(--t);
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--color-text);
+      transition: var(--t);
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: var(--nav-h) 0 0 0;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 18px 0;
+      font-size: 16px;
+      letter-spacing: 0.15em;
+      color: var(--color-sub);
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+      border-bottom: 1px solid var(--color-border);
+      max-width: 260px;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--color-accent);
+    }
+
+    .mobile-nav .btn {
+      margin-top: 32px;
+    }
+
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 80px);
+      padding-bottom: 80px;
+      background: var(--color-bg-s);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .page-hero-inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .page-hero-en {
+      display: block;
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      color: var(--color-sub);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .page-hero-title {
+      font-family: var(--font-en);
+      font-size: clamp(48px, 7vw, 88px);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      color: var(--color-text);
+      line-height: 1.0;
+      margin-bottom: 8px;
+    }
+
+    .page-hero-ja {
+      font-family: var(--font-ja);
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: var(--color-sub);
+    }
+
+    .page-hero-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--color-muted);
+    }
+
+    .page-hero-breadcrumb a {
+      color: var(--color-muted);
+    }
+
+    .page-hero-breadcrumb a:hover {
+      color: var(--color-accent);
+    }
+
+    /* MAP */
+    .map-sec {
+      padding: var(--sec-pad) 0;
+      background: var(--color-bg);
+    }
+
+    .map-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .map-wrap {
+      position: relative;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 440px;
+      border: none;
+      filter: grayscale(100%) contrast(90%) brightness(95%);
+      display: block;
+    }
+
+    .map-caption {
+      margin-top: 16px;
+      font-size: 11px;
+      color: var(--color-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .map-caption a {
+      color: var(--color-muted);
+    }
+
+    .map-caption a:hover {
+      color: var(--color-accent);
+    }
+
+    /* STUDIO INFO */
+    .studio-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .info-group {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .info-group:first-child {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .info-label {
+      font-family: var(--font-en);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--color-sub);
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .info-value {
+      font-size: 13px;
+      color: var(--color-text);
+      line-height: 1.9;
+      letter-spacing: 0.06em;
+    }
+
+    .info-sub {
+      font-size: 12px;
+      color: var(--color-sub);
+      margin-top: 4px;
+    }
+
+    /* TRAIN ACCESS */
+    .train-sec {
+      padding: var(--sec-pad) 0;
+      background: var(--color-bg-s);
+    }
+
+    .train-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+
+    .train-card {
+      background: var(--color-bg-card);
+      padding: 32px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .train-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .train-icon-inner {
+      font-family: var(--font-en);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--color-accent);
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    .train-body {}
+
+    .train-line {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--color-muted);
+      font-weight: 300;
+      margin-bottom: 4px;
+    }
+
+    .train-station {
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+
+    .train-time {
+      font-family: var(--font-en);
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--color-accent);
+      letter-spacing: 0.04em;
+    }
+
+    .train-time span {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--color-muted);
+      margin-left: 4px;
+    }
+
+    /* CTA */
+    .cta-strip {
+      padding: 100px 0;
+      background: var(--color-bg-alt);
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    .cta-label {
+      display: block;
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--color-sub);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .cta-title {
+      font-family: var(--font-en);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+
+    .cta-title-ja {
+      display: block;
+      font-family: var(--font-ja);
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: var(--color-sub);
+      margin-bottom: 48px;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      background: var(--color-bg-s);
+      border-top: 1px solid var(--color-border);
+      padding: 80px 0 0;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+
+    .footer-brand img {
+      height: 40px;
+      width: auto;
+      object-fit: contain margin-bottom: 24px;
+    }
+
+    .footer-addr {
+      font-size: 12px;
+      color: var(--color-sub);
+      line-height: 2.0;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-en);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--color-sub);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--color-sub);
+      letter-spacing: 0.06em;
+      font-weight: 300;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--color-border);
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--color-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-size: 11px;
+      color: var(--color-muted);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-legal a:hover {
+      color: var(--color-sub);
+    }
+
+    @media (max-width: 1024px) {
+      .container {
+        padding: 0 32px;
+      }
+
+      .map-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --sec-pad: 80px;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      .nav-links,
+      .nav-btn-wrap {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .page-hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .train-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cta-actions .btn {
+        width: 100%;
+        max-width: 260px;
+      }
+
+      .map-wrap iframe {
+        height: 320px;
+      }
+    }
+  </style>
+  <style>
+    .fi {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  </style>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
+
 <body>
 
-<header class="site-header" id="site-header">
-  <nav class="nav container">
-    <a href="index.html" class="nav-logo">
-      <img src="img/logo.png" alt="INKLY TATTOO STUDIO">
-    </a>
-    <ul class="nav-links">
-      <li><a href="artists.html">Artists</a></li>
-      <li><a href="tattoo.html">Services</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="access.html" class="active">Access</a></li>
-      <li><a href="qa.html">FAQ</a></li>
-    </ul>
-    <div class="nav-btn-wrap">
-      <button class="nav-btn" onclick="location.href='index.html#contact'">RESERVE</button>
-    </div>
-    <button class="nav-toggle" id="nav-toggle" aria-label="menu">
-      <span></span><span></span><span></span>
-    </button>
+  <header class="site-header" id="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo.png" alt="INKLY TATTOO STUDIO">
+      </a>
+      <ul class="nav-links">
+        <li><a href="artists.html">Artists</a></li>
+        <li><a href="tattoo.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="access.html" class="active">Access</a></li>
+        <li><a href="qa.html">FAQ</a></li>
+      </ul>
+      <div class="nav-btn-wrap">
+        <button class="nav-btn" onclick="location.href='index.html#contact'">RESERVE</button>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="artists.html">Artists</a>
+    <a href="tattoo.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="access.html">Access</a>
+    <a href="qa.html">FAQ</a>
+    <a href="index.html#contact" class="btn btn-outline"
+      style="margin-top:28px;letter-spacing:0.2em;font-size:11px;">RESERVE</a>
   </nav>
-</header>
 
-<nav class="mobile-nav" id="mobile-nav">
-  <a href="artists.html">Artists</a>
-  <a href="tattoo.html">Services</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="access.html">Access</a>
-  <a href="qa.html">FAQ</a>
-  <a href="index.html#contact" class="btn btn-outline" style="margin-top:28px;letter-spacing:0.2em;font-size:11px;">RESERVE</a>
-</nav>
-
-<section class="page-hero">
-  <div class="container">
-    <div class="page-hero-inner">
-      <div class="fi">
-        <span class="page-hero-en">access</span>
-        <h1 class="page-hero-title">Access</h1>
-        <span class="page-hero-ja">【 アクセス 】</span>
-      </div>
-      <div class="page-hero-breadcrumb fi fi-d1">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        <span>Access</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MAP & INFO -->
-<section class="map-sec">
-  <div class="container">
-    <div class="map-inner">
-      <div class="map-wrap fi">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.5574697847697!2d139.77407!3d35.712836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188eca20a04a91%3A0x3a3c22e6e1f3aa1e!2z5Lqs5Y-j6YO955uu5Y-35Yy65LiA6YeO3-22-3!5e0!3m2!1sja!2sjp!4v1620000000000"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="INKLY TATTOO アクセスマップ">
-        </iframe>
-        <p class="map-caption">
-          <a href="https://maps.google.com/?q=東京都台東区上野3-22-3" target="_blank" rel="noopener">Google マップで開く →</a>
-        </p>
-      </div>
-      <div class="studio-info fi fi-d1">
-        <div class="info-group">
-          <p class="info-label">Studio Name</p>
-          <p class="info-value">INKLY TATTOO STUDIO</p>
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="fi">
+          <span class="page-hero-en">access</span>
+          <h1 class="page-hero-title">Access</h1>
+          <span class="page-hero-ja">【 アクセス 】</span>
         </div>
-        <div class="info-group">
-          <p class="info-label">Address</p>
-          <p class="info-value">〒110-0005<br>東京都台東区上野3-22-3<br>ジイドビル 2F</p>
-          <p class="info-sub">提携医療機関 inklinic：同ビル1F</p>
-        </div>
-        <div class="info-group">
-          <p class="info-label">Hours</p>
-          <p class="info-value">11:00 – 21:00</p>
-          <p class="info-sub">定休日：年末年始</p>
-        </div>
-        <div class="info-group">
-          <p class="info-label">Phone</p>
-          <p class="info-value">03-4400-5862</p>
-        </div>
-        <div class="info-group">
-          <p class="info-label">Reservation</p>
-          <p class="info-value" style="font-size:12px;color:var(--color-sub);">完全予約制。Webまたは公式LINEよりご予約ください。</p>
+        <div class="page-hero-breadcrumb fi fi-d1">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Access</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- TRAIN ACCESS -->
-<section class="train-sec">
-  <div class="container">
-    <div class="sec-head fi">
-      <span class="sec-en">by train</span>
-      <h2 class="sec-title">【 電車でのアクセス 】</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="train-grid">
-      <div class="train-card fi fi-d1">
-        <div class="train-icon">
-          <span class="train-icon-inner">JR</span>
+  <!-- MAP & INFO -->
+  <section class="map-sec">
+    <div class="container">
+      <div class="map-inner">
+        <div class="map-wrap fi">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.5574697847697!2d139.77407!3d35.712836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188eca20a04a91%3A0x3a3c22e6e1f3aa1e!2z5Lqs5Y-j6YO955uu5Y-35Yy65LiA6YeO3-22-3!5e0!3m2!1sja!2sjp!4v1620000000000"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="INKLY TATTOO アクセスマップ">
+          </iframe>
+          <p class="map-caption">
+            <a href="https://maps.google.com/?q=東京都台東区上野3-22-3" target="_blank" rel="noopener">Google マップで開く →</a>
+          </p>
         </div>
-        <div class="train-body">
-          <p class="train-line">JR 京浜東北線 / 山手線</p>
-          <p class="train-station">御徒町駅</p>
-          <p class="train-time">3<span>min walk</span></p>
-        </div>
-      </div>
-      <div class="train-card fi fi-d2">
-        <div class="train-icon">
-          <span class="train-icon-inner">JR</span>
-        </div>
-        <div class="train-body">
-          <p class="train-line">JR 各線</p>
-          <p class="train-station">上野駅</p>
-          <p class="train-time">5<span>min walk</span></p>
-        </div>
-      </div>
-      <div class="train-card fi fi-d1">
-        <div class="train-icon">
-          <span class="train-icon-inner" style="font-size:11px;letter-spacing:0.02em;">銀座</span>
-        </div>
-        <div class="train-body">
-          <p class="train-line">東京メトロ 銀座線</p>
-          <p class="train-station">上野広小路駅</p>
-          <p class="train-time">2<span>min walk</span></p>
-        </div>
-      </div>
-      <div class="train-card fi fi-d2">
-        <div class="train-icon">
-          <span class="train-icon-inner" style="font-size:11px;letter-spacing:0.02em;">大江戸</span>
-        </div>
-        <div class="train-body">
-          <p class="train-line">都営大江戸線</p>
-          <p class="train-station">上野御徒町駅</p>
-          <p class="train-time">2<span>min walk</span></p>
-        </div>
-      </div>
-      <div class="train-card fi fi-d1" style="grid-column: 1 / -1; max-width: 50%;">
-        <div class="train-icon">
-          <span class="train-icon-inner" style="font-size:11px;letter-spacing:0.02em;">千代田</span>
-        </div>
-        <div class="train-body">
-          <p class="train-line">東京メトロ 千代田線</p>
-          <p class="train-station">湯島駅</p>
-          <p class="train-time">5<span>min walk</span></p>
+        <div class="studio-info fi fi-d1">
+          <div class="info-group">
+            <p class="info-label">Studio Name</p>
+            <p class="info-value">INKLY TATTOO STUDIO</p>
+          </div>
+          <div class="info-group">
+            <p class="info-label">Address</p>
+            <p class="info-value">〒110-0005<br>東京都台東区上野3-22-3<br>ジイドビル 2F</p>
+            <p class="info-sub">提携医療機関 inklinic：同ビル1F</p>
+          </div>
+          <div class="info-group">
+            <p class="info-label">Hours</p>
+            <p class="info-value">11:00 – 21:00</p>
+            <p class="info-sub">定休日：年末年始</p>
+          </div>
+          <div class="info-group">
+            <p class="info-label">Phone</p>
+            <p class="info-value">03-4400-5862</p>
+          </div>
+          <div class="info-group">
+            <p class="info-label">Reservation</p>
+            <p class="info-value" style="font-size:12px;color:var(--color-sub);">完全予約制。Webまたは公式LINEよりご予約ください。</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="cta-strip">
-  <div class="container">
-    <span class="cta-label fi">Contact</span>
-    <h2 class="cta-title fi fi-d1">Reservation</h2>
-    <span class="cta-title-ja fi fi-d2">ご予約・ご相談</span>
-    <p class="fi fi-d2" style="font-size:13px;color:var(--color-sub);margin-bottom:48px;letter-spacing:0.05em;">まずはお気軽にご相談ください。</p>
-    <div class="cta-actions fi fi-d3">
-      <a href="#" class="btn btn-outline">Webで予約する</a>
-      <a href="#" class="btn btn-ghost">LINEで相談する</a>
+  <!-- TRAIN ACCESS -->
+  <section class="train-sec">
+    <div class="container">
+      <div class="sec-head fi">
+        <span class="sec-en">by train</span>
+        <h2 class="sec-title">【 電車でのアクセス 】</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="train-grid">
+        <div class="train-card fi fi-d1">
+          <div class="train-icon">
+            <span class="train-icon-inner">JR</span>
+          </div>
+          <div class="train-body">
+            <p class="train-line">JR 京浜東北線 / 山手線</p>
+            <p class="train-station">御徒町駅</p>
+            <p class="train-time">3<span>min walk</span></p>
+          </div>
+        </div>
+        <div class="train-card fi fi-d2">
+          <div class="train-icon">
+            <span class="train-icon-inner">JR</span>
+          </div>
+          <div class="train-body">
+            <p class="train-line">JR 各線</p>
+            <p class="train-station">上野駅</p>
+            <p class="train-time">5<span>min walk</span></p>
+          </div>
+        </div>
+        <div class="train-card fi fi-d1">
+          <div class="train-icon">
+            <span class="train-icon-inner" style="font-size:11px;letter-spacing:0.02em;">銀座</span>
+          </div>
+          <div class="train-body">
+            <p class="train-line">東京メトロ 銀座線</p>
+            <p class="train-station">上野広小路駅</p>
+            <p class="train-time">2<span>min walk</span></p>
+          </div>
+        </div>
+        <div class="train-card fi fi-d2">
+          <div class="train-icon">
+            <span class="train-icon-inner" style="font-size:11px;letter-spacing:0.02em;">大江戸</span>
+          </div>
+          <div class="train-body">
+            <p class="train-line">都営大江戸線</p>
+            <p class="train-station">上野御徒町駅</p>
+            <p class="train-time">2<span>min walk</span></p>
+          </div>
+        </div>
+        <div class="train-card fi fi-d1" style="grid-column: 1 / -1; max-width: 50%;">
+          <div class="train-icon">
+            <span class="train-icon-inner" style="font-size:11px;letter-spacing:0.02em;">千代田</span>
+          </div>
+          <div class="train-body">
+            <p class="train-line">東京メトロ 千代田線</p>
+            <p class="train-station">湯島駅</p>
+            <p class="train-time">5<span>min walk</span></p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="index.html"><img src="img/logo.png" alt="INKLY TATTOO STUDIO"></a>
-        <p class="footer-addr">〒110-0005<br>東京都台東区上野3-22-3 ジイドビル 2F<br>提携医療機関 inklinic：同ビル1F<br><br>11:00 – 21:00（定休日：年末年始）<br>03-4400-5862</p>
-      </div>
-      <div>
-        <p class="footer-col-title">Menu</p>
-        <ul class="footer-links">
-          <li><a href="artists.html">アーティスト</a></li>
-          <li><a href="tattoo.html">タトゥーについて</a></li>
-          <li><a href="pricing.html">料金</a></li>
-          <li><a href="gallery.html">作品ギャラリー</a></li>
-          <li><a href="access.html">アクセス</a></li>
-          <li><a href="qa.html">Q&amp;A</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title">Legal</p>
-        <ul class="footer-links">
-          <li><a href="#">プライバシーポリシー</a></li>
-          <li><a href="#">利用規約</a></li>
-          <li><a href="#">特定商取引法</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-col-title">Follow</p>
-        <ul class="footer-links">
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Twitter / X</a></li>
-          <li><a href="#">LINE公式アカウント</a></li>
-        </ul>
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="container">
+      <span class="cta-label fi">Contact</span>
+      <h2 class="cta-title fi fi-d1">Reservation</h2>
+      <span class="cta-title-ja fi fi-d2">ご予約・ご相談</span>
+      <p class="fi fi-d2" style="font-size:13px;color:var(--color-sub);margin-bottom:48px;letter-spacing:0.05em;">
+        まずはお気軽にご相談ください。</p>
+      <div class="cta-actions fi fi-d3">
+        <a href="#" class="btn btn-outline">Webで予約する</a>
+        <a href="#" class="btn btn-ghost">LINEで相談する</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 INKLY TATTOO. All rights reserved.</p>
-      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
-    </div>
-  </div>
-</footer>
+  </section>
 
-<script>
-const hdr = document.getElementById('site-header');
-window.addEventListener('scroll', () => { hdr.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
-const toggle = document.getElementById('nav-toggle');
-const mNav = document.getElementById('mobile-nav');
-toggle.addEventListener('click', () => {
-  toggle.classList.toggle('open'); mNav.classList.toggle('open');
-  document.body.style.overflow = mNav.classList.contains('open') ? 'hidden' : '';
-});
-mNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => { toggle.classList.remove('open'); mNav.classList.remove('open'); document.body.style.overflow = ''; });
-});
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fi').forEach(el => io.observe(el));
-</script>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html"><img src="img/logo.png" alt="INKLY TATTOO STUDIO"></a>
+          <p class="footer-addr">〒110-0005<br>東京都台東区上野3-22-3 ジイドビル 2F<br>提携医療機関 inklinic：同ビル1F<br><br>11:00 –
+            21:00（定休日：年末年始）<br>03-4400-5862</p>
+        </div>
+        <div>
+          <p class="footer-col-title">Menu</p>
+          <ul class="footer-links">
+            <li><a href="artists.html">アーティスト</a></li>
+            <li><a href="tattoo.html">タトゥーについて</a></li>
+            <li><a href="pricing.html">料金</a></li>
+            <li><a href="gallery.html">作品ギャラリー</a></li>
+            <li><a href="access.html">アクセス</a></li>
+            <li><a href="qa.html">Q&amp;A</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Legal</p>
+          <ul class="footer-links">
+            <li><a href="#">プライバシーポリシー</a></li>
+            <li><a href="#">利用規約</a></li>
+            <li><a href="#">特定商取引法</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Follow</p>
+          <ul class="footer-links">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter / X</a></li>
+            <li><a href="#">LINE公式アカウント</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 INKLY TATTOO. All rights reserved.</p>
+        <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hdr = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { hdr.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+    const toggle = document.getElementById('nav-toggle');
+    const mNav = document.getElementById('mobile-nav');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open'); mNav.classList.toggle('open');
+      document.body.style.overflow = mNav.classList.contains('open') ? 'hidden' : '';
+    });
+    mNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => { toggle.classList.remove('open'); mNav.classList.remove('open'); document.body.style.overflow = ''; });
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fi').forEach(el => io.observe(el));
+  </script>
 </body>
+
 </html>
