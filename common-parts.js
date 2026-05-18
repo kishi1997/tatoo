@@ -134,7 +134,6 @@
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.94);
       color: var(--color-text);
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
       display: inline-flex;
       flex-direction: column;
       align-items: center;
