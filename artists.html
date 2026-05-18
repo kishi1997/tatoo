@@ -549,66 +549,6 @@
       fill: currentColor;
     }
 
-    .artists-grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-
-    .artists-grid .artist-card:nth-child(n+2) {
-      display: none;
-    }
-
-    .artists-grid .artist-card:first-child {
-      display: grid;
-      grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
-      gap: 64px;
-      align-items: center;
-      background: transparent;
-      border: 0;
-    }
-
-    .artists-grid .artist-card:first-child:hover {
-      background: transparent;
-    }
-
-    .artists-grid .artist-card:first-child .artist-img-wrap {
-      aspect-ratio: 4/5;
-      border: 1px solid var(--color-border);
-    }
-
-    .artists-grid .artist-card:first-child .artist-body {
-      padding: 0;
-      max-width: 640px;
-    }
-
-    .artists-grid .artist-card:first-child .artist-name-en {
-      font-size: clamp(56px, 8vw, 104px);
-      letter-spacing: 0.02em;
-      line-height: 1;
-      margin-bottom: 18px;
-    }
-
-    .artists-grid .artist-card:first-child .artist-name-ja {
-      font-size: 16px;
-      letter-spacing: 0.14em;
-      line-height: 1.9;
-      margin-bottom: 24px;
-    }
-
-    .artists-grid .artist-card:first-child .artist-specialty {
-      font-size: 16px;
-      letter-spacing: 0.18em;
-      line-height: 1.8;
-      margin-bottom: 28px;
-    }
-
-    .artists-grid .artist-card:first-child .artist-bio {
-      font-size: 16px;
-      line-height: 2.1;
-      letter-spacing: 0.08em;
-      margin-bottom: 32px;
-    }
-
     /* CTA STRIP */
     .cta-strip {
       padding: 100px 0;
@@ -746,11 +686,6 @@
         grid-template-columns: 1fr;
       }
 
-      .artists-grid .artist-card:first-child {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
       .footer-inner {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
@@ -776,10 +711,6 @@
       }
 
       .artists-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .artists-grid .artist-card:first-child {
         grid-template-columns: 1fr;
       }
 
@@ -886,7 +817,7 @@
         <!-- OHINA -->
         <div class="artist-card fi fi-d1">
           <div class="artist-img-wrap">
-            <img src="img/ohina.jpg" alt="OHINA">
+            <img src="img/ohina.png" alt="OHINA">
             <div class="artist-badges">
               <span class="badge badge-gold">Re’ink Artist</span>
             </div>
@@ -1010,7 +941,7 @@
         </div>
 
         <!-- Shiho -->
-        <div class="artist-card fi fi-d1" style="grid-column: 2;">
+        <div class="artist-card fi fi-d1">
           <div class="artist-img-wrap">
             <img src="img/ink7.png" alt="Shiho">
             <div class="artist-badges">
