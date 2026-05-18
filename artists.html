@@ -365,8 +365,6 @@
       gap: 40px;
     }
 
-    .page-hero-text {}
-
     .page-hero-en {
       display: block;
       font-family: var(--font-en);
@@ -551,6 +549,66 @@
       fill: currentColor;
     }
 
+    .artists-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .artists-grid .artist-card:nth-child(n+2) {
+      display: none;
+    }
+
+    .artists-grid .artist-card:first-child {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+      gap: 64px;
+      align-items: center;
+      background: transparent;
+      border: 0;
+    }
+
+    .artists-grid .artist-card:first-child:hover {
+      background: transparent;
+    }
+
+    .artists-grid .artist-card:first-child .artist-img-wrap {
+      aspect-ratio: 4/5;
+      border: 1px solid var(--color-border);
+    }
+
+    .artists-grid .artist-card:first-child .artist-body {
+      padding: 0;
+      max-width: 640px;
+    }
+
+    .artists-grid .artist-card:first-child .artist-name-en {
+      font-size: clamp(56px, 8vw, 104px);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .artists-grid .artist-card:first-child .artist-name-ja {
+      font-size: 16px;
+      letter-spacing: 0.14em;
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    .artists-grid .artist-card:first-child .artist-specialty {
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .artists-grid .artist-card:first-child .artist-bio {
+      font-size: 16px;
+      line-height: 2.1;
+      letter-spacing: 0.08em;
+      margin-bottom: 32px;
+    }
+
     /* CTA STRIP */
     .cta-strip {
       padding: 100px 0;
@@ -613,7 +671,8 @@
     .footer-brand img {
       height: 40px;
       width: auto;
-      object-fit: contain margin-bottom: 24px;
+      object-fit: contain;
+      margin-bottom: 24px;
     }
 
     .footer-addr {
@@ -684,7 +743,12 @@
       }
 
       .artists-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+      }
+
+      .artists-grid .artist-card:first-child {
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
 
       .footer-inner {
@@ -712,6 +776,10 @@
       }
 
       .artists-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .artists-grid .artist-card:first-child {
         grid-template-columns: 1fr;
       }
 
@@ -746,6 +814,7 @@
       transform: none !important;
     }
   </style>
+  <link rel="stylesheet" href="subpage-tone.css">
   <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 
@@ -760,9 +829,9 @@
       <ul class="nav-links">
         <li><a href="artists.html" class="active">Artists</a></li>
         <li><a href="tattoo.html">Services</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="index.html#flow">Flow</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="access.html">Access</a></li>
+        <li><a href="index.html#access">Access</a></li>
         <li><a href="qa.html">FAQ</a></li>
       </ul>
       <div class="nav-btn-wrap">
@@ -778,9 +847,9 @@
   <nav class="mobile-nav" id="mobile-nav">
     <a href="artists.html">Artists</a>
     <a href="tattoo.html">Services</a>
-    <a href="pricing.html">Pricing</a>
+    <a href="index.html#flow">Flow</a>
     <a href="gallery.html">Gallery</a>
-    <a href="access.html">Access</a>
+    <a href="index.html#access">Access</a>
     <a href="qa.html">FAQ</a>
     <a href="index.html#contact" class="btn btn-outline"
       style="margin-top:28px;letter-spacing:0.2em;font-size:11px;">RESERVE</a>
@@ -814,25 +883,25 @@
       </div>
       <div class="artists-grid">
 
-        <!-- Aimi -->
+        <!-- OHINA -->
         <div class="artist-card fi fi-d1">
           <div class="artist-img-wrap">
-            <img src="img/ink1.jpg" alt="Aimi">
+            <img src="img/ink1.jpg" alt="OHINA">
             <div class="artist-badges">
-              <span class="badge badge-gold">海外留学経験</span>
+              <span class="badge badge-gold">Re’ink Artist</span>
             </div>
           </div>
           <div class="artist-body">
-            <p class="artist-name-en">Aimi</p>
-            <p class="artist-name-ja">相美</p>
-            <p class="artist-specialty">Fine Line / Minimalist</p>
-            <p class="artist-bio">ニューヨーク留学で磨いた繊細なファインラインが得意。小さなモチーフから複雑なデザインまで、お客様の想いをカタチにします。</p>
+            <p class="artist-name-en">OHINA</p>
+            <p class="artist-name-ja">Fine line / One point / Korean style</p>
+            <p class="artist-specialty">Artist / Re’ink Omotesando</p>
+            <p class="artist-bio">“日常に自然に馴染むデザイン”を大切にしています。繊細なライン、ワンポイント、韓国風のミニマルな表現を中心に、お客様の雰囲気やライフスタイルに合わせてご提案します。</p>
             <a href="#" class="artist-ig">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
               </svg>
-              @inkly_aimi
+              @reink_ohina
             </a>
           </div>
         </div>
@@ -880,7 +949,7 @@
         <!-- Leo -->
         <div class="artist-card fi fi-d1">
           <div class="artist-img-wrap">
-            <img src="img/ink4.jpg" alt="Leo">
+            <img src="img/ink4.png" alt="Leo">
             <div class="artist-badges">
               <span class="badge badge-white">看護師資格保有</span>
             </div>
@@ -903,7 +972,7 @@
         <!-- Milan -->
         <div class="artist-card fi fi-d2">
           <div class="artist-img-wrap">
-            <img src="img/ink5.jpg" alt="Milan">
+            <img src="img/ink5.png" alt="Milan">
           </div>
           <div class="artist-body">
             <p class="artist-name-en">Milan</p>
@@ -943,7 +1012,7 @@
         <!-- Shiho -->
         <div class="artist-card fi fi-d1" style="grid-column: 2;">
           <div class="artist-img-wrap">
-            <img src="img/ink7.jpg" alt="Shiho">
+            <img src="img/ink7.png" alt="Shiho">
             <div class="artist-badges">
               <span class="badge badge-white">看護師資格保有</span>
             </div>
@@ -989,12 +1058,9 @@
         <div class="footer-brand">
           <a href="index.html"><img src="img/logo.png" alt="INKLY TATTOO STUDIO"></a>
           <p class="footer-addr">
-            〒110-0005<br>
-            東京都台東区上野3-22-3 ジイドビル 2F<br>
-            提携医療機関 inklinic：同ビル1F<br>
-            <br>
-            11:00 – 21:00（定休日：年末年始）<br>
-            03-4400-5862
+            〒107-0062 <br>
+            東京都港区南青山6-2-10 TIビル 2F<br>
+            11:00 – 20:00（不定休）
           </p>
         </div>
         <div>
@@ -1035,6 +1101,7 @@
     </div>
   </footer>
 
+  <script src="common-parts.js"></script>
   <script>
     const hdr = document.getElementById('site-header');
     window.addEventListener('scroll', () => {

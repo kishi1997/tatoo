@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INKLY TATTOO | 上野 | 痛くないタトゥー体験</title>
+  <title>Re’ink | 表参道 | タトゥースタジオ</title>
   <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
   <style>
     /* ============================
@@ -735,10 +735,9 @@
     }
 
     .concept-left {
-      padding: 88px 56px 88px 0;
+      justify-content: center;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
       border-right: 1px solid rgba(255, 255, 255, 0.12);
     }
 
@@ -1251,19 +1250,20 @@
 
     .artists-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
+      grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+      gap: 64px;
+      align-items: center;
     }
 
     .artist-card {
+      display: contents;
       cursor: default;
     }
 
     .artist-photo {
       width: 100%;
-      aspect-ratio: 2/3;
+      aspect-ratio: 4/5;
       overflow: hidden;
-      margin-bottom: 16px;
       position: relative;
     }
 
@@ -1287,20 +1287,26 @@
       filter: grayscale(0%);
     }
 
+    .artist-profile {
+      max-width: 620px;
+    }
+
     .artist-en {
       font-family: var(--font-en);
-      font-size: 16px;
+      font-size: clamp(56px, 8vw, 96px);
       font-weight: 300;
       color: var(--color-text);
-      letter-spacing: 0.08em;
-      margin-bottom: 3px;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 18px;
     }
 
     .artist-ja {
       font-size: 16px;
       color: var(--color-muted);
-      margin-bottom: 5px;
+      margin-bottom: 24px;
       font-weight: 300;
+      letter-spacing: 0.14em;
     }
 
     .artist-style {
@@ -1310,6 +1316,41 @@
       color: var(--color-accent);
       text-transform: uppercase;
       font-weight: 300;
+      margin-bottom: 28px;
+      line-height: 1.8;
+    }
+
+    .artist-message {
+      font-size: 16px;
+      color: var(--color-sub);
+      line-height: 2.1;
+      letter-spacing: 0.08em;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    .artist-link {
+      font-family: var(--font-en);
+      font-size: 16px;
+      letter-spacing: 0.22em;
+      color: var(--color-text);
+      font-weight: 300;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .artist-link::after {
+      content: '';
+      width: 42px;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.4s ease;
+    }
+
+    .artist-link:hover::after {
+      width: 72px;
     }
 
     /* ============================
@@ -1466,6 +1507,138 @@
 
     .pricing-cta {
       text-align: center;
+    }
+
+    .flow {
+      padding: var(--sec-pad) 0;
+      background: var(--color-bg);
+    }
+
+    .artists .artists-grid {
+      grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+    }
+
+    .flow-card {
+      background: var(--color-bg-card);
+      padding: 34px 24px;
+      min-height: 180px;
+      position: relative;
+    }
+
+    .flow-num {
+      font-family: var(--font-en);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: var(--color-muted);
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+
+    .flow-title {
+      font-family: var(--font-ja);
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      font-weight: 300;
+      color: var(--color-text);
+      line-height: 1.8;
+    }
+
+    .flow-card::after {
+      content: '';
+      position: absolute;
+      right: 22px;
+      bottom: 24px;
+      width: 28px;
+      height: 1px;
+      background: var(--color-text);
+    }
+
+    .home-access {
+      padding: var(--sec-pad) 0;
+      background: var(--color-bg-s);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-access::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('img/bg-paper.png') center / cover;
+      opacity: 0.45;
+    }
+
+    .home-access .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .access-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .access-map iframe {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      filter: grayscale(100%) contrast(90%) brightness(95%);
+      display: block;
+    }
+
+    .access-detail {
+      display: grid;
+      gap: 22px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .access-row {
+      padding-top: 22px;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 22px;
+    }
+
+    .access-label {
+      font-family: var(--font-en);
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      color: var(--color-sub);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .access-text {
+      font-size: 16px;
+      color: var(--color-text);
+      letter-spacing: 0.06em;
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    .footer-notes {
+      border-top: 1px solid var(--color-border);
+      padding: 28px 0;
+    }
+
+    .footer-notes-list {
+      display: grid;
+      gap: 8px;
+      max-width: 920px;
+    }
+
+    .footer-notes-list li {
+      font-size: 13px;
+      color: var(--color-sub);
+      letter-spacing: 0.05em;
+      line-height: 1.8;
     }
 
     /* ============================
@@ -2001,7 +2174,7 @@
       }
 
       .artists-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
       }
 
       .footer-inner {
@@ -2128,6 +2301,10 @@
         grid-template-columns: 1fr;
       }
 
+      .access-layout {
+        grid-template-columns: 1fr;
+      }
+
       .features-photo {
         min-height: 380px;
       }
@@ -2153,8 +2330,8 @@
       }
 
       .artists-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
 
       .gallery-grid {
@@ -2168,6 +2345,10 @@
       }
 
       .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -2187,10 +2368,14 @@
 
     @media (max-width: 480px) {
       .artists-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
 
       .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-grid {
         grid-template-columns: 1fr;
       }
 
@@ -2252,14 +2437,14 @@
   <header class="site-header" id="site-header">
     <nav class="nav container">
       <a href="#" class="nav-logo">
-        <img src="img/logo.png" alt="INKLY TATTOO STUDIO">
+        <img src="img/logo.png" alt="Re’ink">
       </a>
       <ul class="nav-links">
         <li><a href="artists.html">Artists</a></li>
         <li><a href="tattoo.html">Services</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="#flow">Flow</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="access.html">Access</a></li>
+        <li><a href="#access">Access</a></li>
         <li><a href="qa.html">FAQ</a></li>
       </ul>
       <div class="nav-btn-wrap">
@@ -2276,9 +2461,9 @@
   <nav class="mobile-nav" id="mobile-nav">
     <a href="artists.html">Artists</a>
     <a href="tattoo.html">Services</a>
-    <a href="pricing.html">Pricing</a>
+    <a href="#flow">Flow</a>
     <a href="gallery.html">Gallery</a>
-    <a href="access.html">Access</a>
+    <a href="#access">Access</a>
     <a href="qa.html">FAQ</a>
     <a href="#contact" class="btn btn-outline" style="margin-top:28px;letter-spacing:0.2em;font-size:16px;">RESERVE</a>
   </nav>
@@ -2287,15 +2472,15 @@
   <section id="hero" class="hero">
     <!-- 背景: クリニック内観イメージ -->
     <div class="hero-bg">
-      <img src="img/bg1.jpeg" alt="INKLY TATTOO STUDIO — 上野" loading="eager">
+      <img src="img/bg1.jpeg" alt="Re’ink 表参道" loading="eager">
     </div>
     <!-- オーバーレイ -->
     <div class="hero-overlay"></div>
 
     <!-- 中央: ロゴ＋スタジオ名 -->
     <div class="hero-center fi on">
-      <img class="hero-center-logo" src="img/logo.png" alt="INKLY TATTOO STUDIO">
-      <span class="hero-center-text">Painless Tattoo Studio — Ueno Tokyo</span>
+      <img class="hero-center-logo" src="img/logo.png" alt="Re’ink">
+      <span class="hero-center-text">Tattoo Studio — Omotesando Tokyo</span>
     </div>
 
     <!-- スクロールヒント -->
@@ -2331,49 +2516,49 @@
   </section>
 
   <!-- ======= INTRO ======= -->
-  <section class="intro">
+  <!-- <section class="intro">
     <div class="intro-inner container">
       <div class="intro-content fi">
-        <h2 class="intro-headline">Wear your story.</h2>
-        <p class="intro-sub">感じる痛みを、感動へ。<br>あなたの物語が、肌に宿る。</p>
-        <p class="intro-brand">INKLY TATTOO STUDIO</p>
+        <h2 class="intro-headline">自由に生きる。</h2>
+        <p class="intro-sub">タトゥーを“怖いもの”ではなく、<br>ファッションや自己表現の一つとして。</p>
+        <p class="intro-brand">ABOUT RE'INK</p>
         <a href="#concept" class="intro-link">About Studio</a>
       </div>
       <div class="intro-art fi fi-d2">
         <img src="img/face.png" alt="" class="intro-svg">
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ======= MARQUEE ======= -->
   <div class="marquee">
     <div class="marquee-track">
       <div class="marquee-item">
-        Painless Tattoo Experience
+        Ephemeral Tattoo
         <span class="marquee-dot">✦</span>
-        Medical Anesthesia
+        Mist Tattoo
         <span class="marquee-dot">✦</span>
-        Ueno Tokyo
+        Omotesando
         <span class="marquee-dot">✦</span>
-        Inkly Tattoo Studio
+        Re'ink Tattoo Studio
         <span class="marquee-dot">✦</span>
-        Professional Artists
+        Private Studio
         <span class="marquee-dot">✦</span>
-        Safe &amp; Elegant
+        Fine Line
         <span class="marquee-dot">✦</span>
       </div>
       <div class="marquee-item" aria-hidden="true">
-        Painless Tattoo Experience
+        Ephemeral Tattoo
         <span class="marquee-dot">✦</span>
-        Medical Anesthesia
+        Mist Tattoo
         <span class="marquee-dot">✦</span>
-        Ueno Tokyo
+        Omotesando
         <span class="marquee-dot">✦</span>
-        Inkly Tattoo Studio
+        Re'ink Tattoo Studio
         <span class="marquee-dot">✦</span>
-        Professional Artists
+        Private Studio
         <span class="marquee-dot">✦</span>
-        Safe &amp; Elegant
+        Fine Line
         <span class="marquee-dot">✦</span>
       </div>
     </div>
@@ -2391,38 +2576,30 @@
     <div class="concept-inner">
       <!-- 左: ラベル＋大見出し -->
       <div class="concept-left">
-        <p class="concept-feature-tag fi">【 特集 】</p>
+        <p class="concept-feature-tag fi">【 ABOUT 】</p>
         <h2 class="concept-title-large fi fi-d1">
-          痛みのない、<br>豊かな<br>タトゥー体験
+          自由に生きる。
         </h2>
-        <p class="concept-title-en fi fi-d2">Pain-Free Experience</p>
       </div>
 
       <!-- 右: 本文＋ボタン -->
       <div class="concept-right">
         <p class="concept-body-text lead fi">
-          大切にしているのは、<br>
-          <strong>"痛みのない、記憶に残るタトゥー体験"</strong>を届けること。
+          私たちは、タトゥーを<br>
+          <strong>“怖いもの”ではなく、ファッションや自己表現の一つ</strong>として捉えています。
         </p>
         <p class="concept-body-text fi fi-d1">
-          タトゥーには、デザイン・技術・そして空間という、それぞれ異なる要素が存在します。
+          完全予約制で美容クリニックのような清潔感と、安心して過ごせる落ち着いた空間。
         </p>
         <p class="concept-body-text fi fi-d1">
-          だからこそ、お客様一人ひとりの不安に寄り添いながら、提携医療機関の医師・看護師による医療用麻酔クリームを使用し、アーティストと二人三脚で理想のデザインをつくり上げます。
-        </p>
-        <p class="concept-body-text fi fi-d2">
-          それが、INKLYが2023年に目指した「ペインレスタトゥースタジオ」です。
-        </p>
-        <p class="concept-quote fi fi-d2">
-          "たった一度の施術でも、無限の可能性がある。"<br>
-          その可能性を最大限に引き出すことが、私たちの使命です。
+          初めての方でも自然に通える、新しい時代のタトゥースタジオを目指しています。
         </p>
         <div class="concept-btns fi fi-d3">
           <a href="tattoo.html" class="concept-btn">
-            施術の流れ <span class="concept-btn-arrow">→</span>
+            メニューを見る <span class="concept-btn-arrow">→</span>
           </a>
           <a href="#contact" class="concept-btn">
-            無料カウンセリング <span class="concept-btn-arrow">→</span>
+            予約・相談する <span class="concept-btn-arrow">→</span>
           </a>
         </div>
       </div>
@@ -2435,37 +2612,37 @@
       <div class="services-layout">
         <!-- 左: 大見出し＋ラベル -->
         <div class="services-label-col fi">
-          <p class="services-heading">Menu</p>
-          <p class="services-label-text">【 施術メニュー 】</p>
+          <p class="services-heading">MENU</p>
+          <p class="services-label-text">【 メニュー 】</p>
         </div>
 
         <!-- 右: リスト -->
         <div class="services-list">
           <a href="tattoo.html" class="service-row fi">
             <div class="service-row-text">
-              <p class="service-row-title">タトゥー</p>
-              <p class="service-row-en">Tattoo</p>
+              <p class="service-row-title">数年で薄くなる、新しいタトゥー。</p>
+              <p class="service-row-en">Ephemeral Tattoo</p>
             </div>
             <span class="service-row-arrow">→</span>
           </a>
           <a href="tattoo.html#ephemeral" class="service-row fi fi-d1">
             <div class="service-row-text">
-              <p class="service-row-title">エフェメラルタトゥー</p>
-              <p class="service-row-en">Ephemeral Tattoo</p>
+              <p class="service-row-title">2週間ほど楽しめる、肌にやさしいジャグアタトゥー。</p>
+              <p class="service-row-en">Mist Tattoo</p>
             </div>
             <span class="service-row-arrow">→</span>
           </a>
           <a href="tattoo.html#retouch" class="service-row fi fi-d2">
             <div class="service-row-text">
-              <p class="service-row-title">レタッチ・修正</p>
-              <p class="service-row-en">Retouch &amp; Touch-up</p>
+              <p class="service-row-title">イベントや初めての方にもおすすめです。</p>
+              <p class="service-row-en">For Events / First Tattoo</p>
             </div>
             <span class="service-row-arrow">→</span>
           </a>
           <a href="tattoo.html#coverup" class="service-row fi fi-d3">
             <div class="service-row-text">
-              <p class="service-row-title">カバーアップ</p>
-              <p class="service-row-en">Cover-up</p>
+              <p class="service-row-title">世界に一つだけのオリジナルデザイン。</p>
+              <p class="service-row-en">Original Tattoo</p>
             </div>
             <span class="service-row-arrow">→</span>
           </a>
@@ -2477,64 +2654,31 @@
   <!-- ======= FEATURES ======= -->
   <section id="features" class="features">
     <div class="features-header fi">
-      <span class="features-title-en">Features</span>
-      <p class="features-title-ja">【 選ばれる理由 】</p>
+      <span class="features-title-en">FEATURE</span>
+      <p class="features-title-ja">【 特徴 】</p>
     </div>
     <div class="features-body">
       <!-- 左: フォト -->
       <div class="features-photo fi">
-        <img src="img/ink3.jpg" alt="INKLY TATTOO STUDIO">
+        <img src="img/ink3.jpg" alt="Re’ink Studio">
       </div>
       <!-- 右: テキスト -->
       <div class="features-content fi fi-d1">
-        <p class="features-label">Why choose inkly</p>
+        <p class="features-label">Why choose Re’ink</p>
         <h2 class="features-heading">
-          痛みと不安を取り除き、<br>
-          あなたの理想を丁寧に形にします。
+          Re’inkが<br>
+          選ばれる理由
         </h2>
         <div class="features-text">
-          <p>なぜinklyが選ばれるのか——それは、タトゥーに抱くすべての不安に向き合い、解消するスタジオだからです。</p>
-          <p>提携医療機関の医師・看護師が監督する環境で、医療用麻酔クリームを使用。95%以上のお客様が「思ったより楽だった」「痛みをほとんど感じなかった」とご回答いただいています。</p>
-          <p>経験豊富なプロアーティストが、カウンセリングからデザイン・施術・アフターケアまで一貫して担当。どんな小さなお悩みにも丁寧に寄り添います。</p>
-          <p>痛みへの不安、衛生面への心配、デザインの迷い——inklyはそのすべてに応えるスタジオです。</p>
+          <p><strong>完全予約制のプライベート空間</strong><br>周囲を気にせず、落ち着いて施術を受けていただけます。</p>
+          <p><strong>女性のお客様も通いやすい空間設計</strong><br>美容サロンのような清潔感と安心感を大切にしています。</p>
+          <p><strong>丁寧なカウンセリング</strong><br>デザインやサイズ感まで、一緒に丁寧にご相談します。</p>
         </div>
         <div class="features-signature">
-          INKLY TATTOO STUDIO<br>
-          東京・上野
+          RE’INK TATTOO STUDIO<br>
+          表参道
         </div>
         <a href="#concept" class="features-more">View more &nbsp;&nbsp;&nbsp;&nbsp; →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= FEATURED ARTIST ======= -->
-  <section id="featured-artist" class="featured-artist" style="display:none">
-    <div class="featured-artist-inner">
-      <!-- 左: ポートレート -->
-      <div class="featured-artist-photo fi">
-        <img src="img/ink3.jpg" alt="Aimi — Lead Artist">
-      </div>
-      <!-- 右: プロフィール -->
-      <div class="featured-artist-body fi fi-d1">
-        <p class="featured-artist-label">Lead Artist</p>
-        <p class="featured-artist-name">Aimi</p>
-        <p class="featured-artist-name-ja">あいみ</p>
-        <p class="featured-artist-style">Botanical &amp; Fine Line</p>
-        <div class="featured-artist-divider"></div>
-        <p class="featured-artist-quote">
-          "Art is not what you see,<br>
-          but what you make others see."
-        </p>
-        <p class="featured-artist-bio">
-          東京藝術大学でビジュアルアーツを学び、2018年よりタトゥーアーティストとして活動。
-          ボタニカルモチーフとファインラインを得意とし、「身体に宿る小さな物語」をコンセプトに、
-          お客様一人ひとりの想いを繊細なラインで表現します。<br><br>
-          痛みへの不安を抱えるお客様に寄り添うため、inklyの医療麻酔システムを積極的に採用。
-          「タトゥーは特別な日の記念になる」という想いを、すべての作品に込めています。
-        </p>
-        <a href="artists.html" class="featured-artist-link">
-          すべてのアーティストを見る →
-        </a>
       </div>
     </div>
   </section>
@@ -2543,46 +2687,55 @@
   <section id="artists" class="artists">
     <div class="container">
       <header class="sec-head fi">
-        <span class="sec-en">artists</span>
-        <h2 class="sec-title">【 アーティスト紹介 】</h2>
+        <span class="sec-en">artist</span>
+        <h2 class="sec-title">【 アーティスト 】</h2>
         <div class="sec-line"></div>
       </header>
       <div class="artists-grid">
         <div class="artist-card fi">
-          <div class="artist-photo"><img src="img/ink1.jpg" alt="Aimi"></div>
-          <p class="artist-en">Aimi</p>
-          <p class="artist-ja">あいみ</p>
-          <p class="artist-style">Botanical</p>
+          <div class="artist-photo"><img src="img/ink1.jpg" alt="OHINA"></div>
+          <div class="artist-profile">
+            <p class="artist-en">OHINA</p>
+            <p class="artist-ja">Fine line / One point / Korean style</p>
+            <p class="artist-style">Artist / Re’ink Omotesando</p>
+            <p class="artist-message">
+              “日常に自然に馴染むデザイン”を大切にしています。繊細なライン、ワンポイント、韓国風のミニマルな表現を中心に、お客様の雰囲気やライフスタイルに合わせてご提案します。
+            </p>
+            <a href="artists.html" class="artist-link">View Profile</a>
+          </div>
         </div>
-        <div class="artist-card fi fi-d1">
-          <div class="artist-photo"><img src="img/ink2.jpg" alt="Manato"></div>
-          <p class="artist-en">Manato</p>
-          <p class="artist-ja">まなと</p>
-          <p class="artist-style">Geometric</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FLOW ======= -->
+  <section id="flow" class="flow">
+    <div class="container">
+      <header class="sec-head fi">
+        <span class="sec-en">flow</span>
+        <h2 class="sec-title">【 ご予約の流れ 】</h2>
+        <div class="sec-line"></div>
+      </header>
+      <div class="flow-grid">
+        <div class="flow-card fi">
+          <p class="flow-num">01</p>
+          <p class="flow-title">LINEから予約</p>
         </div>
-        <div class="artist-card fi fi-d2">
-          <div class="artist-photo"><img src="img/ink4.png" alt="Leo"></div>
-          <p class="artist-en">Leo</p>
-          <p class="artist-ja">れお</p>
-          <p class="artist-style">Realism</p>
+        <div class="flow-card fi fi-d1">
+          <p class="flow-num">02</p>
+          <p class="flow-title">カウンセリング</p>
         </div>
-        <div class="artist-card fi fi-d2">
-          <div class="artist-photo"><img src="img/ink5.png" alt="Milan"></div>
-          <p class="artist-en">Milan</p>
-          <p class="artist-ja">みらん</p>
-          <p class="artist-style">Blackwork</p>
+        <div class="flow-card fi fi-d2">
+          <p class="flow-num">03</p>
+          <p class="flow-title">デザイン相談</p>
         </div>
-        <div class="artist-card fi fi-d3">
-          <div class="artist-photo"><img src="img/ink6.jpg" alt="Taiga"></div>
-          <p class="artist-en">Taiga</p>
-          <p class="artist-ja">たいが</p>
-          <p class="artist-style">Fine Line</p>
+        <div class="flow-card fi fi-d3">
+          <p class="flow-num">04</p>
+          <p class="flow-title">施術</p>
         </div>
-        <div class="artist-card fi fi-d3">
-          <div class="artist-photo"><img src="img/ink7.png" alt="Shiho"></div>
-          <p class="artist-en">Shiho</p>
-          <p class="artist-ja">しほ</p>
-          <p class="artist-style">Watercolor</p>
+        <div class="flow-card fi fi-d4">
+          <p class="flow-num">05</p>
+          <p class="flow-title">アフターケア説明</p>
         </div>
       </div>
     </div>
@@ -2608,53 +2761,41 @@
     </div>
   </section>
 
-  <!-- ======= PRICING ======= -->
-  <section id="pricing" class="pricing">
+  <!-- ======= ACCESS ======= -->
+  <section id="access" class="home-access">
     <div class="container">
       <header class="sec-head fi">
-        <span class="sec-en">pricing</span>
-        <h2 class="sec-title">【 料金案内 】</h2>
+        <span class="sec-en">access</span>
+        <h2 class="sec-title">【 アクセス 】</h2>
         <div class="sec-line"></div>
       </header>
-      <div class="pricing-grid">
-        <div class="price-card fi">
-          <p class="price-label">Micro / マイクロ</p>
-          <p class="price-amount">¥10,000–</p>
-          <p class="price-note">硬貨サイズ以下の極小タトゥー</p>
+      <div class="access-layout">
+        <div class="access-map fi">
+          <iframe
+            src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%8D%97%E9%9D%92%E5%B1%B16-2-10%20TI%E3%83%93%E3%83%AB&output=embed&z=16"
+            loading="lazy" title="Re’ink 表参道店 アクセスマップ"></iframe>
         </div>
-        <div class="price-card fi fi-d1">
-          <p class="price-label">One Point / ワンポイント</p>
-          <p class="price-amount">¥17,000–</p>
-          <p class="price-note">5cm以内のシンプルなデザイン</p>
+        <div class="access-detail fi fi-d1">
+          <div class="access-row">
+            <p class="access-label">Studio</p>
+            <p class="access-text">表参道店</p>
+          </div>
+          <div class="access-row">
+            <p class="access-label">Address</p>
+            <p class="access-text">〒107-0062<br>東京都港区南青山6-2-10 TIビル 2F</p>
+          </div>
+          <div class="access-row">
+            <p class="access-label">Access</p>
+            <p class="access-text">表参道徒歩7分</p>
+          </div>
+          <div class="access-row">
+            <p class="access-label">Hours</p>
+            <p class="access-text">11時〜20時（不定休）</p>
+          </div>
         </div>
-        <div class="price-card fi fi-d2">
-          <p class="price-label">Small / スモール</p>
-          <p class="price-amount">¥25,000–</p>
-          <p class="price-note">5〜10cmのデザイン</p>
-        </div>
-        <div class="price-card fi fi-d1">
-          <p class="price-label">Medium / ミディアム</p>
-          <p class="price-amount">¥40,000–</p>
-          <p class="price-note">10〜15cmのデザイン</p>
-        </div>
-        <div class="price-card fi fi-d2">
-          <p class="price-label">Large / ラージ</p>
-          <p class="price-amount">¥60,000–</p>
-          <p class="price-note">15〜20cmのデザイン</p>
-        </div>
-        <div class="price-card fi fi-d3">
-          <p class="price-label">X-Large / Xラージ</p>
-          <p class="price-amount">¥100,000–</p>
-          <p class="price-note">20cm以上の大型デザイン</p>
-        </div>
-      </div>
-      <p class="pricing-note fi">※表面麻酔・デザイン制作・アフターケア用品込み。デザインの複雑さにより変動します。</p>
-      <div class="pricing-cta fi">
-        <a href="pricing.html" class="btn btn-outline-gold">料金の詳細を見る</a>
       </div>
     </div>
   </section>
-
 
   <!-- ======= FAQ ======= -->
   <section id="faq" class="faq">
@@ -2671,7 +2812,7 @@
           <div class="faq-item">
             <button class="faq-q">
               <span class="faq-qlabel">Q.</span>
-              <span class="faq-qtext">麻酔を使うと仕上がりに悪影響はありますか？</span>
+              <span class="faq-qtext">初めてでも大丈夫ですか？</span>
               <span class="faq-arrow">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
                   <path d="M2 5l5 5 5-5" />
@@ -2681,14 +2822,16 @@
             <div class="faq-ans">
               <div class="faq-ans-inner">
                 <span class="faq-alabel">A.</span>
-                <p class="faq-atext">医療用表面麻酔クリームは皮膚表面に作用するため、タトゥーの仕上がりに影響はありません。</p>
+                <p class="faq-atext">
+                  もちろん大丈夫です。当スタジオでは、初めてタトゥーを入れる方にも安心してご来店いただけるよう、丁寧なカウンセリングを行っています。デザインやサイズ感、施術の流れまでしっかりご説明いたしますので、不安なことがあればお気軽にご相談ください。
+                </p>
               </div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               <span class="faq-qlabel">Q.</span>
-              <span class="faq-qtext">タトゥーの施術は痛いですか？</span>
+              <span class="faq-qtext">痛みはありますか？</span>
               <span class="faq-arrow">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
                   <path d="M2 5l5 5 5-5" />
@@ -2698,14 +2841,15 @@
             <div class="faq-ans">
               <div class="faq-ans-inner">
                 <span class="faq-alabel">A.</span>
-                <p class="faq-atext">表面麻酔クリームを使用することで、施術中の痛みを大幅に軽減できます。</p>
+                <p class="faq-atext">
+                  施術部位や個人差によって異なりますが、一般的には「チクチクする感覚」と表現されることが多いです。初めての方でも無理なく施術を受けられるよう、様子を見ながら進めていきますのでご安心ください。</p>
               </div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               <span class="faq-qlabel">Q.</span>
-              <span class="faq-qtext">予約は必要ですか？</span>
+              <span class="faq-qtext">当日予約は可能ですか？</span>
               <span class="faq-arrow">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
                   <path d="M2 5l5 5 5-5" />
@@ -2715,14 +2859,14 @@
             <div class="faq-ans">
               <div class="faq-ans-inner">
                 <span class="faq-alabel">A.</span>
-                <p class="faq-atext">Walk inも歓迎ですが、予約優先となります。WebまたはLINEよりご予約ください。</p>
+                <p class="faq-atext">予約状況によっては当日予約も可能です。空き状況は公式LINEよりお気軽にお問い合わせください。</p>
               </div>
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               <span class="faq-qlabel">Q.</span>
-              <span class="faq-qtext">施術時間はどのくらいですか？</span>
+              <span class="faq-qtext">デザイン持ち込みはできますか？</span>
               <span class="faq-arrow">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
                   <path d="M2 5l5 5 5-5" />
@@ -2732,7 +2876,7 @@
             <div class="faq-ans">
               <div class="faq-ans-inner">
                 <span class="faq-alabel">A.</span>
-                <p class="faq-atext">デザインのサイズや複雑さによりますが、1〜4時間が目安です。</p>
+                <p class="faq-atext">はい、可能です。参考画像のお持ち込みや、イメージのご共有も歓迎しております。お客様のご希望をもとに、サイズやバランスを調整しながらデザインをご提案いたします。</p>
               </div>
             </div>
           </div>
@@ -2749,24 +2893,7 @@
             <div class="faq-ans">
               <div class="faq-ans-inner">
                 <span class="faq-alabel">A.</span>
-                <p class="faq-atext">18歳未満の方は保護者の同意書が必要です。16歳未満は施術をお断りしております。</p>
-              </div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q">
-              <span class="faq-qlabel">Q.</span>
-              <span class="faq-qtext">麻酔にアレルギーがあるのですが？</span>
-              <span class="faq-arrow">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2">
-                  <path d="M2 5l5 5 5-5" />
-                </svg>
-              </span>
-            </button>
-            <div class="faq-ans">
-              <div class="faq-ans-inner">
-                <span class="faq-alabel">A.</span>
-                <p class="faq-atext">事前にアレルギーテストを実施いたします。アレルギーをお持ちの方はご相談ください。</p>
+                <p class="faq-atext">18歳未満の方への施術はお断りしております。また、18歳・19歳の方につきましては、身分証明書の確認をお願いする場合がございます。</p>
               </div>
             </div>
           </div>
@@ -2840,7 +2967,7 @@
   </section>
 
   <!-- ======= FOOTER (ACCESS統合) ======= -->
-  <footer class="footer" id="access">
+  <footer class="footer" id="footer-access">
 
     <!-- ① サイトナビグリッド -->
     <div class="footer-nav">
@@ -2878,7 +3005,7 @@
     <!-- ② フルwidthマップ -->
     <div class="footer-map">
       <iframe
-        src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%B8%8A%E9%87%8E3%E4%B8%81%E7%9B%AE&output=embed&z=16"
+        src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%8D%97%E9%9D%92%E5%B1%B16-2-10%20TI%E3%83%93%E3%83%AB&output=embed&z=16"
         loading="lazy" title="アクセスマップ"></iframe>
     </div>
 
@@ -2888,7 +3015,7 @@
         <div class="footer-info-inner">
           <!-- 左: ロゴ＋SNS -->
           <div class="footer-brand">
-            <a href="#"><img src="img/logo.png" alt="INKLY TATTOO STUDIO"></a>
+            <a href="#"><img src="img/logo.png" alt="Re’ink"></a>
             <div class="footer-sns">
               <a href="#" class="footer-sns-link" aria-label="Instagram">IG</a>
               <a href="#" class="footer-sns-link" aria-label="LINE">LN</a>
@@ -2899,26 +3026,25 @@
           <div class="footer-detail-grid">
             <div>
               <span class="footer-dt">Studio</span>
-              <p class="footer-dd">INKLY TATTOO STUDIO</p>
+              <p class="footer-dd">Re’ink 表参道店</p>
             </div>
             <div>
               <span class="footer-dt">Hours</span>
-              <p class="footer-dd">11:00 – 21:00</p>
+              <p class="footer-dd">11:00 – 20:00</p>
             </div>
             <div>
               <span class="footer-dt">Closed</span>
-              <p class="footer-dd">年末年始</p>
+              <p class="footer-dd">不定休</p>
             </div>
             <div>
-              <span class="footer-dt">Tel</span>
-              <p class="footer-dd">03-4400-5862</p>
+              <span class="footer-dt">Access</span>
+              <p class="footer-dd">表参道徒歩7分</p>
             </div>
             <div class="footer-detail-full">
               <span class="footer-dt">Address</span>
               <p class="footer-dd">
-                〒110-0005 東京都台東区上野3-22-3 ジイドビル 2F<br>
-                提携医療機関 inklinic：同ビル1F<br>
-                <a href="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%B8%8A%E9%87%8E3%E4%B8%81%E7%9B%AE"
+                〒107-0062 東京都港区南青山6-2-10 TIビル 2F<br>
+                <a href="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%8D%97%E9%9D%92%E5%B1%B16-2-10%20TI%E3%83%93%E3%83%AB"
                   target="_blank" rel="noopener">Google マップで開く →</a>
               </p>
             </div>
@@ -2929,8 +3055,17 @@
 
     <!-- ④ ボトムバー -->
     <div class="container">
+      <div class="footer-notes">
+        <ul class="footer-notes-list">
+          <li>18歳未満の方はお断りしております。</li>
+          <li>暴力団、暴力団関係者、及びそうみなされる方はお断りしております。</li>
+          <li>持病、感染症などをお持ちの方は、必ず事前に申告してください。</li>
+          <li>飲酒後の方、薬の服用をされている方は、仕上がりが悪くなることがありますのでお断りしております。</li>
+          <li>公序良俗の範囲内での行動ができない方はお断りしております。</li>
+        </ul>
+      </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 INKLY TATTOO. All rights reserved.</p>
+        <p class="footer-copy">© 2026 Re’ink. All rights reserved.</p>
         <div class="footer-legal">
           <a href="#">プライバシーポリシー</a>
           <a href="#">利用規約</a>
@@ -2940,6 +3075,7 @@
 
   </footer>
 
+  <script src="common-parts.js"></script>
   <script>
     // --- Nav scroll ---
     const hdr = document.getElementById('site-header');

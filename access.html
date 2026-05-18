@@ -488,8 +488,6 @@
       text-align: center;
     }
 
-    .train-body {}
-
     .train-line {
       font-size: 11px;
       letter-spacing: 0.1em;
@@ -582,7 +580,8 @@
     .footer-brand img {
       height: 40px;
       width: auto;
-      object-fit: contain margin-bottom: 24px;
+      object-fit: contain;
+      margin-bottom: 24px;
     }
 
     .footer-addr {
@@ -719,6 +718,7 @@
       transform: none !important;
     }
   </style>
+  <link rel="stylesheet" href="subpage-tone.css">
   <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 
@@ -794,13 +794,12 @@
           </div>
           <div class="info-group">
             <p class="info-label">Address</p>
-            <p class="info-value">〒110-0005<br>東京都台東区上野3-22-3<br>ジイドビル 2F</p>
-            <p class="info-sub">提携医療機関 inklinic：同ビル1F</p>
+            <p class="info-value">〒107-0062 <br>東京都港区南青山6-2-10<br>TIビル 2F</p>
           </div>
           <div class="info-group">
             <p class="info-label">Hours</p>
-            <p class="info-value">11:00 – 21:00</p>
-            <p class="info-sub">定休日：年末年始</p>
+            <p class="info-value">11:00 – 20:00</p>
+            <p class="info-sub">不定休</p>
           </div>
           <div class="info-group">
             <p class="info-label">Phone</p>
@@ -898,7 +897,7 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <a href="index.html"><img src="img/logo.png" alt="INKLY TATTOO STUDIO"></a>
-          <p class="footer-addr">〒110-0005<br>東京都台東区上野3-22-3 ジイドビル 2F<br>提携医療機関 inklinic：同ビル1F<br><br>11:00 –
+          <p class="footer-addr">〒107-0062 <br>東京都港区南青山6-2-10 TIビル 2F<br>提携医療機関 inklinic：同ビル1F<br><br>11:00 –
             21:00（定休日：年末年始）<br>03-4400-5862</p>
         </div>
         <div>
@@ -936,6 +935,7 @@
     </div>
   </footer>
 
+  <script src="common-parts.js"></script>
   <script>
     const hdr = document.getElementById('site-header');
     window.addEventListener('scroll', () => { hdr.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
