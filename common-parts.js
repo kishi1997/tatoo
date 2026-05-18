@@ -1,32 +1,43 @@
 (function () {
-  const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  const isHome = current === 'index.html' || current === '';
+  const current = (
+    location.pathname.split("/").pop() || "index.html"
+  ).toLowerCase();
+  const isHome = current === "index.html" || current === "";
 
   const links = [
-    { key: 'artists', href: 'artists.html', label: 'Artists' },
-    { key: 'tattoo', href: 'tattoo.html', label: 'Services' },
-    { key: 'flow', href: isHome ? '#flow' : 'index.html#flow', label: 'Flow' },
-    { key: 'gallery', href: 'gallery.html', label: 'Gallery' },
-    { key: 'access', href: isHome ? '#access' : 'index.html#access', label: 'Access' },
-    { key: 'qa', href: 'qa.html', label: 'FAQ' },
+    { key: "artists", href: "artists.html", label: "Artists" },
+    { key: "tattoo", href: "tattoo.html", label: "Services" },
+    { key: "flow", href: isHome ? "#flow" : "index.html#flow", label: "Flow" },
+    { key: "gallery", href: "gallery.html", label: "Gallery" },
+    { key: "access", href: isHome ? "access.html" : "Access", label: "Access" },
+    { key: "qa", href: "qa.html", label: "FAQ" },
   ];
 
-  const activeKey = current.includes('artists') ? 'artists'
-    : current.includes('tattoo') ? 'tattoo'
-      : current.includes('gallery') ? 'gallery'
-        : current.includes('qa') ? 'qa'
-          : current.includes('access') ? 'access'
-            : '';
+  const activeKey = current.includes("artists")
+    ? "artists"
+    : current.includes("tattoo")
+      ? "tattoo"
+      : current.includes("gallery")
+        ? "gallery"
+        : current.includes("qa")
+          ? "qa"
+          : current.includes("access")
+            ? "access"
+            : "";
 
-  const linkHtml = links.map(link => {
-    const active = link.key === activeKey ? ' class="active"' : '';
-    return `<li><a href="${link.href}"${active}>${link.label}</a></li>`;
-  }).join('');
+  const linkHtml = links
+    .map((link) => {
+      const active = link.key === activeKey ? ' class="active"' : "";
+      return `<li><a href="${link.href}"${active}>${link.label}</a></li>`;
+    })
+    .join("");
 
-  const mobileLinkHtml = links.map(link => {
-    const active = link.key === activeKey ? ' class="active"' : '';
-    return `<a href="${link.href}"${active}>${link.label}</a>`;
-  }).join('');
+  const mobileLinkHtml = links
+    .map((link) => {
+      const active = link.key === activeKey ? ' class="active"' : "";
+      return `<a href="${link.href}"${active}>${link.label}</a>`;
+    })
+    .join("");
 
   const headerHtml = `
     <header class="site-header" id="site-header">
@@ -109,7 +120,7 @@
     </footer>
   `;
 
-  const style = document.createElement('style');
+  const style = document.createElement("style");
   style.textContent = `
     .nav-btn-wrap {
       display: flex;
@@ -251,20 +262,20 @@
   document.head.appendChild(style);
 
   function replaceParts() {
-    const header = document.querySelector('.site-header');
-    const mobileNav = document.querySelector('.mobile-nav');
+    const header = document.querySelector(".site-header");
+    const mobileNav = document.querySelector(".mobile-nav");
     if (header) {
-      header.insertAdjacentHTML('beforebegin', headerHtml);
+      header.insertAdjacentHTML("beforebegin", headerHtml);
       header.remove();
       if (mobileNav) mobileNav.remove();
     }
 
-    const footer = document.querySelector('footer.footer');
+    const footer = document.querySelector("footer.footer");
     if (footer) {
-      footer.insertAdjacentHTML('beforebegin', footerHtml);
+      footer.insertAdjacentHTML("beforebegin", footerHtml);
       footer.remove();
     }
   }
 
   replaceParts();
-}());
+})();
