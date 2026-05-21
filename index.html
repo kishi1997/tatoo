@@ -1520,14 +1520,14 @@
 
     .flow-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2px;
     }
 
     .flow-card {
       background: var(--color-bg-card);
       padding: 34px 24px;
-      min-height: 180px;
+      min-height: 220px;
       position: relative;
     }
 
@@ -1547,6 +1547,15 @@
       font-weight: 300;
       color: var(--color-text);
       line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .flow-desc {
+      font-family: var(--font-ja);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--color-sub);
+      line-height: 1.9;
     }
 
     .flow-card::after {
@@ -2671,29 +2680,39 @@
     <div class="container">
       <header class="sec-head fi">
         <span class="sec-en">flow</span>
-        <h2 class="sec-title">【 ご予約の流れ 】</h2>
+        <h2 class="sec-title">ご予約〜施術までの流れ</h2>
         <div class="sec-line"></div>
       </header>
       <div class="flow-grid">
         <div class="flow-card fi">
           <p class="flow-num">01</p>
-          <p class="flow-title">LINEから予約</p>
+          <p class="flow-title">予約サイトよりメニュー・日時を選択</p>
+          <p class="flow-desc">ご希望の施術メニューと日時をお選びいただき、仮予約を行ってください。</p>
         </div>
         <div class="flow-card fi fi-d1">
           <p class="flow-num">02</p>
-          <p class="flow-title">カウンセリング</p>
+          <p class="flow-title">Re'ink公式LINEを追加</p>
+          <p class="flow-desc">予約画面またはメールより、公式LINEをご追加ください。</p>
         </div>
         <div class="flow-card fi fi-d2">
           <p class="flow-num">03</p>
-          <p class="flow-title">デザイン相談</p>
+          <p class="flow-title">前金のお支払い（ご予約確定）</p>
+          <p class="flow-desc">事前決済完了後、ご予約確定となります。<br>※未入金の場合、ご予約は確定となりませんのでご了承ください。</p>
         </div>
         <div class="flow-card fi fi-d3">
           <p class="flow-num">04</p>
-          <p class="flow-title">施術</p>
+          <p class="flow-title">LINEにてデザインカウンセリング</p>
+          <p class="flow-desc">ご希望のデザイン・サイズ・施術部位などをヒアリングいたします。画像の共有やご相談も可能ですので、初めての方でも安心してご利用いただけます。</p>
         </div>
         <div class="flow-card fi fi-d4">
           <p class="flow-num">05</p>
-          <p class="flow-title">アフターケア説明</p>
+          <p class="flow-title">ご来店・施術</p>
+          <p class="flow-desc">カウンセリング内容をもとに、施術を行います。リラックスしてお過ごしいただける空間をご用意しております。</p>
+        </div>
+        <div class="flow-card fi fi-d1">
+          <p class="flow-num">06</p>
+          <p class="flow-title">アフターケアのご説明</p>
+          <p class="flow-desc">施術後の経過やケア方法について詳しくご案内いたします。綺麗な状態を保つためのポイントもお伝えします。</p>
         </div>
       </div>
     </div>
