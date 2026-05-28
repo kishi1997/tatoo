@@ -74,7 +74,7 @@
         <div class="footer-inner">
           <div class="footer-brand">
             <a href="index.html"><img src="img/logo.png" alt="Re'ink"></a>
-            <p class="footer-addr">〒107-0062<br>東京都港区南青山6-2-10 TIビル 2F<br><br>表参道徒歩7分<br>11:00 – 20:00（不定休）</p>
+            <p class="footer-addr">〒107-0062<br>東京都港区南青山6-2-10 TIビル 2F<br><br>表参道徒歩7分<br>11:00 – 19:00（不定休）</p>
           </div>
           <div>
             <p class="footer-col-title">Menu</p>

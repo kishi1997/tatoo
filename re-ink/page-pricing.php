@@ -1,184 +1,232 @@
 <?php get_header(); ?>
 
-  <section class="page-hero">
+<main class="pricing-page">
+<section class="page-hero">
     <div class="container">
-      <div class="page-hero-inner">
-        <div class="fi">
-          <span class="page-hero-en">pricing</span>
-          <h1 class="page-hero-title">Pricing</h1>
-          <span class="page-hero-ja">【 料金案内 】</span>
+        <div class="page-hero-inner">
+            <div class="fi">
+                <span class="page-hero-en">pricing</span>
+                <h1 class="page-hero-title">Pricing</h1>
+                <span class="page-hero-ja">【 料金案内 】</span>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-  <?php get_template_part( 'template-parts/breadcrumb', null, [ 'current' => 'Pricing' ] ); ?>
+</section>
+<?php get_template_part( 'template-parts/breadcrumb' ); ?>
 
-  <!-- MAIN TABLE -->
-  <section class="pricing-sec">
+<!-- MAIN TABLE -->
+<section class="pricing-sec">
     <div class="container">
-      <div class="sec-head fi">
-        <span class="sec-en">standard pricing</span>
-        <h2 class="sec-title">【 サイズ別料金表 】</h2>
-        <div class="sec-line"></div>
-      </div>
-      <div class="pricing-table-wrap fi fi-d1">
-        <table class="pricing-table">
-          <thead>
-            <tr>
-              <th>サイズ</th>
-              <th>目安サイズ（縦×横）</th>
-              <th>料金（税込）</th>
-              <th>施術可能部位</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="td-size">XXS</span></td>
-              <td><span class="td-guide">〜3cm × 3cm</span></td>
-              <td><span class="td-price">¥11,000〜</span></td>
-              <td><span class="td-note">全身</span></td>
-            </tr>
-            <tr>
-              <td><span class="td-size">XS</span></td>
-              <td><span class="td-guide">〜5cm × 5cm</span></td>
-              <td><span class="td-price">¥16,500〜</span></td>
-              <td><span class="td-note">全身</span></td>
-            </tr>
-            <tr>
-              <td><span class="td-size">S</span></td>
-              <td><span class="td-guide">〜8cm × 8cm</span></td>
-              <td><span class="td-price">¥22,000〜</span></td>
-              <td><span class="td-note">全身</span></td>
-            </tr>
-            <tr>
-              <td><span class="td-size">M</span></td>
-              <td><span class="td-guide">〜12cm × 12cm</span></td>
-              <td><span class="td-price">¥33,000〜</span></td>
-              <td><span class="td-note">全身</span></td>
-            </tr>
-            <tr>
-              <td><span class="td-size">L</span></td>
-              <td><span class="td-guide">〜20cm × 20cm</span></td>
-              <td><span class="td-price">¥55,000〜</span></td>
-              <td><span class="td-note">胸・背中・太もも等</span></td>
-            </tr>
-            <tr>
-              <td><span class="td-size">XL</span></td>
-              <td><span class="td-guide">20cm × 20cm 以上</span></td>
-              <td><span class="td-price">要相談</span></td>
-              <td><span class="td-note">胸・背中・太もも等</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+        <div class="sec-head fi">
+            <span class="sec-en">standard pricing</span>
+            <h2 class="sec-title">【 サイズ別料金表 】</h2>
+            <div class="sec-line"></div>
+        </div>
 
-  <!-- INCLUDED -->
-  <section class="included-sec">
+        <!-- ミストタトゥー -->
+        <div class="pricing-block fi fi-d1">
+            <h3 class="pricing-type-title">Mist Tattoo <span class="pricing-type-ja">ミストタトゥー</span></h3>
+            <div class="pricing-table-wrap">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>サイズ</th>
+                            <th>目安サイズ</th>
+                            <th>料金（税込）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="td-size">マイクロサイズ</span></td>
+                            <td><span class="td-guide">約1〜3cm</span></td>
+                            <td><span class="td-price">¥15,000〜</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="td-size">コインサイズ</span></td>
+                            <td><span class="td-guide">約3〜5cm</span></td>
+                            <td><span class="td-price">¥20,000〜</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="td-size">名刺サイズ</span></td>
+                            <td><span class="td-guide">約5.5×9cm</span></td>
+                            <td><span class="td-price">¥25,000〜</span></td>
+                        </tr>
+                        <tr class="tr-grayout">
+                            <td><span class="td-size">スマホサイズ</span></td>
+                            <td><span class="td-guide">約7×15cm</span></td>
+                            <td><span class="td-price">¥30,000〜</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="td-size">ハガキサイズ</span></td>
+                            <td><span class="td-guide">約10×15cm</span></td>
+                            <td><span class="td-price">¥35,000〜</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- エフェメラルタトゥー -->
+        <div class="pricing-block fi fi-d2">
+            <h3 class="pricing-type-title">Ephemeral Tattoo <span class="pricing-type-ja">エフェメラルタトゥー</span></h3>
+            <div class="pricing-table-wrap">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>サイズ</th>
+                            <th>目安サイズ</th>
+                            <th>料金（税込）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="td-size">マイクロサイズ</span></td>
+                            <td><span class="td-guide">約1〜3cm</span></td>
+                            <td><span class="td-price">¥25,000〜</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="td-size">コインサイズ</span></td>
+                            <td><span class="td-guide">約3〜5cm</span></td>
+                            <td><span class="td-price">¥35,000〜</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="td-size">名刺サイズ</span></td>
+                            <td><span class="td-guide">約5.5×9cm</span></td>
+                            <td><span class="td-price">¥45,000〜</span></td>
+                        </tr>
+                        <tr class="tr-grayout">
+                            <td><span class="td-size">スマホサイズ</span></td>
+                            <td><span class="td-guide">約7×15cm</span></td>
+                            <td><span class="td-price">¥55,000〜</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="td-size">ハガキサイズ</span></td>
+                            <td><span class="td-guide">約10×15cm</span></td>
+                            <td><span class="td-price">¥65,000〜</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 通常タトゥー -->
+        <div class="pricing-block fi fi-d3">
+            <h3 class="pricing-type-title">Regular Tattoo <span class="pricing-type-ja">通常タトゥー</span></h3>
+            <div class="pricing-table-wrap">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>サイズ</th>
+                            <th>目安サイズ</th>
+                            <th>料金（税込）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="td-size">マイクロサイズ</span></td>
+                            <td><span class="td-guide">約1〜3cm</span></td>
+                            <td><span class="td-price">¥20,000〜</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="td-size">コインサイズ</span></td>
+                            <td><span class="td-guide">約3〜5cm</span></td>
+                            <td><span class="td-price">¥30,000〜</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="td-size">名刺サイズ</span></td>
+                            <td><span class="td-guide">約5.5×9cm</span></td>
+                            <td><span class="td-price">¥40,000〜</span></td>
+                        </tr>
+                        <tr class="tr-grayout">
+                            <td><span class="td-size">スマホサイズ</span></td>
+                            <td><span class="td-guide">約7×15cm</span></td>
+                            <td><span class="td-price">¥50,000〜</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="td-size">ハガキサイズ</span></td>
+                            <td><span class="td-guide">約10×15cm</span></td>
+                            <td><span class="td-price">¥60,000〜</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- NOTES -->
+<section class="notes-sec">
     <div class="container">
-      <div class="sec-head center fi">
-        <span class="sec-en">included</span>
-        <h2 class="sec-title">【 料金に含まれるもの 】</h2>
-        <div class="sec-line"></div>
-      </div>
-      <div class="included-grid">
-        <div class="included-item fi fi-d1">
-          <div class="included-num">01</div>
-          <p class="included-title">麻酔クリーム</p>
-          <p class="included-desc">施術部位への塗る麻酔クリーム（医療機関監修）の使用料金が含まれています。</p>
+        <div class="sec-head fi">
+            <span class="sec-en">notes</span>
+            <h2 class="sec-title">【 ご注意・ご案内 】</h2>
+            <div class="sec-line"></div>
         </div>
-        <div class="included-item fi fi-d2">
-          <div class="included-num">02</div>
-          <p class="included-title">カウンセリング</p>
-          <p class="included-desc">事前カウンセリングとデザインの調整・確認作業の費用が含まれます。</p>
+        <div class="notes-inner fi fi-d1">
+            <ul class="notes-list">
+                <li class="note-item">
+                    <span class="note-mark">—</span>
+                    <div class="note-body">
+                        <p class="note-title">当日カウンセリングをご希望の場合</p>
+                        <p class="note-text">ご来店当日にデザイン相談や詳細な打ち合わせを行う場合、別途カウンセリング料金（7,000円）を頂戴しております。</p>
+                        <p class="note-text">デザイン未定の方も、LINEで事前相談（無料）をしていただくことで追加費用なくご案内可能です。</p>
+                    </div>
+                </li>
+                <li class="note-item">
+                    <span class="note-mark">—</span>
+                    <div class="note-body">
+                        <p class="note-title">ご予約確定について</p>
+                        <p class="note-text">LINE追加、必要事項の送信、予約金10,000円のお支払いの3点完了後、予約確定となります。</p>
+                        <p class="note-text">LINE追加のみでは予約確定となりません。</p>
+                    </div>
+                </li>
+                <li class="note-item">
+                    <span class="note-mark">—</span>
+                    <div class="note-body">
+                        <p class="note-title">予約金（前払い）について</p>
+                        <p class="note-text">ご予約確定のため、予約金として10,000円を事前決済にて頂戴しております。</p>
+                        <p class="note-text">予約金は施術代へ充当されるため、追加料金ではありません。</p>
+                    </div>
+                </li>
+                <li class="note-item">
+                    <span class="note-mark">—</span>
+                    <div class="note-body">
+                        <p class="note-title">キャンセル時の返金について</p>
+                        <p class="note-text">3日前までのキャンセル・変更は返金対応可能です。</p>
+                        <p class="note-text">3日前以降のキャンセル・変更、無断キャンセルは返金不可となります。</p>
+                    </div>
+                </li>
+                <li class="note-item">
+                    <span class="note-mark">—</span>
+                    <div class="note-body">
+                        <p class="note-title">キャンセル・変更について</p>
+                        <p class="note-text">ご予約変更・キャンセルは、3日前までにお願いいたします。</p>
+                        <p class="note-text">直前キャンセル・無断キャンセルの場合、予約金の返金はいたしかねます。</p>
+                    </div>
+                </li>
+                <li class="note-item">
+                    <span class="note-mark">—</span>
+                    <div class="note-body">
+                        <p class="note-title">遅刻について</p>
+                        <p class="note-text">ご予約時間に遅れる場合は、できるだけ早めにご連絡ください。</p>
+                        <p class="note-text">施術内容変更や施術時間短縮をお願いする場合があります。</p>
+                    </div>
+                </li>
+                <li class="note-item">
+                    <span class="note-mark">—</span>
+                    <div class="note-body">
+                        <p class="note-title">体調不良時について</p>
+                        <p class="note-text">発熱や体調不良がある場合は、無理をせず日程変更をご相談ください。</p>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div class="included-item fi fi-d3">
-          <div class="included-num">03</div>
-          <p class="included-title">アフターケア用品</p>
-          <p class="included-desc">施術後のケア用ラップ・軟膏のセットをプレゼントしています。</p>
-        </div>
-        <div class="included-item fi fi-d4">
-          <div class="included-num">04</div>
-          <p class="included-title">LINEサポート</p>
-          <p class="included-desc">施術後2週間のアフターケアサポートをLINEにて無料で提供します。</p>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- OTHER PRICING -->
-  <section class="other-pricing-sec">
-    <div class="container">
-      <div class="sec-head fi">
-        <span class="sec-en">other menu</span>
-        <h2 class="sec-title">【 その他の料金 】</h2>
-        <div class="sec-line"></div>
-      </div>
-      <div class="other-grid">
-        <div class="other-card fi fi-d1">
-          <p class="other-label">Ephemeral Tattoo</p>
-          <p class="other-name">Ephemeral</p>
-          <p class="other-name-ja">消えるタトゥー</p>
-          <p class="other-price">¥6,000</p>
-          <p class="other-price-unit">/ 1ユニット（税込）</p>
-          <p class="other-desc">1〜2年で自然に消えるバイオ対応インクを使用した施術です。まずタトゥーを試してみたい方、イベントやフォトシュートなど期間限定でお楽しみいただけます。</p>
-        </div>
-        <div class="other-card fi fi-d2">
-          <p class="other-label">Hourly Rate</p>
-          <p class="other-name">Hourly</p>
-          <p class="other-name-ja">時間制料金</p>
-          <p class="other-price">¥10,000 〜 ¥15,000</p>
-          <p class="other-price-unit">/ 1時間（税込）</p>
-          <p class="other-desc">大型作品や複雑なデザインには時間制料金が適用される場合があります。担当アーティストのレベルや作品の複雑さによって料金が異なります。事前見積もりをお伝えします。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NOTES -->
-  <section class="notes-sec">
-    <div class="container">
-      <div class="sec-head fi">
-        <span class="sec-en">notes</span>
-        <h2 class="sec-title">【 ご注意・ご案内 】</h2>
-        <div class="sec-line"></div>
-      </div>
-      <div class="notes-inner fi fi-d1">
-        <ul class="notes-list">
-          <li class="note-item">
-            <span class="note-mark">—</span>
-            <p class="note-text">上記料金はすべて税込表示です。</p>
-          </li>
-          <li class="note-item">
-            <span class="note-mark">—</span>
-            <p class="note-text">料金はデザインの複雑さ、使用するカラー数、施術部位によって変動することがあります。</p>
-          </li>
-          <li class="note-item">
-            <span class="note-mark">—</span>
-            <p class="note-text">お持ち込みデザインの場合も対応可能ですが、アーティストによる調整が必要な場合があります。</p>
-          </li>
-          <li class="note-item">
-            <span class="note-mark">—</span>
-            <p class="note-text">未成年（18歳未満）の方への施術は行っておりません。身分証明書の提示をお願いする場合があります。</p>
-          </li>
-          <li class="note-item">
-            <span class="note-mark">—</span>
-            <p class="note-text">妊娠中・授乳中の方、特定のアレルギーをお持ちの方は事前にご相談ください。</p>
-          </li>
-          <li class="note-item">
-            <span class="note-mark">—</span>
-            <p class="note-text">当日キャンセルはキャンセル料（施術料金の50%）が発生する場合があります。</p>
-          </li>
-          <li class="note-item">
-            <span class="note-mark">—</span>
-            <p class="note-text">お支払いは現金・各種クレジットカード・PayPayに対応しています。</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <?php get_template_part( 'template-parts/cta-strip' ); ?>
+<?php get_template_part( 'template-parts/cta-strip' ); ?>
+</main>
 
 <?php get_footer(); ?>

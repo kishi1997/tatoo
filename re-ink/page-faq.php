@@ -11,7 +11,7 @@
       </div>
     </div>
   </section>
-  <?php get_template_part( 'template-parts/breadcrumb', null, [ 'current' => 'Q&A' ] ); ?>
+  <?php get_template_part( 'template-parts/breadcrumb' ); ?>
 
   <!-- FAQ: 予約・カウンセリングについて -->
   <section class="faq-sec">

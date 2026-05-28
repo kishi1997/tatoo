@@ -11,7 +11,7 @@
                     〒107-0062<br>
                     東京都港区南青山6-2-10 TIビル 2F<br><br>
                     表参道徒歩7分<br>
-                    11:00 – 20:00（不定休）
+                    11:00 – 19:00（不定休）
                 </p>
             </div>
 
@@ -20,8 +20,8 @@
                 <ul class="footer-links">
                     <li><a href="<?php echo esc_url( home_url( '/artists/' ) ); ?>">アーティスト</a></li>
                     <li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">タトゥーについて</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/pricing/' ) ); ?>">料金</a></li>
                     <li><a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>">作品ギャラリー</a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/#flow' ) ); ?>">ご予約の流れ</a></li>
                     <li><a href="<?php echo esc_url( home_url( '/access/' ) ); ?>">アクセス</a></li>
                     <li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">FAQ</a></li>
                 </ul>

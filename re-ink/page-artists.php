@@ -14,7 +14,7 @@
       </div>
     </div>
   </section>
-  <?php get_template_part( 'template-parts/breadcrumb', null, [ 'current' => 'Artists' ] ); ?>
+  <?php get_template_part( 'template-parts/breadcrumb' ); ?>
 
   <!-- ARTISTS GRID -->
   <section class="artists-sec">

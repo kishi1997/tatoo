@@ -758,3 +758,17 @@ button {
     height: 220px;
   }
 }
+
+@media (min-width: 769px) {
+  .nav-btn.nav-reserve,
+  .footer-addr,
+  .footer-col-title,
+  .footer-links a,
+  .footer-sns-link,
+  .footer-dt,
+  .footer-notes-list li,
+  .footer-copy,
+  .footer-legal a {
+    font-size: 16px;
+  }
+}

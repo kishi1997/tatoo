@@ -11,7 +11,7 @@
         </div>
     </div>
 </section>
-<?php get_template_part( 'template-parts/breadcrumb', null, [ 'current' => 'Access' ] ); ?>
+<?php get_template_part( 'template-parts/breadcrumb' ); ?>
 
 <!-- MAP & INFO -->
 <section class="map-sec">
@@ -38,16 +38,11 @@
                 </div>
                 <div class="info-group">
                     <p class="info-label">Hours</p>
-                    <p class="info-value">11:00 – 20:00</p>
-                    <p class="info-sub">不定休</p>
-                </div>
-                <div class="info-group">
-                    <p class="info-label">Phone</p>
-                    <p class="info-value">03-4400-5862</p>
+                    <p class="info-value">11:00 – 19:00（不定休）</p>
                 </div>
                 <div class="info-group">
                     <p class="info-label">Reservation</p>
-                    <p class="info-value" style="font-size:12px;color:var(--color-sub);">完全予約制。Webまたは公式LINEよりご予約ください。
+                    <p class="info-value">完全予約制。Webまたは公式LINEよりご予約ください。
                     </p>
                 </div>
             </div>
@@ -63,55 +58,15 @@
             <h2 class="sec-title">【 電車でのアクセス 】</h2>
             <div class="sec-line"></div>
         </div>
-        <div class="train-grid">
+        <div class="train-grid train-grid-single">
             <div class="train-card fi fi-d1">
                 <div class="train-icon">
-                    <span class="train-icon-inner">JR</span>
+                    <span class="train-icon-inner">M</span>
                 </div>
                 <div class="train-body">
-                    <p class="train-line">JR 京浜東北線 / 山手線</p>
-                    <p class="train-station">御徒町駅</p>
-                    <p class="train-time">3<span>min walk</span></p>
-                </div>
-            </div>
-            <div class="train-card fi fi-d2">
-                <div class="train-icon">
-                    <span class="train-icon-inner">JR</span>
-                </div>
-                <div class="train-body">
-                    <p class="train-line">JR 各線</p>
-                    <p class="train-station">上野駅</p>
-                    <p class="train-time">5<span>min walk</span></p>
-                </div>
-            </div>
-            <div class="train-card fi fi-d1">
-                <div class="train-icon">
-                    <span class="train-icon-inner" style="font-size:11px;letter-spacing:0.02em;">銀座</span>
-                </div>
-                <div class="train-body">
-                    <p class="train-line">東京メトロ 銀座線</p>
-                    <p class="train-station">上野広小路駅</p>
-                    <p class="train-time">2<span>min walk</span></p>
-                </div>
-            </div>
-            <div class="train-card fi fi-d2">
-                <div class="train-icon">
-                    <span class="train-icon-inner" style="font-size:11px;letter-spacing:0.02em;">大江戸</span>
-                </div>
-                <div class="train-body">
-                    <p class="train-line">都営大江戸線</p>
-                    <p class="train-station">上野御徒町駅</p>
-                    <p class="train-time">2<span>min walk</span></p>
-                </div>
-            </div>
-            <div class="train-card fi fi-d1">
-                <div class="train-icon">
-                    <span class="train-icon-inner" style="font-size:11px;letter-spacing:0.02em;">千代田</span>
-                </div>
-                <div class="train-body">
-                    <p class="train-line">東京メトロ 千代田線</p>
-                    <p class="train-station">湯島駅</p>
-                    <p class="train-time">5<span>min walk</span></p>
+                    <p class="train-line">東京メトロ 銀座線 / 千代田線 / 半蔵門線</p>
+                    <p class="train-station">表参道駅</p>
+                    <p class="train-time">7<span>min walk</span></p>
                 </div>
             </div>
         </div>

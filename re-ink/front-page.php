@@ -13,13 +13,6 @@
     <!-- オーバーレイ -->
     <div class="top-hero-overlay"></div>
 
-    <!-- 中央: ロゴ＋スタジオ名 -->
-    <div class="top-hero-center fi on">
-        <img class="top-hero-center-logo"
-            src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/logo.png" alt="Re’ink">
-        <span class="top-hero-center-text">Tattoo Studio — Omotesando Tokyo</span>
-    </div>
-
     <!-- スクロールヒント -->
     <div class="top-hero-scroll">
         <span>Scroll</span>
@@ -288,7 +281,7 @@
                 </div>
                 <div class="top-access-row">
                     <p class="top-access-label">Hours</p>
-                    <p class="top-access-text">11時〜20時（不定休）</p>
+                    <p class="top-access-text">11:00〜19:00（不定休）</p>
                 </div>
             </div>
         </div>

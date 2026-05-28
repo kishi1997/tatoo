@@ -19,7 +19,8 @@
                         <?php echo is_page( 'artists' ) ? ' class="active"' : ''; ?>>Artists</a></li>
                 <li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"
                         <?php echo is_page( 'about' ) ? ' class="active"' : ''; ?>>About</a></li>
-                <li><a href="<?php echo esc_url( home_url( '/#flow' ) ); ?>">Flow</a></li>
+                <li><a href="<?php echo esc_url( home_url( '/pricing/' ) ); ?>"
+                        <?php echo is_page( 'pricing' ) ? ' class="active"' : ''; ?>>Price</a></li>
                 <li><a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>"
                         <?php echo is_page( 'gallery' ) ? ' class="active"' : ''; ?>>Gallery</a></li>
                 <li><a href="<?php echo esc_url( home_url( '/access/' ) ); ?>"
@@ -29,7 +30,7 @@
             </ul>
             <div class="nav-btn-wrap">
                 <button class="nav-btn nav-reserve"
-                    onclick="location.href='<?php echo esc_url( home_url( '/#contact' ) ); ?>'"
+                    onclick="window.open('https://reink.stores.jp/reserve/omotesando/2481805','_blank','noopener,noreferrer')"
                     aria-label="Reservation">
                     <span class="nav-reserve-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" focusable="false">
@@ -51,11 +52,13 @@
             <?php echo is_page( 'artists' ) ? ' class="active"' : ''; ?>>Artists</a>
         <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"
             <?php echo is_page( 'about' ) ? ' class="active"' : ''; ?>>About</a>
+        <a href="<?php echo esc_url( home_url( '/pricing/' ) ); ?>"
+            <?php echo is_page( 'pricing' ) ? ' class="active"' : ''; ?>>Price</a>
         <a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>"
             <?php echo is_page( 'gallery' ) ? ' class="active"' : ''; ?>>Gallery</a>
         <a href="<?php echo esc_url( home_url( '/access/' ) ); ?>"
             <?php echo is_page( 'access' ) ? ' class="active"' : ''; ?>>Access</a>
         <a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>"
             <?php echo is_page( 'faq' ) ? ' class="active"' : ''; ?>>FAQ</a>
-        <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="btn btn-outline">RESERVE</a>
+        <a href="https://reink.stores.jp/reserve/omotesando/2481805" class="btn btn-outline" target="_blank" rel="noopener noreferrer">RESERVE</a>
     </nav>
