@@ -47,7 +47,7 @@
         </a>
         <ul class="nav-links">${linkHtml}</ul>
         <div class="nav-btn-wrap">
-          <button class="nav-btn nav-reserve" onclick="location.href='index.html#contact'" aria-label="Reservation">
+          <button class="nav-btn nav-reserve" onclick="location.href='index.htmlhttps://reink.stores.jp/reserve/omotesando/2481805'" aria-label="Reservation">
             <span class="nav-reserve-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <rect x="4" y="5" width="16" height="15" rx="1.6"></rect>
@@ -64,7 +64,7 @@
     </header>
     <nav class="mobile-nav" id="mobile-nav">
       ${mobileLinkHtml}
-      <a href="index.html#contact" class="btn btn-outline" style="margin-top:28px;letter-spacing:0.2em;font-size:11px;">RESERVE</a>
+      <a href="index.htmlhttps://reink.stores.jp/reserve/omotesando/2481805" class="btn btn-outline" style="margin-top:28px;letter-spacing:0.2em;font-size:11px;">RESERVE</a>
     </nav>
   `;
 

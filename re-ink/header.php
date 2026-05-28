@@ -60,5 +60,5 @@
             <?php echo is_page( 'access' ) ? ' class="active"' : ''; ?>>Access</a>
         <a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>"
             <?php echo is_page( 'faq' ) ? ' class="active"' : ''; ?>>FAQ</a>
-        <a href="https://reink.stores.jp/reserve/omotesando/2481805" class="btn btn-outline" target="_blank" rel="noopener noreferrer">RESERVE</a>
+        <a target="_blank" rel="noopener noreferrer"　　href="https://reink.stores.jp/reserve/omotesando/2481805" class="btn btn-outline" target="_blank" rel="noopener noreferrer">RESERVE</a>
     </nav>

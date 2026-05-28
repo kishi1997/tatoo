@@ -97,18 +97,18 @@ def convert(html, is_front=False):
     # index.html variants
     html = html.replace('href="index.html"',        f'href="{esc_url("/")}"')
     html = html.replace("href='index.html'",        f"href='{esc_url('/')}'")
-    html = html.replace('href="index.html#contact"', f'href="{esc_url("/#contact")}"')
+    html = html.replace('href="index.htmlhttps://reink.stores.jp/reserve/omotesando/2481805"', f'href="{esc_url("/https://reink.stores.jp/reserve/omotesando/2481805")}"')
     html = html.replace('href="index.html#flow"',    f'href="{esc_url("/#flow")}"')
     html = html.replace('href="index.html#access"',  f'href="{esc_url("/#access")}"')
 
     # onclick with index.html
     html = html.replace(
-        "location.href='index.html#contact'",
-        f"location.href='{esc_url('/#contact')}'"
+        "location.href='index.htmlhttps://reink.stores.jp/reserve/omotesando/2481805'",
+        f"location.href='{esc_url('/https://reink.stores.jp/reserve/omotesando/2481805')}'"
     )
     html = html.replace(
         "onclick=\"document.getElementById('contact').scrollIntoView({behavior:'smooth'})\"",
-        f"onclick=\"location.href='{esc_url('/#contact')}'\""
+        f"onclick=\"location.href='{esc_url('/https://reink.stores.jp/reserve/omotesando/2481805')}'\""
     )
 
     # page.html and page.html#fragment

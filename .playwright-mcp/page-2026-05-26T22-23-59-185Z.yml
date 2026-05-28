@@ -34,7 +34,7 @@
         - generic [ref=e33]: Scroll
         - generic [ref=e35]:
             - link "Web予約" [ref=e36] [cursor=pointer]:
-                - /url: "#contact"
+                - /url: "https://reink.stores.jp/reserve/omotesando/2481805"
                 - img [ref=e37]
                 - text: Web予約
             - link "LINE問合せ" [ref=e39] [cursor=pointer]:
@@ -85,7 +85,7 @@
                     - text: メニューを見る
                     - generic [ref=e72]: →
                 - link "予約・相談する →" [ref=e73] [cursor=pointer]:
-                    - /url: "#contact"
+                    - /url: "https://reink.stores.jp/reserve/omotesando/2481805"
                     - text: 予約・相談する
                     - generic [ref=e74]: →
     - generic [ref=e77]:
@@ -325,7 +325,7 @@
             - generic [ref=e310]:
                 - paragraph [ref=e311]: Contact
                 - link "Webで予約する →" [ref=e312] [cursor=pointer]:
-                    - /url: http://localhost:8888/#contact
+                    - /url: http://localhost:8888/https://reink.stores.jp/reserve/omotesando/2481805
                     - text: Webで予約する
                     - generic [ref=e313]: →
                 - link "LINE問合せ →" [ref=e314] [cursor=pointer]:

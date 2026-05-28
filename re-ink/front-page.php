@@ -21,7 +21,8 @@
 
     <!-- 下部アクションバー -->
     <div class="top-hero-bar">
-        <a href="#contact" class="top-hero-bar-btn">
+        <a target="_blank" rel="noopener noreferrer" 　　href="https://reink.stores.jp/reserve/omotesando/2481805"
+            class="top-hero-bar-btn">
             <svg viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -103,7 +104,8 @@
                 <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="top-concept-btn">
                     メニューを見る <span class="top-concept-btn-arrow">→</span>
                 </a>
-                <a href="#contact" class="top-concept-btn">
+                <a target="_blank" rel="noopener noreferrer" 　　href="https://reink.stores.jp/reserve/omotesando/2481805"
+                    class="top-concept-btn">
                     予約・相談する <span class="top-concept-btn-arrow">→</span>
                 </a>
             </div>
@@ -438,7 +440,8 @@
     </div>
     <!-- 3分割パネル -->
     <div class="top-cta-panels">
-        <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="top-cta-panel">
+        <a href="https://reink.stores.jp/reserve/omotesando/2481805" target="_blank" rel="noopener noreferrer"
+            class="top-cta-panel">
             <div class="top-cta-panel-bg"
                 style="background-image: url('<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/bg2.jpeg');">
             </div>
