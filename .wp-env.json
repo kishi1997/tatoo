@@ -1,0 +1,6 @@
+{
+  "core": "WordPress/WordPress#6.5",
+  "phpVersion": "8.2",
+  "themes": [ "./re-ink" ],
+  "testsEnvironment": false
+}

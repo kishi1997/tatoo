@@ -1,0 +1,1 @@
+[    1684ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8888/wp-content/themes/re-ink/assets/css/%3C?php%20echo%20esc_url(%20get_template_directory_uri()%20);%20?%3E/assets/img/bg-paper.png:0
