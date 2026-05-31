@@ -8,6 +8,14 @@ function reink_setup() {
 add_action( 'after_setup_theme', 'reink_setup' );
 
 function reink_enqueue_scripts() {
+    if ( is_page( 'lp' ) ) {
+        wp_enqueue_style( 're-ink-lp-fonts', 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&display=swap', [], null );
+        wp_enqueue_style( 're-ink-lp-reset', 'https://unpkg.com/scss-reset/reset.css', [], null );
+        $lp_css = get_template_directory() . '/assets/css/lp.css';
+        wp_enqueue_style( 're-ink-lp', get_template_directory_uri() . '/assets/css/lp.css', [ 're-ink-lp-reset' ], filemtime( $lp_css ) );
+        return;
+    }
+
     $theme_style = get_template_directory() . '/style.css';
     wp_enqueue_style( 're-ink-theme-style', get_stylesheet_uri(), [], filemtime( $theme_style ) );
 

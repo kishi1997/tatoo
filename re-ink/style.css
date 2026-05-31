@@ -256,7 +256,7 @@ button {
 }
 
 .nav-logo img {
-  height: 64px;
+  height: 72px;
   width: auto;
   object-fit: contain;
 }
@@ -540,10 +540,9 @@ button {
 }
 
 .footer-brand img {
-  height: 64px;
+  height: 72px;
   width: auto;
   object-fit: contain;
-  margin-bottom: 24px;
 }
 
 .footer-addr {
@@ -696,7 +695,7 @@ button {
     width: 88px;
     height: 88px;
     gap: 7px;
-    font-size: 10px;
+    font-size: 13px !important;
   }
   .nav-reserve-icon {
     width: 22px;
@@ -712,6 +711,13 @@ button {
   .footer-inner {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+  }
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
   }
 }
 

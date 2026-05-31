@@ -4,15 +4,11 @@
 <section id="hero" class="top-hero">
     <!-- 背景動画 -->
     <div class="top-hero-bg">
-        <video class="top-hero-bg-video" autoplay muted loop playsinline preload="metadata"
-            poster="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/bg1.jpeg" aria-label="Re’ink 表参道">
+        <video class="top-hero-bg-video" autoplay muted loop playsinline preload="metadata" aria-label="Re’ink 表参道">
             <source src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/fv/fv-bg.mp4"
                 type="video/mp4">
         </video>
     </div>
-    <!-- オーバーレイ -->
-    <div class="top-hero-overlay"></div>
-
     <!-- スクロールヒント -->
     <div class="top-hero-scroll">
         <span>Scroll</span>

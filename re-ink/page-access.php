@@ -30,7 +30,7 @@
             <div class="studio-info fi fi-d1">
                 <div class="info-group">
                     <p class="info-label">Studio Name</p>
-                    <p class="info-value">INKLY TATTOO STUDIO</p>
+                    <p class="info-value">Re'ink 表参道店</p>
                 </div>
                 <div class="info-group">
                     <p class="info-label">Address</p>
