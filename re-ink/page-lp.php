@@ -144,7 +144,7 @@ $img = get_template_directory_uri() . '/assets/img/lp';
                     </article>
                     <article><img src="<?php echo esc_url( $img ); ?>/icon/icon-fans.svg" alt="">
                         <p>アーティスト本人に</p>
-                        <h3>ファンが<br>付きやすい</h3>
+                        <h3>ファンが付きやすい</h3>
                     </article>
                 </div>
             </div>
@@ -159,7 +159,7 @@ $img = get_template_directory_uri() . '/assets/img/lp';
                 <div class="c-heading-center c-heading-center--dark">
                     <p class="c-section-label c-section-label--dark">CHALLENGES</p>
                     <p>ただし彫り師になるには</p>
-                    <h2 class="c-section-title c-section-title--dark">タトゥー業界は、<span>簡単に始められる世界</span><br />ではありません</h2>
+                    <h2 class="c-section-title c-section-title--dark">タトゥー業界は、<span>簡単に始められる世界</span><br class="u-pc-only" />ではありません</h2>
                     <div class="u-divider-diamond" aria-hidden="true">
                         <span class="u-divider-diamond__line"></span>
                         <span class="u-divider-diamond__diamond"></span>
