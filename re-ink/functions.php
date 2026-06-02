@@ -400,3 +400,97 @@ function reink_redirect_gallery_new_post_to_bulk_add() {
     }
 }
 add_action( 'admin_init', 'reink_redirect_gallery_new_post_to_bulk_add' );
+
+// ===== 採用フォーム送信 =====
+function reink_recruit_submit() {
+    if ( ! isset( $_POST['recruit_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['recruit_nonce'] ) ), 'reink_recruit' ) ) {
+        wp_send_json_error( 'セキュリティチェックに失敗しました。' );
+    }
+
+    $job_type    = isset( $_POST['job_type'] )    ? sanitize_text_field( wp_unslash( $_POST['job_type'] ) )    : '';
+    $name        = isset( $_POST['name'] )        ? sanitize_text_field( wp_unslash( $_POST['name'] ) )        : '';
+    $kana        = isset( $_POST['kana'] )        ? sanitize_text_field( wp_unslash( $_POST['kana'] ) )        : '';
+    $age         = isset( $_POST['age'] )         ? absint( $_POST['age'] )                                    : 0;
+    $gender      = isset( $_POST['gender'] )      ? sanitize_text_field( wp_unslash( $_POST['gender'] ) )      : '';
+    $address     = isset( $_POST['address'] )     ? sanitize_text_field( wp_unslash( $_POST['address'] ) )     : '';
+    $tel         = isset( $_POST['tel'] )         ? sanitize_text_field( wp_unslash( $_POST['tel'] ) )         : '';
+    $email       = isset( $_POST['email'] )       ? sanitize_email( wp_unslash( $_POST['email'] ) )            : '';
+    $experience  = isset( $_POST['experience'] )  ? sanitize_text_field( wp_unslash( $_POST['experience'] ) )  : '';
+    $sns         = isset( $_POST['sns'] )         ? sanitize_text_field( wp_unslash( $_POST['sns'] ) )         : '';
+    $sns_account = isset( $_POST['sns_account'] ) ? sanitize_textarea_field( wp_unslash( $_POST['sns_account'] ) ) : '';
+    $motivation  = isset( $_POST['motivation'] )  ? sanitize_textarea_field( wp_unslash( $_POST['motivation'] ) )  : '';
+
+    if ( ! $job_type || ! $name || ! $kana || ! $age || ! $gender || ! $tel || ! $email || ! $experience || ! $sns ) {
+        wp_send_json_error( '必須項目をすべて入力してください。' );
+    }
+
+    if ( ! is_email( $email ) ) {
+        wp_send_json_error( 'メールアドレスの形式が正しくありません。' );
+    }
+
+    $to      = get_option( 'admin_email' );
+    $subject = '【Re\'ink 採用応募】' . $name . ' 様';
+    $body    = "採用フォームより応募がありました。\n\n";
+    $body   .= "■ 希望職種: {$job_type}\n";
+    $body   .= "■ お名前: {$name}\n";
+    $body   .= "■ フリガナ: {$kana}\n";
+    $body   .= "■ 年齢: {$age}歳\n";
+    $body   .= "■ 性別: {$gender}\n";
+    $body   .= "■ 住所: {$address}\n";
+    $body   .= "■ 電話番号: {$tel}\n";
+    $body   .= "■ メールアドレス: {$email}\n";
+    $body   .= "■ タトゥーアーティストの施術経験: {$experience}\n";
+    $body   .= "■ よく使うSNS: {$sns}\n";
+    $body   .= "■ SNSアカウント:\n{$sns_account}\n\n";
+    $body   .= "■ 自己PR・志望動機:\n{$motivation}\n";
+
+    $sent = wp_mail( $to, $subject, $body );
+    if ( $sent ) {
+        wp_send_json_success();
+    } else {
+        wp_send_json_error( '送信に失敗しました。時間をおいて再度お試しください。' );
+    }
+}
+add_action( 'wp_ajax_reink_recruit_submit', 'reink_recruit_submit' );
+add_action( 'wp_ajax_nopriv_reink_recruit_submit', 'reink_recruit_submit' );
+
+// ===== お問い合わせフォーム送信 =====
+function reink_contact_submit() {
+    if ( ! isset( $_POST['contact_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['contact_nonce'] ) ), 'reink_contact' ) ) {
+        wp_send_json_error( 'セキュリティチェックに失敗しました。' );
+    }
+
+    $name    = isset( $_POST['name'] )    ? sanitize_text_field( wp_unslash( $_POST['name'] ) )    : '';
+    $tel     = isset( $_POST['tel'] )     ? sanitize_text_field( wp_unslash( $_POST['tel'] ) )     : '';
+    $email   = isset( $_POST['email'] )   ? sanitize_email( wp_unslash( $_POST['email'] ) )        : '';
+    $message = isset( $_POST['message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '';
+
+    if ( ! $name || ! $tel || ! $email || ! $message ) {
+        wp_send_json_error( '必須項目をすべて入力してください。' );
+    }
+
+    if ( ! is_email( $email ) ) {
+        wp_send_json_error( 'メールアドレスの形式が正しくありません。' );
+    }
+
+    if ( mb_strlen( $message ) > 500 ) {
+        wp_send_json_error( 'お問い合わせ内容は500文字以内でご入力ください。' );
+    }
+
+    $to      = get_option( 'admin_email' );
+    $subject = '【Re\'ink お問い合わせ】' . $name . ' 様';
+    $body    = "お問い合わせフォームよりご連絡がありました。\n\n";
+    $body   .= "■ 氏名: {$name}\n";
+    $body   .= "■ 電話番号: {$tel}\n";
+    $body   .= "■ メールアドレス: {$email}\n";
+    $body   .= "■ お問い合わせ内容:\n{$message}\n";
+
+    $sent = wp_mail( $to, $subject, $body );
+    if ( $sent ) {
+        wp_send_json_success();
+    } else {
+        wp_send_json_error( '送信に失敗しました。時間をおいて再度お試しください。' );
+    }
+}
+add_action( 'wp_ajax_reink_contact_submit', 'reink_contact_submit' );
+add_action( 'wp_ajax_nopriv_reink_contact_submit', 'reink_contact_submit' );

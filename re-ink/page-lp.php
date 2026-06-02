@@ -22,10 +22,9 @@ $img = get_template_directory_uri() . '/assets/img/lp';
 
             <div class="p-hero__content">
                 <header class="p-hero__header">
-                    <a href="#top" class="c-logo" aria-label="Re'ink Tattoo Artist School">
-                        <span class="c-logo__icon" aria-hidden="true"></span>
-                        <span class="c-logo__text">TATTOO ARTIST SCHOOL</span>
-                    </a>
+                    <span class="c-logo" aria-label="Re'ink Tattoo Artist School">
+                        <img src="<?php echo esc_url( $img ); ?>/logo.png" alt="Re'ink Tattoo Artist School" />
+                    </span>
                     <p class="p-hero__tagline">Be yourself, Be an artist.</p>
                 </header>
 
@@ -42,7 +41,7 @@ $img = get_template_directory_uri() . '/assets/img/lp';
                     </h1>
 
                     <p class="p-hero__lead">
-                        絵心がない。未経験で不安。<br>
+                        絵心がない。未経験で不安。<br class="u-pc-only">
                         そんなあなたの「表現したい」を、現役トップアーティストが収入につながる技術へ導きます。
                     </p>
 
@@ -75,7 +74,8 @@ $img = get_template_directory_uri() . '/assets/img/lp';
             <div class="l-container p-about__inner">
                 <div class="p-about__text">
                     <p class="c-section-label c-section-label--dark">Re'inkとは？</p>
-                    <h2 class="c-section-title c-section-title--dark">東京表参道にある<br><em>朝倉未来</em>プロデュースのタトゥースタジオ</h2>
+                    <h2 class="c-section-title c-section-title--dark">東京表参道にある<br><em>朝倉未来</em>プロデュースの<br
+                            class="u-sp-only">タトゥースタジオ</h2>
                     <a class="c-line-button" href="https://lin.ee/7nVcR8t">
                         <div class="c-line-button-inner">
                             <span class="c-line-button-icon">
@@ -117,7 +117,7 @@ $img = get_template_directory_uri() . '/assets/img/lp';
 
         <!-- ==================== HOT JOB ==================== -->
         <section class="p-hotjob">
-            <div class="u-bg-type u-pc-only" aria-hidden="true">
+            <div class="u-bg-type" aria-hidden="true">
                 FEATURE
             </div>
             <div class="l-container">
@@ -131,15 +131,15 @@ $img = get_template_directory_uri() . '/assets/img/lp';
                 </div>
                 <div class="p-hotjob__grid">
                     <article><img src="<?php echo esc_url( $img ); ?>/icon/icon-ai-resistant.svg" alt="">
-                        <p>"一点もの"の<br>職人ビジネスなので</p>
+                        <p>"一点もの"の<br class="u-pc-only">職人ビジネスなので</p>
                         <h3>AI代替されにくい</h3>
                     </article>
                     <article><img src="<?php echo esc_url( $img ); ?>/icon/icon-high-price.svg" alt="">
-                        <p>単価が高い<br>（数万円〜数十万円）ので</p>
-                        <h3>利益率を<br>作りやすい</h3>
+                        <p>単価が高い<br class="u-pc-only">（数万円〜数十万円）ので</p>
+                        <h3>利益率を作りやすい</h3>
                     </article>
                     <article><img src="<?php echo esc_url( $img ); ?>/icon/icon-beauty-fashion.svg" alt="">
-                        <p>美容・ファッション<br>寄りに</p>
+                        <p>美容・ファッション寄りに</p>
                         <h3>市場が変化<span>している</span></h3>
                     </article>
                     <article><img src="<?php echo esc_url( $img ); ?>/icon/icon-fans.svg" alt="">
@@ -152,14 +152,15 @@ $img = get_template_directory_uri() . '/assets/img/lp';
 
         <!-- ==================== CHALLENGES ==================== -->
         <section class="p-challenges">
-            <div class="u-bg-type u-pc-only" aria-hidden="true">
+            <div class="u-bg-type" aria-hidden="true">
                 CHALLENGES
             </div>
             <div class="l-container">
                 <div class="c-heading-center c-heading-center--dark">
                     <p class="c-section-label c-section-label--dark">CHALLENGES</p>
                     <p>ただし彫り師になるには</p>
-                    <h2 class="c-section-title c-section-title--dark">タトゥー業界は、<span>簡単に始められる世界</span><br class="u-pc-only" />ではありません</h2>
+                    <h2 class="c-section-title c-section-title--dark">タトゥー業界は、<br
+                            class="u-sp-only"><span>簡単に始められる世界</span><br class="u-pc-only" />ではありません</h2>
                     <div class="u-divider-diamond" aria-hidden="true">
                         <span class="u-divider-diamond__line"></span>
                         <span class="u-divider-diamond__diamond"></span>
@@ -270,7 +271,8 @@ $img = get_template_directory_uri() . '/assets/img/lp';
                         </figure>
                     </article>
 
-                    <div class="p-challenge-message"><strong>その悩み、すべて<br class="u-sp-only">Re'inkタトゥースクールにお任せ！！</strong>
+                    <div class="p-challenge-message"><strong>その悩み、すべて<br class="u-sp-only">Re'inkタトゥースクールに<br
+                                class="u-sp-only">お任せ！！</strong>
                     </div>
                 </div>
             </div>
@@ -278,13 +280,14 @@ $img = get_template_directory_uri() . '/assets/img/lp';
 
         <!-- ==================== FEATURES ==================== -->
         <section class="p-features">
-            <div class="u-bg-type u-pc-only" aria-hidden="true">
+            <div class="u-bg-type" aria-hidden="true">
                 FEATURES
             </div>
             <div class="l-container">
                 <div class="c-heading-center">
                     <p class="c-section-label">FEATURES</p>
-                    <h2 class="c-section-title">Re'inkが選ばれる<br><span class="u-marker">3つの理由</span></h2>
+                    <h2 class="c-section-title">Re'inkが選ばれる<br class="u-pc-only"><span class="u-marker">3つの理由</span>
+                    </h2>
                     <div class="u-divider-diamond" aria-hidden="true">
                         <span class="u-divider-diamond__line"></span>
                         <span class="u-divider-diamond__diamond"></span>
@@ -495,7 +498,7 @@ $img = get_template_directory_uri() . '/assets/img/lp';
                                     </div>
 
                                     <h3 class="feature-card__title">
-                                        未経験からでも安心できる学習環境
+                                        未経験からでも<br class="u-sp-only">安心できる学習環境
                                     </h3>
 
                                     <p class="feature-card__lead">
@@ -558,13 +561,14 @@ $img = get_template_directory_uri() . '/assets/img/lp';
 
         <!-- ==================== CURRICULUM ==================== -->
         <section class="p-curriculum">
-            <div class="u-bg-type u-pc-only" aria-hidden="true">
+            <div class="u-bg-type" aria-hidden="true">
                 CURRICULUM
             </div>
             <div class="l-container">
                 <div class="c-heading-center">
                     <p class="c-section-label">CURRICULUM</p>
-                    <h2 class="c-section-title">実践に特化した、<br><span class="u-marker">全6回完結</span>プログラム</h2>
+                    <h2 class="c-section-title">実践に特化した、<br><span class="u-marker">全6回完結</span>プログラム
+                    </h2>
                     <div class="u-divider-diamond" aria-hidden="true">
                         <span class="u-divider-diamond__line"></span>
                         <span class="u-divider-diamond__diamond"></span>
@@ -722,14 +726,14 @@ $img = get_template_directory_uri() . '/assets/img/lp';
 
         <!-- ==================== PRICE ==================== -->
         <section class="p-price">
-            <div class="u-bg-type u-pc-only" aria-hidden="true">
+            <div class="u-bg-type" aria-hidden="true">
                 PRICE
             </div>
             <div class="l-container">
                 <div class="c-heading-center">
                     <p class="c-section-label">PRICE</p>
                     <h2 class="c-section-title">受講料金</h2>
-                    <p>必要なものを、すべて含んだシンプルな料金体系<br><span class="u-marker">追加料金は一切ありません</span></p>
+                    <p>必要なものを、すべて含んだシンプルな料金体系<br class="u-pc-only"><span class="u-marker">追加料金は一切ありません</span></p>
                 </div>
                 <div class="p-price__card">
                     <p class="p-price__label">全6回 / 教材・実習費込み</p>
@@ -906,17 +910,17 @@ $img = get_template_directory_uri() . '/assets/img/lp';
                     <div class="p-instructor__body">
                         <p class="p-instructor__label">INSTRUCTOR</p>
                         <h2 class="p-instructor__catch">
-                            あなたの才能を、<br>
+                            あなたの才能を、<br class="u-pc-only">
                             <span>確信</span>に変える
                         </h2>
                         <div class="p-instructor__name">
                             <span>Re'ink Artist</span>
-                            <strong>おひな</strong>
+                            <strong>OHINA</strong>
                         </div>
                         <blockquote class="p-instructor__message">
                             <p>
-                                私自身も未経験からスタートしました<br>
-                                だからこそ、つまずくポイントが分かります<br>
+                                私自身も未経験からスタートしました<br class="u-pc-only">
+                                だからこそ、つまずくポイントが分かります<br class="u-pc-only">
                                 技術は一生の財産です<br>
                                 <strong>一緒に歩みましょう</strong>
                             </p>
@@ -950,7 +954,7 @@ $img = get_template_directory_uri() . '/assets/img/lp';
 
         <!-- ==================== FAQ ==================== -->
         <section class="p-faq">
-            <div class="u-bg-type u-pc-only" aria-hidden="true">
+            <div class="u-bg-type" aria-hidden="true">
                 FAQ
             </div>
             <div class="l-container">
@@ -1061,7 +1065,7 @@ $img = get_template_directory_uri() . '/assets/img/lp';
                         </p>
 
                         <h2 class="p-line-banner__title">
-                            あなたの「気になる」を<br>
+                            あなたの「気になる」を<br class="u-pc-only">
                             <span>LINE</span>で気軽に相談できます。
                         </h2>
 
@@ -1120,7 +1124,8 @@ $img = get_template_directory_uri() . '/assets/img/lp';
 
                 <div class="p-terms__block">
                     <h3 class="p-terms__title">キャンセル・返金について</h3>
-                    <p class="p-terms__lead">お申し込み完了後のお客様都合によるキャンセル・返金は原則お受けしておりません。<br>やむを得ない事情がある場合は、事前にご相談ください。</p>
+                    <p class="p-terms__lead">お申し込み完了後のお客様都合によるキャンセル・返金は原則お受けしておりません。<br
+                            class="u-pc-only">やむを得ない事情がある場合は、事前にご相談ください。</p>
                 </div>
             </div>
         </section>

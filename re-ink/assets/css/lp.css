@@ -142,7 +142,7 @@ section {
 .u-pc-only {
   display: inline;
 }
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .u-pc-only {
     display: none;
   }
@@ -152,6 +152,8 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  width: 80px;
+  background: white;
 }
 
 .c-logo__icon {
@@ -444,7 +446,7 @@ section {
 .p-hero__title {
   margin: 0;
   font-family: var(--font-mincho);
-  font-size: clamp(42px, 4.8vw, 68px);
+  font-size: clamp(40px, 3.2vw, 68px);
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: 0.05em;
@@ -579,6 +581,9 @@ section {
 }
 /* 560px以下 */
 @media (max-width: 560px) {
+  .c-logo {
+    width: 50px;
+  }
   .p-hero__header {
     align-items: center;
   }
@@ -603,7 +608,7 @@ section {
     font-size: 18px;
   }
   .p-hero__title {
-    font-size: clamp(30px, 8vw, 56px);
+    font-size: clamp(30px, 6vw, 56px);
   }
   .p-hero__lead {
     font-size: 14px;
@@ -1004,6 +1009,12 @@ section {
   }
   .p-challenge-message__title {
     white-space: normal;
+  }
+}
+@media (max-width: 560px) {
+  .p-challenge-message {
+    width: 100%;
+    padding: 18px 4px;
   }
 }
 .c-feature-card {

@@ -17,7 +17,7 @@
 
     <!-- 下部アクションバー -->
     <div class="top-hero-bar">
-        <a target="_blank" rel="noopener noreferrer" 　　href="https://reink.stores.jp/reserve/omotesando/2481805"
+        <a target="_blank" rel="noopener noreferrer" href="https://reink.stores.jp/reserve/omotesando/2481805"
             class="top-hero-bar-btn">
             <svg viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -398,6 +398,287 @@
         </div>
     </div>
 </section>
+
+<!-- ======= RECRUIT ======= -->
+<section id="recruit" class="top-recruit">
+    <div class="container">
+        <div class="top-form-single">
+            <div class="top-form-single-head fi">
+                <p class="top-recruit-heading">RECRUIT</p>
+                <p class="top-recruit-label-text">【 採用情報 】</p>
+            </div>
+
+            <div class="fi fi-d1">
+                <p class="top-recruit-note">※印は必須項目です。必ずご入力ください</p>
+                <form class="top-recruit-form" id="recruitForm">
+                    <?php wp_nonce_field( 'reink_recruit', 'recruit_nonce' ); ?>
+                    <input type="hidden" name="action" value="reink_recruit_submit">
+
+                    <!-- 希望職種 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">希望職種<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field">
+                            <label class="top-recruit-radio-label"><input type="radio" name="job_type"
+                                    value="タトゥーアーティスト"> <span>タトゥーアーティスト</span></label>
+                            <label class="top-recruit-radio-label"><input type="radio" name="job_type" value="受付スタッフ">
+                                <span>受付スタッフ</span></label>
+                        </div>
+                    </div>
+
+                    <!-- お名前 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">お名前<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field">
+                            <input type="text" name="name" placeholder="山田　花子" class="top-recruit-input">
+                        </div>
+                    </div>
+
+                    <!-- フリガナ -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">フリガナ<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field">
+                            <input type="text" name="kana" placeholder="ヤマダ　ハナコ" class="top-recruit-input">
+                        </div>
+                    </div>
+
+                    <!-- 年齢 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">年齢<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field top-recruit-field--age">
+                            <input type="number" name="age" placeholder="25" min="18" max="99"
+                                class="top-recruit-input top-recruit-input--num">
+                            <span class="top-recruit-unit">歳</span>
+                        </div>
+                    </div>
+
+                    <!-- 性別 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">性別<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field">
+                            <label class="top-recruit-radio-label"><input type="radio" name="gender" value="男性">
+                                <span>男性</span></label>
+                            <label class="top-recruit-radio-label"><input type="radio" name="gender" value="女性">
+                                <span>女性</span></label>
+                            <label class="top-recruit-radio-label"><input type="radio" name="gender" value="その他">
+                                <span>その他</span></label>
+                        </div>
+                    </div>
+
+                    <!-- 住所 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">住所</p>
+                        <div class="top-recruit-field">
+                            <input type="text" name="address" placeholder="東京都中央区日本橋横山町8-5" class="top-recruit-input">
+                        </div>
+                    </div>
+
+                    <!-- 電話番号 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">電話番号<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field">
+                            <input type="tel" name="tel" placeholder="000-0000-0000" class="top-recruit-input">
+                        </div>
+                    </div>
+
+                    <!-- メールアドレス -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">メールアドレス<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field">
+                            <input type="email" name="email" placeholder="example@example.jp" class="top-recruit-input">
+                        </div>
+                    </div>
+
+                    <!-- タトゥーアーティストの施術経験 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">タトゥーアーティストの施術経験<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field">
+                            <label class="top-recruit-radio-label"><input type="radio" name="experience" value="あり">
+                                <span>あり</span></label>
+                            <label class="top-recruit-radio-label"><input type="radio" name="experience" value="なし">
+                                <span>なし</span></label>
+                        </div>
+                    </div>
+
+                    <!-- よく使うSNS -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">よく使うSNSや投稿するものを教えてください<span class="top-recruit-req">※</span>
+                        </p>
+                        <div class="top-recruit-field">
+                            <label class="top-recruit-radio-label"><input type="radio" name="sns" value="Twitter">
+                                <span>Twitter</span></label>
+                            <label class="top-recruit-radio-label"><input type="radio" name="sns" value="Instagram">
+                                <span>Instagram</span></label>
+                            <label class="top-recruit-radio-label"><input type="radio" name="sns" value="Tiktok">
+                                <span>Tiktok</span></label>
+                            <label class="top-recruit-radio-label"><input type="radio" name="sns" value="やってない">
+                                <span>やってない</span></label>
+                        </div>
+                    </div>
+
+                    <!-- SNSアカウント -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">よければSNSアカウントを教えてください</p>
+                        <div class="top-recruit-field">
+                            <textarea name="sns_account" placeholder="Twitter @xxxxxx"
+                                class="top-recruit-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 自己PR・志望動機 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">自己PR・志望動機</p>
+                        <div class="top-recruit-field">
+                            <textarea name="motivation" placeholder="自己PR・志望動機についてご記入ください。"
+                                class="top-recruit-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 送信ボタン -->
+                    <div class="top-recruit-submit-wrap">
+                        <button type="submit" class="top-recruit-submit-btn">送信する</button>
+                    </div>
+                </form>
+                <div id="recruitResult" class="top-recruit-result" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+(function() {
+    var form = document.getElementById('recruitForm');
+    var result = document.getElementById('recruitResult');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('.top-recruit-submit-btn');
+        var data = new FormData(form);
+        btn.disabled = true;
+        btn.textContent = '送信中...';
+        fetch('<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>', {
+            method: 'POST',
+            body: data
+        }).then(function(r) {
+            return r.json();
+        }).then(function(res) {
+            result.style.display = 'block';
+            if (res.success) {
+                result.className = 'top-recruit-result top-recruit-result--ok';
+                result.textContent = 'ご応募ありがとうございます。内容を確認の上、担当者よりご連絡いたします。';
+                form.reset();
+                btn.style.display = 'none';
+            } else {
+                result.className = 'top-recruit-result top-recruit-result--err';
+                result.textContent = res.data || '送信に失敗しました。時間をおいて再度お試しください。';
+                btn.disabled = false;
+                btn.textContent = '送信する';
+            }
+        }).catch(function() {
+            result.style.display = 'block';
+            result.className = 'top-recruit-result top-recruit-result--err';
+            result.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+            btn.disabled = false;
+            btn.textContent = '送信する';
+        });
+    });
+})();
+</script>
+
+<!-- ======= CONTACT ======= -->
+<section id="inquiry" class="top-contact">
+    <div class="container">
+        <div class="top-form-single">
+            <div class="top-form-single-head fi">
+                <p class="top-contact-heading">CONTACT</p>
+                <p class="top-recruit-label-text">【 お問い合わせ 】</p>
+            </div>
+
+            <div class="fi fi-d1">
+                <p class="top-recruit-note">※印は必須項目です。必ずご入力ください</p>
+                <form class="top-recruit-form" id="contactForm">
+                    <?php wp_nonce_field( 'reink_contact', 'contact_nonce' ); ?>
+                    <input type="hidden" name="action" value="reink_contact_submit">
+
+                    <!-- 氏名 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">氏名<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field">
+                            <input type="text" name="name" placeholder="山田 花子" class="top-recruit-input">
+                        </div>
+                    </div>
+
+                    <!-- 電話番号 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">電話番号<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field">
+                            <input type="tel" name="tel" placeholder="000-0000-0000" class="top-recruit-input">
+                        </div>
+                    </div>
+
+                    <!-- メールアドレス -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">メールアドレス<span class="top-recruit-req">※</span></p>
+                        <div class="top-recruit-field">
+                            <input type="email" name="email" placeholder="example@example.jp" class="top-recruit-input">
+                        </div>
+                    </div>
+
+                    <!-- お問い合わせ内容 -->
+                    <div class="top-recruit-row">
+                        <p class="top-recruit-field-label">お問い合わせ内容<span class="top-recruit-req">※</span><br><small>（500文字以内）</small></p>
+                        <div class="top-recruit-field">
+                            <textarea name="message" placeholder="お問い合わせ内容をご入力ください。" maxlength="500" class="top-recruit-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 送信ボタン -->
+                    <div class="top-recruit-submit-wrap">
+                        <button type="submit" class="top-recruit-submit-btn">送信する</button>
+                    </div>
+                </form>
+                <div id="contactResult" class="top-recruit-result" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+(function () {
+    var form = document.getElementById('contactForm');
+    var result = document.getElementById('contactResult');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('.top-recruit-submit-btn');
+        var data = new FormData(form);
+        btn.disabled = true;
+        btn.textContent = '送信中...';
+        fetch('<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>', {
+            method: 'POST',
+            body: data
+        }).then(function (r) {
+            return r.json();
+        }).then(function (res) {
+            result.style.display = 'block';
+            if (res.success) {
+                result.className = 'top-recruit-result top-recruit-result--ok';
+                result.textContent = 'お問い合わせを受け付けました。担当者よりご連絡いたします。';
+                form.reset();
+                btn.style.display = 'none';
+            } else {
+                result.className = 'top-recruit-result top-recruit-result--err';
+                result.textContent = res.data || '送信に失敗しました。時間をおいて再度お試しください。';
+                btn.disabled = false;
+                btn.textContent = '送信する';
+            }
+        }).catch(function () {
+            result.style.display = 'block';
+            result.className = 'top-recruit-result top-recruit-result--err';
+            result.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+            btn.disabled = false;
+            btn.textContent = '送信する';
+        });
+    });
+})();
+</script>
 
 <!-- ======= CTA ======= -->
 <section id="contact" class="top-cta">
